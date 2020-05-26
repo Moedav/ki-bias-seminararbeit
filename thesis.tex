@@ -1,0 +1,345 @@
+\documentclass[12pt,oneside,a4paper,parskip]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[ngerman]{babel}
+\usepackage{floatflt}
+\usepackage{subfigure}
+\usepackage[pdftex]{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{nicefrac}
+\usepackage{scrhack}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage[verbose]{placeins}
+%\usepackage[nouppercase,headsepline,plainfootsepline]{scrpage2}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{epstopdf}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[style=numeric,backend=biber, uniquelist=false]{biblatex}
+\bibliography{literatur}
+\addbibresource{literatur.bib}
+
+
+%%%%%%%%%%%%%%%%%%%
+%% definitions
+%%%%%%%%%%%%%%%%%%%
+\def\BaAuthor{David Mödl\, Sebastian Lober}
+\def\BaAuthorStudyProgram{Informatik} %% Wirtschaftsinformatik, E-Commerce, Informationssysteme
+\def\BaType{Seminararbeit} %% Masterarbeit
+\def\BaTitle{Bias of Neural Networks - Security implications}
+\def\BaSupervisorOne{Prof.\ Dr.\ A B}
+\def\BaSupervisorTwo{Prof.\ Dr.\ C D}
+\def\BaDeadline{\today}
+
+\ifdefined\iswithfullname
+  \def\ShowBaAuthor{\BaAuthor}
+\else
+  \def\ShowBaAuthor{N.~N.}
+\fi
+
+\hypersetup{
+pdfauthor={\ShowBaAuthor},
+pdftitle={\BaTitle},
+pdfsubject={Subject},
+pdfkeywords={Keywords}
+}
+
+%%%%%%%%%%%%%%%%%%%
+%% configs to include
+%%%%%%%%%%%%%%%%%%%
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+  linewidth=\textwidth
+}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\lstset{language=xml,
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  backgroundcolor=\color{background},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  tabsize=4,
+  breaklines=true,
+  keepspaces=true,
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{background},
+%  moredelim=[il][\textcolor{pgrey}]{$$},
+%  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\newcommand*{\forcetwosidetitle}[1][1]{%
+ \begingroup
+   \cleardoubleoddpage
+   \KOMAoptions{titlepage=true}% useful e.g. for scrartcl
+   \csname @twosidetrue\endcsname
+   \maketitle[{#1}]
+ \endgroup
+}
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%
+%% Titelseite
+%%%%%%%%%%%%%%%%%%%
+
+
+\frontmatter
+\titlehead{%  {\centering Seitenkopf}
+  {Hochschule für angewandte Wissenschaften Würzburg-Schweinfurt\\
+   Fakultät Informatik und Wirtschaftsinformatik}}
+\subject{\BaType}
+\title{\BaTitle\\[15mm]}
+%\subtitle{\normalsize{vorgelegt an der Hochschule f\"{u}r angewandte Wissenschaften W\"{u}rzburg-Schweinfurt in der Fakult\"{a}t Informatik und Wirtschaftsinformatik zum Abschluss eines Studiums im Studiengang \BaAuthorStudyProgram}}
+\author{David Mödl \& Sebastian Lober}
+%\date{\normalsize{Eingereicht am: \BaDeadline}}
+%\publishers{
+%  \normalsize{Erstpr\"{u}fer: \BaSupervisorOne}\\
+%  \normalsize{Zweitpr\"{u}fer: \BaSupervisorTwo}\\
+%}
+\forcetwosidetitle
+
+
+%%%%%%%%%%%%%%%%%%%
+%% abstract
+%%%%%%%%%%%%%%%%%%%
+
+\section*{Zusammenfassung}
+
+TODO
+
+\section*{Abstract}
+
+TODO
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%% Inhaltsverzeichnis
+%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%% Main part of the thesis
+%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+\chapter{Einführung}
+\label{chapter:intro}
+Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt in immer größeren Teilen unserer Gesellschaft auf. Von Kaufvorschlägen in Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. Die künstliche Intelligenz beschäftigt sich mit Methoden, die es einem Computer ermöglichen, solche Aufgaben zu lösen, die, wenn sie vom Menschen gelöst werden Intelligenz erfordern \cite{kiDefinition}.
+\\\\
+Um dieses Wissen aufzubauen, wird z.B. durch maschinelles Lernen ein System mit Beispieldaten trainiert. 
+Diese Trainingsdaten bestehen aus mehreren Datensätze, welche eine Gruppe von inhaltlich zusammenhängenden Datenfeldern sind, z.B. Artikelnummer und Artikelname.
+Mit Hilfe von Algorithmen wird aus diesen Beispielen ein statisches Modell aufgebaut. Dass heißt, es werden nicht einfach die Beispiele auswendig gelernt, sondern Muster und Gesetzmäßigkeiten in den Lerndaten erkannt. So kann das System unbekannte Daten beurteilen und Ergebnisse vorhersagen.
+\\\\
+Dabei hängt die Genauigkeit und Präzision dieser Beurteilung von dem Trainingsdaten ab. Je breiter die Daten zum Lernen aufgestellt sind, also je mehr Fälle durch diese Daten abgedeckt werden, umso genauer wird der Algorithmus die unbekannten Daten beurteilen können. Ein weiterer Vorteil dadurch ist, dass die Chance erhöht wird, Vorurteile, welche in den Datensätzen vorkommen können, zu eliminieren.\\
+Diese Vorurteile können ansonsten zu Fehlverhalten und Sicherheitsprobleme der KI führen. In dieser Arbeit möchten wir auf diese Fehlverhalten und Sicherheitsprobleme eingehen und wie man diese verhindern kann.
+
+
+\chapter{Grundlagen KI}
+
+\section{Künstliche Intelligenz?}
+KI steht kurz für künstliche Intelligenz. Der Begriff KI ist jedoch irreführend. Eine 'KI' ist ein Programm, das versucht biologisches intelligentes Verhalten nachzuahmen. Die Begrifflichkeit Intelligenz in Verbindung mit Computern ist sehr Umstritten, 
+% Entweder so
+dennoch wird im Allgemeinen als auch in der Forschung Wort 'Intelligenz' verwendet. 
+Aus diesen Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch in folgenden der Wortlaut KI verwendet, wohl wissend, dass die Bezeichnung nicht 100\% korrekt ist.
+% Oder sowas in der Art kp
+% dennoch wird im Allgemeinen und in einigen Forschungen das Wort 'Intelligenz' verwendet. Aus fachlicher Korrektheit wird in folgenden von künstlichen neuralen Netzwerken kurz KNN gesprochen. KNN ist somit deckungsgleich mit KI in vielen nicht wissenschaftlichen Artikeln.
+
+\section{Machine Learning}
+Machine Learning (ML) ist ein Teilgebiet der künstlichen Intelligenz. Wie in \ref{chapter:intro} beschrieben, werden Systeme mit Hilfe von Machine Learning trainiert, indem durch die Trainingsdaten, Muster und Gesetzmäßigkeiten erkannt werden. Die aus den Daten gewonnenen Erkenntnisse lassen sich verallgemeinern und für neue Problemlösungen oder für die Analyse von bisher unbekannten Daten verwenden.\\
+Das Ergebnis aus der Analyse von unbekannten Daten, soll wiederum in den Lernprozess für weitere neue Daten integriert werden. Das Hauptziel ist, dass die Maschine automatisch lernt ohne vom Menschen Hilfe oder Anweisungen zu bekommen und daraufhin die Aktionen von alleine anpasst\cite{EliminateHumanBias}.
+\\\\
+Damit das System eigenständig lernen und Lösungen finden kann, ist ein vorheriges Handeln von Menschen notwendig. Beispielsweise müssen die Systeme zunächst mit den für das Lernen relevanten Daten und Algorithmen versorgt werden.
+Je mehr Trainingsdaten in den Maschine geladen werden, desto besser wird die Performance des Algorithmus.\\
+Zudem sind Regeln für die Analyse des Datenbestands und das erkennen der Muster aufzustellen. Sind passende Daten vorhanden und Regeln definiert, können Systeme mit maschinellem Lernen unter anderem folgendes:
+
+\begin{enumerate}
+	\item Relevante Daten finden, extrahieren und zusammenfassen,
+	\item Vorhersagen auf Basis der analysierten Daten treffen,
+	\item Wahrscheinlichkeiten für bestimmte Ereignisse berechnen,
+	\item sich an Entwicklungen eigenständig anpassen und
+	\item Prozesse auf Basis erkannter Muster optimieren.
+\end{enumerate}
+
+
+\section{Was sind neuronale Netzwerke?}
+Bilderkennung ist beispielsweise ein Gebiet, bei den neuronale Netzwerke heutzutage angewandt wird. Gibt man bei einer Suchmaschine ein beliebiges Wort ein, werden direkt hunderte Bilder diesbezüglich angezeigt. Auch ist es schon möglich Bilder hochzuladen. Ein neuronales Netzwerk interpretiert die hochbeladene Datei und ähnliche bis gleiche Bilder werden angezeigt. \\
+\\
+Bilder bestehen aus Millionen von Pixel mit einer Position und meist RGB-Werten für die Farbe des Punktes. Doch wie kann ein Computer aus dieser riesigen Menge an einzelnen Pixeln Objekte interpretieren.\\
+\\
+Wir Menschen nehmen Bilder mit dem Netzhaut des Auges als visuellen Reize auf und senden sie an unser Gehirn. Dieser verarbeitet die Informationen durch ein Teil der etwa 100 Milliarden Neuronen. Jedes Neuron hat 1 bis 200.000 Synapsen, also Verbindungen zu anderen Neuronen. Durch dieses Geflecht an Neuronen werden die Informationen als elektrische Reize durchgeschleust. Falls das angeschaute Objekt z.B. ein Buchstabe bekannt ist, erkennen wir das als dieses.\\
+\\
+Diesen Prozess der Informationsverarbeitung wird in der Informatik mit künstlichen Neuronen und Synapsen versucht nachzuahmen. 
+
+\section{Wie funktionieren neuronale Netzwerke?}
+Ein künstliches neurales Netzwerk besteht logischerweise aus künstlichen Neuronen.\\
+\\
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{neural_net}
+	\caption{Aufbau Neuronales Netz}
+\end{figure}
+\\
+% https://de.wikipedia.org/wiki/K%C3%BCnstliches_Neuron#/media/Datei:ArtificialNeuronModel_deutsch.png
+% oder ähnliches, eventuell selber visualisieren oder was aus den Büchern
+Ein Neuron besitzt mehrere Eingangskanäle und einen Ausgangskanal, das sind die Verbindungen bzw. Synapsen. Wenn das Neuron über die Eingangskanäle genügend stimuliert wird, feuert das Neuron ein Signal an den Ausgangskanal. Im Gehirn sind einige Eingangskanäle wichtiger als andere, in der Informatik wird dies mit Gewichtungen gelöst. \\
+Auch ist jedes Neuron mehr oder weniger sensibel. Somit muss durch die gewichteten Eingangskanälen ein gewisser Schwellwert summiert anliegen. Wenn dieser Schwellwert erreicht wird, feuert das Neuron.\\
+Dadurch dass ein Neuron mehrere Eingangskanäle besitzt, werden viele Eingangsinformationen auf eine Ergebnis reduziert. Durch mehrere Schichten und vielen Neuronen pro Schicht kann so eine große Menge an Daten schnell verarbeitet werden. \\
+Jedoch muss ein künstliches neuronales Netzwerk erst trainiert werden. Trainieren bedeutet hier das Einstellen der Gewichtung von Verbindungen und Schwellwerte der Neuronen für eine spezielle Aufgabe. Diesen Prozess nennt man Deep Learning eine Teilform von Machine Learning.
+
+\section{Deep Learning}
+Beim Deep Learning werden die Zwischenschichten eingeschlossen von Eingabe- und Ausgabe-Schicht trainiert. Hierbei wird eine umfangreiche und komplexe Struktur der Neuronen-Verbindungen zwischen den Schichten aufgebaut. Diese sind für Menschen ab einer gewissen Größe meist nicht mehr nachvollziehbar. Somit kann nur noch die Eingabe mit der Ausgabe verglichen werden, um die Korrektheit der Aufgabenlösung zu überprüfen. Ziel ist es durch viele Testdaten das Netzwerk so einzustellen, dass diese nicht nur die Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
+% Deep Learning noch weiter ausformulieren (z.B. Testdaten genauer erläutern)
+\\
+\[MultiLayerNeuralNetwork\]
+\\
+% https://de.wikipedia.org/wiki/Datei:MultiLayerNeuralNetworkBigger_english.png 
+% Sowas in der Art 
+
+
+\chapter{Problemstellung Fehlverhalten von künstlichen neuronalen Netzen}
+\section{Was sind Fehlverhalten von künstlichen neuronalen Netzen?}
+\label{section:KIBias}
+Ca. 4 Jahre entwickelte Amazon einen Algorithmus, welcher unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf Erkenntnissen aus den Bewerbungen von angenommen Bewerbern, verdeutlichte dabei aber ein grundlegendes Problem des maschinellen Lernens in seiner aktuellen Form.\\\\
+Der Algorithmus hatte mit den Datensätzen der angenommen Bewerber trainiert und lernte somit welche Eigenschaften Amazon bevorzugt. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, waren in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden, selbst wenn gar kein Geschlecht angegeben wurde und dieses z.B. nur durch Frauenvereine erkennbar wurde. Weil Amazon in der Vergangenheit vorwiegend Männer eingestellt hatte, blieb die KI diesen Auswahlkriterien treu.\cite{amazon} \\\\
+Dieses Fehlverhalten der KI führte dazu, dass die Software nicht genutzt werden konnte, bzw. nach Anpassungen nur noch als kleine beratende Funktion diente.
+\\\\
+Unbekannt ist dieses Verhalten allerdings nicht. Es gibt weitere Fälle in der eine KI so wirkt, als hätte sie Vorurteile gegenüber manchen Gruppen/Geschlechter/Religionen, welche allerdings Fehlverhalten sind und durch den Menschen antrainiert wurden.
+
+\section{Garbage in - Garbage Out - Wie entstehen Fehlverhalten von künstlichen neuronalen Netzen?}
+Künstliche Intelligenz wird in vielen Bereichen mittlerweile eingesetzt, welches man aus vorangegangen Beispielen erkennen kann. Die Hoffnung solcher Anwendungen, liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine eigentlich keinen Unterschied zwischen Schwarz und Weiß, Mann und Frau oder Jung und Alt erkennt.
+\\\\
+Anhand des Beispiels aus \ref{section:KIBias} sieht man, dass dies nicht der Fall ist, da die Daten, mit welchen die KI lernt, zentralen Einfluss auf das Ergebnis hat. Meist ist es nicht möglich Daten zu finden, welche nicht bereits Vorurteile, enthalten. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung, auch als WEIRD Samples(western, educated, industrialized, rich and democratic societies) bezeichnet.% \cite{BiasInKI} Weiß nicht ob ich das Zitieren will%
+\\\\
+Ein weiteres Problem ist die fehlende Diversität auf Seiten der/die Entwickler/innen. Nur 15\% bei Facebook und 10\% bei Google in der KI Entwicklung sind Frauen. Für dunkelhäutige Menschen ist es noch schlimmer. Bei Google z.B. sind nur 2,5\% und bei Facebook und Microsoft 4\% dunkelhäutige Mitarbeiter\cite{Discriminating}.
+\\\\
+Diese beiden Faktoren sind meist die Hauptverantwortlichen für dieses Fehlverhalten und dem bilden von "Vorurteilen" einer KI.
+
+
+\section{Probleme durch Fehlverhalten von künstlichen neuronalen Netzen}
+Durch die bereits genannten Beispielen in den vorherigen Kapiteln, werden Probleme deutlich. Die Fehlverhalten der KI führt zu Diskriminierung einzelner Geschlechter/Gruppen oder Kulturen. Ein anderes Problem wird aber deutlich, wenn man ein Beispiel aus der Medizin anschaut.
+\\\\
+In der USA existiert eine KI, welche die Gesundheitsversorgung möglichst effektiv gestalten soll. Diese soll Patient/innen mit besonderem Pflegebedarf identifizieren. Eine im Oktober 2019 veröffentlichte Studie zeigt allerdings auf, dass Menschen mit Afroamerikanischen Wurzeln bei gleicher Krankheitsschwere, seltener für extra Pflege vorgeschlagen wurden als Weiße\cite{Gesundheitsversorgung}. \\
+Dies führt dazu das Afroamerikaner eine niedrigere Gesundheitsversorgung haben als andere und dies kann zu großen Gesundheitliche Problemen führen.
+\\\\
+Eine KI kann auch zu Sicherheitsproblemen führen, wenn z.B. bei einem Gesichtsscan die Person nicht erkannt wird, und man hier im schlimmsten Fall sogar den Zugriff auf sein Handy verliert. Auf diese Sicherheitsprobleme möchten wir aber im folgenden Kapitel genauer eingehen.
+
+\chapter{Sicherheitsprobleme durch Fehlverhalten von künstlichen neuronalen Netzen}
+Genauer auf die Probleme davon eingehen, auf Beispiele aus \ref{section:KIBias} eingehen und Probleme erläutern, die dadurch auftreten könnten? \\\\
+Sicherheit definieren, differenzieren von englisch safety und security etc.
+
+\chapter{Prävention der Fehlverhalten von künstlichen neuronalen Netzen}
+\label{chapter:main}
+\section{Erkennung von Fehlverhalten von künstlichen neuronalen Netzen}
+Erkennung von Fehlverhalten von künstlichen neuronalen Netzen durch Menschen/Computer.
+\section{Testdaten Aufbereitung}
+Wie kann ich die Testdaten aufbereiten, damit kein Fehlverhalten von künstlichen neuronalen Netzen auftritt?
+
+\chapter{Analyse}
+Analyse auf Umsetzbarkeit der Lösungsansätze aus \ref{chapter:main}.
+
+\chapter{Fazit}
+Zusammenfassung und Ergebnis.
+
+
+
+\backmatter
+%%%%%%%%%%%%%%%%%%%
+%% create tables list
+%%%%%%%%%%%%%%%%%%%
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%
+%% create listings list
+%%%%%%%%%%%%%%%%%%%
+%\lstlistoflistings
+%\addcontentsline{toc}{chapter}{Listings}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Literatur}
+\printbibliography
+
+\end{document}

@@ -220,8 +220,8 @@ Diese Vorurteile können ansonsten zu Fehlverhalten und Sicherheitsprobleme der 
 \chapter{Grundlagen KI}
 
 \section{Künstliche Intelligenz?}
-KI steht kurz für künstliche Intelligenz. Der Begriff KI ist jedoch irreführend. Eine 'KI' ist ein Programm, das versucht biologisches intelligentes Verhalten nachzuahmen. Die Begrifflichkeit Intelligenz in Verbindung mit Computern ist sehr Umstritten, dennoch wird im Allgemeinen als auch in der Forschung Wort 'Intelligenz' verwendet. \\
-Aus diesen Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch in folgenden der Wortlaut KI verwendet, wohl wissend, dass die Bezeichnung nicht 100\% korrekt ist.
+KI steht kurz für künstliche Intelligenz. Der Begriff KI ist jedoch irreführend. Eine 'KI' ist ein Programm, das versucht biologisches intelligentes Verhalten nachzuahmen. Die Begrifflichkeit Intelligenz in Verbindung mit Computern ist sehr umstritten, dennoch wird im Allgemeinen als auch in der Forschung das Wort 'Intelligenz' verwendet. \\
+Aus diesem Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch im Folgenden der Wortlaut KI verwendet, wohl wissend, dass die Bezeichnung nicht 100 Prozent korrekt ist.
 \section{Machine Learning}
 % "Maschinelles Lernen ist ein Oberbegriff für die „künstliche“ Generierung von Wissen aus Erfahrung" Quelle Wiki 
 % -> Dementsprechend ist künstliche Intelligenz ein Teilgebiet von Machine Learning
@@ -232,7 +232,8 @@ Das Ergebnis aus der Analyse von unbekannten Daten, soll wiederum in den Lernpro
 \\\\
 Damit das System eigenständig lernen und Lösungen finden kann, ist ein vorheriges Handeln von Menschen notwendig. Beispielsweise müssen die Systeme zunächst mit den für das Lernen relevanten Daten und Algorithmen versorgt werden.
 Je mehr Trainingsdaten in den Maschine geladen werden, desto besser wird die Performance des Algorithmus.\\
-Zudem sind Regeln für die Analyse des Datenbestands und das erkennen der Muster aufzustellen. Sind passende Daten vorhanden und Regeln definiert, können Systeme mit maschinellem Lernen unter anderem folgendes:
+% Tipp: Nächsten Absatz umformulieren
+Zudem sind Regeln für die Analyse des Datenbestandes und das Erkennen der Muster aufzustellen. Sind passende Daten vorhanden und Regeln definiert, können Systeme mit maschinellem Lernen unter anderem folgendes:
 
 \begin{enumerate}
 	\item Relevante Daten finden, extrahieren und zusammenfassen,
@@ -244,18 +245,19 @@ Zudem sind Regeln für die Analyse des Datenbestands und das erkennen der Muster
 
 
 \section{Was sind neuronale Netzwerke?}
-Bilderkennung ist beispielsweise ein Gebiet, bei den neuronale Netzwerke heutzutage angewandt wird. Gibt man bei einer Suchmaschine ein beliebiges Wort ein, werden direkt hunderte Bilder diesbezüglich angezeigt. Auch ist es möglich Bilder hochzuladen. Ein neuronales Netzwerk interpretiert die hochgeladene Datei und ähnliche bis gleiche Bilder werden angezeigt. 
+Bilderkennung ist beispielsweise ein Gebiet, bei den neuronale Netzwerke heutzutage angewandt werden. Gibt man bei einer Suchmaschine ein beliebiges Wort ein, werden direkt hunderte Bilder diesbezüglich angezeigt. Auch ist es möglich Bilder hochzuladen. Ein neuronales Netzwerk interpretiert die hochgeladene Datei und ähnliche bis gleiche Bilder werden angezeigt. 
 \\\\
-Hochauflösende Bilder bestehen aus mehreren Millionen Pixel mit Position und meist RGB-Werten für die Farbe des Punktes. Nur durch Verbindung der richtigen einzelnen Punkte könnte man Konturen erkennen. Diese müssen dann noch der richtigen Kategorie zugeordnet werden, um sie bei einem Suchwort wie 'Hamster' anzuzeigen. Doch wie kann ein Computer aus dieser riesigen Menge an einzelnen Pixeln Bilder richtig kategorisieren?
+Hochauflösende Bilder bestehen aus mehreren Millionen Pixel mit Position und meist RGB-Werten für die Farbe des Punktes. 
+% Bearbeiten
+Nur durch Verbindung der richtigen einzelnen Punkte könnte man Konturen erkennen. 
+%
+Diese müssen dann der richtigen Kategorie zugeordnet werden, um sie bei einem Suchwort wie 'Haus' anzuzeigen. Doch wie kann ein Computer aus dieser riesigen Menge an einzelnen Pixeln Bilder richtig kategorisieren?
 \\\\
-Wir Menschen nehmen Bilder mit der Netzhaut des Auges als visuellen Reize auf und senden sie an unser Gehirn. Dieser verarbeitet die Informationen durch ein Teil der etwa 100 Milliarden Neuronen. Jedes Neuron hat 1 bis 200.000 Synapsen, also Verbindungen zu anderen Neuronen. Durch dieses Geflecht an Neuronen werden die Informationen als elektrische Reize durchgeschleust. 
-% Von hier
-Hierbei werden Konturen erkannt, mit Farbe kombiniert, mit bekannten Objekten verglichen und vieles gleichzeitig mehr. Ein Bild eines blauen Apfels erkennen wir trotzdem als Objekt Apfel, jedoch fällt uns sofort auf, das an dem Bild etwas nicht stimmt. Uns stehen alle verknüpften Informationen des bekannten angeschauten Objekts zur Verfügung.
-% bis hier nochmal überarbeiten.
+Wir Menschen nehmen Bilder mit der Netzhaut des Auges als visuelle Reize auf und senden sie an unser Gehirn. Dieses verarbeitet die Informationen durch einen Teil der etwa 100 Milliarden Neuronen. Jedes Neuron hat 1 bis 200.000 Synapsen, also Verbindungen zu anderen Neuronen. Durch dieses Geflecht an Neuronen werden die Informationen als elektrische Reize durchgeschleust. %durchgeschleust evtl ersetzen
 \\\\
 Diesen Prozess der Informationsverarbeitung wird in der Informatik mit künstlichen Neuronen und Synapsen versucht nachzuahmen. 
-\section{Wie funktionieren neuronale Netzwerke?}
-Ein künstliches neurales Netzwerk besteht logischerweise aus künstlichen Neuronen.
+\section{Wie funktionieren künstliche neuronale Netzwerke?}
+Ein künstliches neurales Netzwerk besteht aus künstlichen Neuronen.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/ArtificialNeuronModel_deutsch.png}
@@ -264,20 +266,21 @@ Ein künstliches neurales Netzwerk besteht logischerweise aus künstlichen Neuro
 	\end{center}
 \end{figure}
 % https://de.wikipedia.org/wiki/K%C3%BCnstliches_Neuron#/media/Datei:ArtificialNeuronModel_deutsch.png
+\\
 Ein Neuron besitzt mehrere Eingangskanäle und einen Ausgangskanal, das sind die Verbindungen bzw. Synapsen. Wenn das Neuron über die Eingangskanäle genügend stimuliert wird, feuert das Neuron ein Signal an den Ausgangskanal. Im Gehirn sind einige Eingangskanäle wichtiger als andere, in der Informatik wird dies mit Gewichtungen gelöst. 
 \\\\
-Auch ist jedes Neuron mehr oder weniger sensibel. Somit muss durch die gewichteten Eingangskanälen ein gewisser Schwellwert summiert anliegen. Wenn dieser Schwellwert erreicht wird, feuert das Neuron.
+Auch ist jedes Neuron mehr oder weniger sensibel. Somit muss durch die gewichteten Eingangskanäle ein gewisser Schwellwert summiert anliegen. Wenn dieser Schwellwert erreicht wird, feuert das Neuron.
 \\\\
 Dadurch dass ein Neuron mehrere Eingangskanäle besitzt, werden viele Eingangsinformationen auf eine Ergebnis reduziert. Durch mehrere Schichten und vielen Neuronen pro Schicht kann so eine große Menge an Daten schnell verarbeitet werden. 
 \\\\
-Jedoch muss ein künstliches neurales Netzwerk erst trainiert werden. Trainieren bedeutet hier das Einstellen der Gewichte von Verbindungen und Schwellwerte der Neuronen für eine spezielle Aufgabe. Diesen Prozess nennt man Deep Learning eine Form von Machine Learning.
+Jedoch muss ein künstliches neurales Netzwerk erst trainiert werden. Trainieren bedeutet hier das Einstellen der Gewichtungen von Verbindungen und Schwellwerte der Neuronen für eine spezielle Aufgabe. Diesen Prozess nennt man Deep Learning eine Form von Machine Learning.
 
 \section{Deep Learning}
 
 %indem durch die Trainingsdaten, Muster und Gesetzmäßigkeiten erkannt werden. Die aus den Daten gewonnenen Erkenntnisse lassen sich verallgemeinern und für neue Problemlösungen oder für die Analyse von bisher unbekannten Daten verwenden.\\
 % Das Ergebnis aus der Analyse von unbekannten Daten, soll wiederum in den Lernprozess für weitere neue Daten integriert werden. Das Hauptziel ist, dass die Maschine automatisch lernt ohne vom Menschen Hilfe oder Anweisungen zu bekommen und daraufhin die Aktionen von alleine anpasst\cite{EliminateHumanBias}.
 
-Beim Deep Learning werden die zahlreichen Zwischenschichten eingeschlossen von Eingabe- und Ausgabe-Schicht trainiert. Hierbei wird eine umfangreiche und komplexe Struktur der Neuronen-Verbindungen zwischen den Schichten aufgebaut. Wie das Programm endgültig die Aufgabe lösen soll, wird hierbei nicht vorgegeben und sondern wird bei diesem Prozess autonom ermittelt.
+Beim Deep Learning werden die zahlreichen Zwischenschichten, eingeschlossen von Eingabe- und Ausgabe-Schicht, trainiert. Hierbei wird eine umfangreiche und komplexe Struktur der Neuronen-Verbindungen zwischen den Schichten aufgebaut. Wie das Programm endgültig die Aufgabe lösen soll, wird hierbei nicht vorgegeben, sondern wird bei diesem Prozess autonom ermittelt.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/Deep-Learning.jpg}
@@ -286,15 +289,15 @@ Beim Deep Learning werden die zahlreichen Zwischenschichten eingeschlossen von E
 	\end{center}
 \end{figure}
 % https://www.technik-und-wissen.ch/assets/images/4/1-Mathworks-Deep-Learning-80166094.jpg
-\\Ein künstliches neuronales Netz wird mit dem Zweck aufgebaut, eine bestimmte Aufgabe zu lösen. Extra dafür müssen Testdaten aufbereitet werden. Diese Art der Daten beispielsweise Bilder soll das fertig trainierte Netz richtig interpretieren können. Testdaten sind Daten, bei dem das korrekte Ergebnis zu jedem Test bekannt ist.
+\\Ein künstliches neuronales Netz wird mit dem Zweck aufgebaut, eine bestimmte Aufgabe zu lösen. Extra dafür müssen Testdaten aufbereitet werden. Diese Art der Daten, beispielsweise Bilder, soll das fertig trainierte Netz richtig interpretieren können. Testdaten sind Daten, bei dem das korrekte Ergebnis zu jedem Test bekannt ist.
 \\\\
-Am Anfang ist das künstliche neuronale Netz meist mit relativ zufälligen Werten und Verbindungen vorbelegt. Testdaten werden dem zu trainierenden Netzwerk an die Eingangsschicht übergeben. Diese durchlaufen das Netz. Das Ergebnis wird an der Ausgabeschicht überprüft. Die Ausgabeschicht besteht im einfachsten Fall aus zwei Neuronen beispielsweise 'Gesicht erkannt' oder 'kein Gesicht', an dem gemessen wird, wie viel gewichtete Signale ankommen. Diese summiert, ergeben die Endergebnisse der Berechnungen und das Neuron mit dem höchsten Gewicht, ergibt die Antwort.
+Am Anfang ist das künstliche neuronale Netz meist mit relativ zufälligen Werten und Verbindungen vorbelegt. Testdaten werden dem zu trainierenden Netzwerk an die Eingangsschicht übergeben. Diese durchlaufen das Netz. Das Ergebnis wird an der Ausgabeschicht überprüft. Die Ausgabeschicht besteht im einfachsten Fall aus zwei Neuronen, beispielsweise 'Gesicht erkannt' oder 'kein Gesicht', an dem gemessen wird, wie viel gewichtete Signale ankommen. Diese summiert, ergeben die Endergebnisse der Berechnungen und das Neuron mit dem höchsten Gewicht, ergibt die Antwort.
 \\\\
-Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur noch die Eingabe mit der Ausgabe verglichen werden, um auf Korrektheit der Aufgabenlösung zu überprüfen. Ziel ist es durch möglichst viele und umfangreiche Testdaten das Netzwerk so einzustellen, dass diese nicht nur die Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
+Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur die Eingabe mit der Ausgabe verglichen werden, um auf die Korrektheit der Aufgabenlösung zu prüfen. Ziel ist es durch möglichst viele und umfangreiche Testdaten das Netzwerk so einzustellen, dass diese nicht nur die Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
 \\\\
-Um eine Aufgabe wie 'Gesicht in Bild erkennen' zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50\%. Die Netze mit den höchsten Erfolgsraten mit beispielsweise mehr als 55\% werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden Mehrfach kopiert, dabei bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen. 
+Um eine Aufgabe, wie 'Gesicht in Bild erkennen', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 55 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen. 
 \\\\
-Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich je nach Anwendungsfall ab einer gewissen Erfolgsrate abzubrechen oder neue Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning eine trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
+Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich, sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich, je nach Anwendungsfall, ab einer gewissen Erfolgsrate das Training zu beenden oder neue Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning ein trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
 
 
 \chapter{Problemstellung Fehlverhalten von künstlichen neuronalen Netzen}

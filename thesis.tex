@@ -222,9 +222,10 @@ Diese Vorurteile können ansonsten zu Fehlverhalten und Sicherheitsprobleme der 
 
 
 \chapter{Grundlagen}
+\section{Bias}
+Erklärung des Wortes in unserem Use-Case
 
 \section{Künstliche Intelligenz}
-
 
 \begin{figure}[ht]
 	\begin{center}
@@ -340,29 +341,14 @@ i.	Supervised
 	a.	Eingabe hoher Einfluss auf Endergebnis\\
 2.	Jede Schicht nur Verbindung zu der Nächsten\\
 	a.	Hohe Informationsverlust\\
-\section{Bias}
-Erklärung des Wortes in unserem Use-Case
+
 \section{Neuronen und Features}
 \subsection{Arten von NN}
 Es gibt drei Arten, wie neuronale Netze Daten verarbeiten können.
 \subsubsection{3D}
 \subsubsection{Gewichtete Netze}
 \subsubsection{Features}
-\section{Daten}
-\subsection{Datenaufbereiten}
-Daten sollen Generalisiert sein	\\
-	a.	Beispiel Bilder \\
-		i.	Sammeln \\
-		ii.	Drehen\\
-		iii.	Spiegeln\\
-		iv.	Verzerren\\
-		v.	Etc.\\
-\subsection{Under-/ Overfitting}
-\subsection{Daten und Architektur}
-Daten müssen zur Architektur passen.
-Generell
-\\	Je Komplexer mehr Neuronen
-\\	Mehrfälle desto Fehleranfälliger = mehr Bias
+
 \section{Architekturen}
 Arten
 \\1.	Full Connected
@@ -372,10 +358,27 @@ Arten
 \\5.	Dropout
 \\6.	…
 
+\section{Daten}
+\subsection{Datenaufbereiten}
+Daten sollen Generalisiert sein	\\
+	a.	Beispiel Bilder \\
+		i.	Sammeln \\
+		ii.	Drehen\\
+		iii.	Spiegeln\\
+		iv.	Verzerren\\
+		v.	Etc.\\
+
+\subsection{Daten und Architektur}
+Daten müssen zur Architektur passen.
+Generell
+\\	Je Komplexer mehr Neuronen
+\\	Mehrfälle desto Fehleranfälliger = mehr Bias
+
 \chapter{Bias Entstehung}
 \section{Daten}
 \subsection{Unvollständigkeit der Daten}
 \subsection{Bias in Test-/Trainingsdaten}
+\subsection{Under-/ Overfitting}
 \subsection{Ähnlichkeit der Daten}
 Selbst für Menschen auf ersten Blick schwierig zu differenzieren 
 \\ii.	Bild Croissant vs Katze
@@ -398,7 +401,7 @@ KI lernt einfachste Unterschiede
 \section{Angriff auf KI}
 Adversarial Attacks
 %https://www.inovex.de/blog/machine-perception-face-recognition/
-\chapter{Sicherheitsprobleme durch Fehlverhalten von künstlichen neuronalen Netzen}
+\chapter{Sicherheitsprobleme durch BIAS}
 \section{Gefahren für Maschinen}
 Google KI -> Kühlung von Maschinen
 \section{Gefahren für Menschen}

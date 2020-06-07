@@ -205,20 +205,14 @@ Aus diesem Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch
 
 \chapter{Einführung}
 \label{chapter:intro}
-a.	Aktuelle Situation (keine Beispiele)
+Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen in Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. 
 \\\\
-Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen in Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. Die künstliche Intelligenz beschäftigt sich mit Methoden, die es einem Computer ermöglichen, Aufgaben zu lösen, die, wenn sie vom Menschen gelöst werden Intelligenz erfordern \cite{kiDefinition}.
+%%Die künstliche Intelligenz beschäftigt sich mit Methoden, die es einem Computer ermöglichen, Aufgaben zu lösen, die, wenn sie vom Menschen gelöst werden Intelligenz erfordern \cite{kiDefinition}.
+Wie beim Menschen braucht eine Maschine Erfahrungen um Intelligenz aufbauen zu können. Diese Erfahrungen werden meist zu Beginn mit Hilfe von Daten antrainiert und während dem Betrieb weiter gesammelt. Dabei greift die Maschine z.B. auf Erfahrungswerte der Menschen zu und lernt anhand dieser Muster und Gesetzmäßigkeiten kennen.
+\\
+Da Menschen meist bewusst oder unbewusst Vorurteile haben, lernt die Maschine diese kennen und wendet diese auf andere Fälle an. Dabei entsteht ein Fehlverhalten der KI, welches häufig als KI-Bias gekennzeichnet wird.
 \\\\
-b.	Problematik (abstrakt)
-\\\\
-Um dieses Wissen aufzubauen, wird z.B. durch maschinelles Lernen ein System mit Beispieldaten trainiert. 
-Diese Trainingsdaten bestehen aus mehreren Datensätzen, welche eine Gruppe von inhaltlich zusammenhängenden Datenfeldern sind, z.B. Artikelnummer und Artikelname.
-Mit Hilfe von Algorithmen wird aus diesen Beispielen ein statisches Modell aufgebaut. Dass heißt, es werden nicht einfach die Beispiele auswendig gelernt, sondern Muster und Gesetzmäßigkeiten in den Lerndaten erkannt. So kann das System unbekannte Daten beurteilen und Ergebnisse vorhersagen.
-\\\\
-c.	Aufbau der Arbeit 
-\\\\
-Dabei hängt die Genauigkeit und Präzision dieser Beurteilung von dem Trainingsdaten ab. Je breiter die Daten zum Lernen aufgestellt sind, also je mehr Fälle durch diese Daten abgedeckt werden, umso genauer wird der Algorithmus die unbekannten Daten beurteilen können. Ein weiterer Vorteil dadurch ist, dass die Chance erhöht wird, Vorurteile, welche in den Datensätzen vorkommen können, zu eliminieren.\\
-Diese Vorurteile können ansonsten zu Fehlverhalten und Sicherheitsprobleme der KI führen. In dieser Arbeit möchten wir auf diese Fehlverhalten eingehen, welche Sicherheitsprobleme dadurch auftreten können und erläutern wie diese vermieden werden können.
+Diese Fehlverhalten haben verschiedene Ursprünge, welche wir in dieser Arbeit erläutern möchten. Zudem wollen wir auf einige Sicherheitsprobleme eingehen, welche dadurch entstehen können und erläutern wie man KI-Bias größtenteils vermeiden kann.
 
 
 \chapter{Grundlagen}
@@ -231,7 +225,7 @@ Erklärung des Wortes in unserem Use-Case
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/Abstraktionslevel_von_AI.jpg}
 		\caption{Verschiedene Abstraktionslevel von Artificial Intelligence in hierarchischer Ordnung}
-		\label{fig:Übersicht}
+		\label{fig:overview}
 	\end{center}
 \end{figure}
 %https://www.capgemini.com/de-de/2017/09/artifical-intelligence-machine-learning-und-data-science-same-same-but-different/
@@ -312,7 +306,7 @@ Beim Deep Learning werden die zahlreichen Zwischenschichten, eingeschlossen von 
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/Deep-Learning.jpg}
 		\caption{Hidden Layer}
-		\label{Deep Learing von Technik-und-Wissen}
+		\label{fig:DL}
 	\end{center}
 \end{figure}
 % https://www.technik-und-wissen.ch/assets/images/4/1-Mathworks-Deep-Learning-80166094.jpg
@@ -388,7 +382,7 @@ Selbst für Menschen auf ersten Blick schwierig zu differenzieren
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/dog_or_bagel.jpg}
 		\caption{Hund oder Bagel?}
-		\label{Hund oder Bagel?}
+		\label{fig:dogBagel}
 	\end{center}
 \end{figure}
 \section{Menschliche Fehler}

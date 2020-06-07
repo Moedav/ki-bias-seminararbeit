@@ -188,10 +188,8 @@ pdfkeywords={Keywords}
 TODO
 
 \section*{Abstract}
-
-TODO
-
-
+KI steht kurz für künstliche Intelligenz. Der Begriff KI ist jedoch irreführend. Eine 'KI' ist ein Programm, das versucht biologisches intelligentes Verhalten nachzuahmen. Die Begrifflichkeit Intelligenz in Verbindung mit Computern ist sehr umstritten, dennoch wird im Allgemeinen als auch in der Forschung das Wort 'Intelligenz' verwendet. \\
+Aus diesem Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch im Folgenden der Wortlaut KI verwendet, wohl wissend, dass die Bezeichnung nicht 100 Prozent korrekt ist.
 
 %%%%%%%%%%%%%%%%%%%
 %% Inhaltsverzeichnis
@@ -207,28 +205,41 @@ TODO
 
 \chapter{Einführung}
 \label{chapter:intro}
+a.	Aktuelle Situation (keine Beispiele)
+\\\\
 Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen in Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. Die künstliche Intelligenz beschäftigt sich mit Methoden, die es einem Computer ermöglichen, Aufgaben zu lösen, die, wenn sie vom Menschen gelöst werden Intelligenz erfordern \cite{kiDefinition}.
+\\\\
+b.	Problematik (abstrakt)
 \\\\
 Um dieses Wissen aufzubauen, wird z.B. durch maschinelles Lernen ein System mit Beispieldaten trainiert. 
 Diese Trainingsdaten bestehen aus mehreren Datensätzen, welche eine Gruppe von inhaltlich zusammenhängenden Datenfeldern sind, z.B. Artikelnummer und Artikelname.
 Mit Hilfe von Algorithmen wird aus diesen Beispielen ein statisches Modell aufgebaut. Dass heißt, es werden nicht einfach die Beispiele auswendig gelernt, sondern Muster und Gesetzmäßigkeiten in den Lerndaten erkannt. So kann das System unbekannte Daten beurteilen und Ergebnisse vorhersagen.
 \\\\
+c.	Aufbau der Arbeit 
+\\\\
 Dabei hängt die Genauigkeit und Präzision dieser Beurteilung von dem Trainingsdaten ab. Je breiter die Daten zum Lernen aufgestellt sind, also je mehr Fälle durch diese Daten abgedeckt werden, umso genauer wird der Algorithmus die unbekannten Daten beurteilen können. Ein weiterer Vorteil dadurch ist, dass die Chance erhöht wird, Vorurteile, welche in den Datensätzen vorkommen können, zu eliminieren.\\
 Diese Vorurteile können ansonsten zu Fehlverhalten und Sicherheitsprobleme der KI führen. In dieser Arbeit möchten wir auf diese Fehlverhalten eingehen, welche Sicherheitsprobleme dadurch auftreten können und erläutern wie diese vermieden werden können.
 
 
-\chapter{Grundlagen KI}
+\chapter{Grundlagen}
 
-\section{Künstliche Intelligenz?}
-KI steht kurz für künstliche Intelligenz. Der Begriff KI ist jedoch irreführend. Eine 'KI' ist ein Programm, das versucht biologisches intelligentes Verhalten nachzuahmen. Die Begrifflichkeit Intelligenz in Verbindung mit Computern ist sehr umstritten, dennoch wird im Allgemeinen als auch in der Forschung das Wort 'Intelligenz' verwendet. \\
-Aus diesem Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch im Folgenden der Wortlaut KI verwendet, wohl wissend, dass die Bezeichnung nicht 100 Prozent korrekt ist.
-\section{Machine Learning}
-% "Maschinelles Lernen ist ein Oberbegriff für die „künstliche“ Generierung von Wissen aus Erfahrung" Quelle Wiki 
-% -> Dementsprechend ist künstliche Intelligenz ein Teilgebiet von Machine Learning
-% "Zu unterscheiden ist der Begriff [Machine Learning] zudem von dem Begriff „Deep Learning“, welches nur eine mögliche Lernvariante mittels künstlicher neuronaler Netze darstellt." Quelle Wiki
-% https://de.wikipedia.org/wiki/Maschinelles_Lernen
+\section{Künstliche Intelligenz}
+
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=12cm]{Bilder/Abstraktionslevel_von_AI.jpg}
+		\caption{Verschiedene Abstraktionslevel von Artificial Intelligence in hierarchischer Ordnung}
+		\label{fig:Übersicht}
+	\end{center}
+\end{figure}
+%https://www.capgemini.com/de-de/2017/09/artifical-intelligence-machine-learning-und-data-science-same-same-but-different/
+
+\subsection{Maschine Learning}
+alt
+\\\\
 Machine Learning (ML) ist ein Teilgebiet der künstlichen Intelligenz. Wie in \ref{chapter:intro} beschrieben, werden Systeme mit Hilfe von Machine Learning trainiert, indem durch die Trainingsdaten, Muster und Gesetzmäßigkeiten erkannt werden. Die aus den Daten gewonnenen Erkenntnisse lassen sich verallgemeinern und für neue Problemlösungen oder für die Analyse von bisher unbekannten Daten verwenden.\\
-Das Ergebnis aus der Analyse von unbekannten Daten, soll wiederum in den Lernprozess für weitere neue Daten integriert werden. Das Hauptziel ist, dass die Maschine automatisch lernt ohne vom Menschen Hilfe oder Anweisungen zu bekommen und daraufhin die Aktionen von alleine anpasst\cite{EliminateHumanBias}.
+Das Ergebnis aus der Analyse von unbekannten Daten soll wiederum in den Lernprozess für weitere neue Daten integriert werden. Das Hauptziel ist, dass die Maschine automatisch lernt ohne vom Menschen Hilfe oder Anweisungen zu bekommen und daraufhin die Aktionen von alleine anpasst\cite{EliminateHumanBias}.
 \\\\
 Damit das System eigenständig lernen und Lösungen finden kann, ist ein vorheriges Handeln von Menschen notwendig. Beispielsweise müssen die Systeme zunächst mit den für das Lernen relevanten Daten und Algorithmen versorgt werden.
 Je mehr Trainingsdaten in den Maschine geladen werden, desto besser wird die Performance des Algorithmus.\\
@@ -242,9 +253,9 @@ Zudem sind Regeln für die Analyse des Datenbestandes und das Erkennen der Muste
 	\item sich an Entwicklungen eigenständig anpassen und
 	\item Prozesse auf Basis erkannter Muster optimieren.
 \end{enumerate}
-
-
-\section{Was sind neuronale Netzwerke?}
+\subsection{Neuronale Netze}
+alt:
+\\\\
 Bilderkennung ist beispielsweise ein Gebiet, bei den neuronale Netzwerke heutzutage angewandt werden. Gibt man bei einer Suchmaschine ein beliebiges Wort ein, werden direkt hunderte Bilder diesbezüglich angezeigt. Auch ist es möglich Bilder hochzuladen. Ein neuronales Netzwerk interpretiert die hochgeladene Datei und ähnliche bis gleiche Bilder werden angezeigt. 
 \\\\
 Hochauflösende Bilder bestehen aus mehreren Millionen Pixel mit Position und meist RGB-Werten für die Farbe des Punktes. 
@@ -256,8 +267,6 @@ Diese müssen dann der richtigen Kategorie zugeordnet werden, um sie bei einem S
 Wir Menschen nehmen Bilder mit der Netzhaut des Auges als visuelle Reize auf und senden sie an unser Gehirn. Dieses verarbeitet die Informationen durch einen Teil der etwa 100 Milliarden Neuronen. Jedes Neuron hat 1 bis 200.000 Synapsen, also Verbindungen zu anderen Neuronen. Durch dieses Geflecht an Neuronen werden die Informationen als elektrische Reize durchgeschleust. %durchgeschleust evtl ersetzen
 \\\\
 Diesen Prozess der Informationsverarbeitung wird in der Informatik mit künstlichen Neuronen und Synapsen versucht nachzuahmen. 
-\section{Wie funktionieren künstliche neuronale Netzwerke?}
-Ein künstliches neuronales Netzwerk besteht aus künstlichen Neuronen.\\
 
 \begin{figure}[ht]
 	\begin{center}
@@ -272,7 +281,7 @@ Ein Neuron besitzt mehrere Eingangskanäle
 % Eingaben
 und einen Ausgangskanal, das sind die Verbindungen bzw. Synapsen. Wenn das Neuron über die Eingangskanäle genügend stimuliert wird,
 % Aktivierungsfunktion
- feuert das Neuron ein Signal 
+feuert das Neuron ein Signal 
 % Aktivierung
 an den Ausgangskanal. Im Gehirn sind einige Eingangskanäle wichtiger als andere, in der Informatik wird dies mit Gewichtungen gelöst. 
 \\\\
@@ -289,9 +298,11 @@ Der Ausgangskanal eines Neuron ist gleichzeitig ein Eingangskanal eines oder meh
 Dadurch dass ein Neuron mehrere Eingangskanäle besitzt, werden viele Eingangsinformationen auf eine Ergebnis reduziert. Durch mehrere Schichten und vielen Neuronen pro Schicht kann so eine große Menge an Daten schnell reduziert werden. 
 \\\\
 Jedoch muss ein künstliches neurales Netzwerk erst trainiert werden. Trainieren bedeutet hier das Einstellen der Gewichtungen von Verbindungen und Schwellwerte der Neuronen für eine spezielle Aufgabe. Diesen Prozess nennt man Deep Learning eine Form von Machine Learning.
-
-\section{Deep Learning}
-
+\subsection{Deep Learning}
+Konzentration auf Deep Learning in dieser Arbeit.
+\\\\
+alt
+\\\\
 %indem durch die Trainingsdaten, Muster und Gesetzmäßigkeiten erkannt werden. Die aus den Daten gewonnenen Erkenntnisse lassen sich verallgemeinern und für neue Problemlösungen oder für die Analyse von bisher unbekannten Daten verwenden.\\
 % Das Ergebnis aus der Analyse von unbekannten Daten, soll wiederum in den Lernprozess für weitere neue Daten integriert werden. Das Hauptziel ist, dass die Maschine automatisch lernt ohne vom Menschen Hilfe oder Anweisungen zu bekommen und daraufhin die Aktionen von alleine anpasst\cite{EliminateHumanBias}.
 
@@ -310,14 +321,117 @@ Am Anfang ist das künstliche neuronale Netz meist mit relativ zufälligen Werte
 \\\\
 Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur die Eingabe mit der Ausgabe verglichen werden, um auf die Korrektheit der Aufgabenlösung zu prüfen. Ziel ist es durch möglichst viele und umfangreiche Testdaten das Netzwerk so einzustellen, dass diese nicht nur die Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
 \\\\
-Um eine Aufgabe, wie 'Gesicht in Bild erkennen', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 55 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen. 
+Um eine Aufgabe, wie 'Gesicht in Bild erkennen', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen. 
 \\\\
 Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich, sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich, je nach Anwendungsfall, ab einer gewissen Erfolgsrate das Training zu beenden oder neue Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning ein trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
 \\\\
 Die KI kann nun die Testdaten nahe zu perfekt interpretieren. Trotzdem muss nun noch weiter überprüft werden, ob die KI auch unbekannte Daten korrekt interpretiert. Fehlverhalten einer KI kann leicht übersehene werden, da es fast unmöglich ist, jeden Testfall abzudecken. Beispiele von KIs mit Fehlverhalten und wie sie genau entstehen, werden im nächsten Abschnitt genauer betrachtet.
+\subsubsection{Lernarten}
+i.	Supervised
+\\ii.	Unsupervised
+\\iii.	Controlevisional
+\\iv.	Reinforcement
+
+\subsection{Loss-Funktion}
+%https://www.ai-united.de/arbeitsweise-eines-neuronalen-netzwerkes-algorithmen-training-aktivierungs-und-verlustfunktionen/
+\subsubsection{Performanz}
+\subsection{Informationsverlust zwischen Schichten}
+1.	Erste Schicht verbunden mit letzter Schicht\\
+	a.	Eingabe hoher Einfluss auf Endergebnis\\
+2.	Jede Schicht nur Verbindung zu der Nächsten\\
+	a.	Hohe Informationsverlust\\
+\section{Bias}
+Erklärung des Wortes in unserem Use-Case
+\section{Neuronen und Features}
+\subsection{Arten von NN}
+Es gibt drei Arten, wie neuronale Netze Daten verarbeiten können.
+\subsubsection{3D}
+\subsubsection{Gewichtete Netze}
+\subsubsection{Features}
+\section{Daten}
+\subsection{Datenaufbereiten}
+Daten sollen Generalisiert sein	\\
+	a.	Beispiel Bilder \\
+		i.	Sammeln \\
+		ii.	Drehen\\
+		iii.	Spiegeln\\
+		iv.	Verzerren\\
+		v.	Etc.\\
+\subsection{Under-/ Overfitting}
+\subsection{Daten und Architektur}
+Daten müssen zur Architektur passen.
+Generell
+\\	Je Komplexer mehr Neuronen
+\\	Mehrfälle desto Fehleranfälliger = mehr Bias
+\section{Architekturen}
+Arten
+\\1.	Full Connected
+\\2.	CNN
+\\3.	ResNet
+\\4.	Natural Network Connection
+\\5.	Dropout
+\\6.	…
+
+\chapter{Bias Entstehung}
+\section{Daten}
+\subsection{Unvollständigkeit der Daten}
+\subsection{Bias in Test-/Trainingsdaten}
+\subsection{Ähnlichkeit der Daten}
+Selbst für Menschen auf ersten Blick schwierig zu differenzieren 
+\\ii.	Bild Croissant vs Katze
+\\iii.	https://distill.pub/2019/activation-atlas/
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/dog_or_bagel.jpg}
+		\caption{Hund oder Bagel?}
+		\label{Hund oder Bagel?}
+	\end{center}
+\end{figure}
+\section{Menschliche Fehler}
+\subsection{Falsches Ziel}
+\subsection{Falsche Architektur}
+\subsection{Falsches Lernen}
+KI lernt einfachste Unterschiede
+\\i.	Nicht Unterscheid zwischen Auto und Boot sondern Untergrund(Wasser/Land)
+\\ii.	Sehr Fehleranfällig z.B. Auto fährt durch flaches Wasser (KI -> Boot)
+\section{Angriff auf KI}
+Adversarial Attacks
+%https://www.inovex.de/blog/machine-perception-face-recognition/
+\chapter{Sicherheitsprobleme durch Fehlverhalten von künstlichen neuronalen Netzen}
+\section{Gefahren für Maschinen}
+Google KI -> Kühlung von Maschinen
+\section{Gefahren für Menschen}
+Tesla Autopilot
+\\Etc.
+
+\chapter{Prävention }
+\label{chapter:main}
+\section{Passende Architektur zu Daten}
+
+\section{Nur ein Ziel}
+Viele Ziele = Komplex -> Fehleranfällig -> Bias
+\\Beispiel: Baidu Gesichtserkennung (erkennt nur Asiaten)
+
+\section{Verfahren zum Validieren}
+Unterschiedliche Personen (Entwickler/Tester)
+\\\\An echte Daten Testen (Überwachtes Demo Live Betrieb)
+\\\\Beispiel:
+\\Polizei Berlin Gesichtserkennung bei Überwachungskamera 
+\\3 verschiedene KIs
+\section{Test-/Trainingsdaten Aufbereiten}
+Vollständigkeit prüfen
+\\-> Fehler hier = Bias
+\\\\ Bias aus Daten entfernen
+
+\chapter{Fazit}
+Thema ist größer als hier beschreibbar
+\\Evtl. Deep Fake
+http://iphome.hhi.de/samek/pdf/LapNCOMM19.pdf
+https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/
 
 
-\chapter{Problemstellung Fehlverhalten von künstlichen neuronalen Netzen}
+\chapter{Alt: Problemstellung Fehlverhalten von künstlichen neuronalen Netzen}
 \section{Was sind Fehlverhalten von künstlichen neuronalen Netzen?}
 \label{section:KIBias}
 Ca. 4 Jahre entwickelte Amazon einen Algorithmus, welcher unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, verdeutlichte dabei aber ein grundlegendes Problem des maschinellen Lernens in seiner aktuellen Form.\\\\
@@ -352,24 +466,6 @@ Das Problem hierbei ist, dass der Algorithmus nicht offen gelegt wird und somit 
 Wie Heise Magazine weiter berichtete, belegte allerdings 2016 eine Studie der Investigativ-Plattform ProPublica, dass die COMPAS-Algorithmen beispielsweise schwarzen Angeklagten grundsätzlich ein höheres Risiko attestieren, erneut straffällig zu werden, als dies tatsächlich der Fall ist. Bei weißen Angeklagten ist es hingegen genau umgekehrt.
 \\\\
 Falls solche Algorithmen blind vertraut werden, kann dies zu gravierenden Folgen eines Verdächtigen führen, welcher zu unrecht ein ganzes Leben hinter Gitter sitzen könnte.
-
-\chapter{Sicherheitsprobleme durch Fehlverhalten von künstlichen neuronalen Netzen}
-Genauer auf die Probleme davon eingehen, auf Beispiele aus \ref{section:KIBias} eingehen und Probleme erläutern, die dadurch auftreten könnten? \\\\
-Sicherheit definieren, differenzieren von englisch safety und security etc.
-
-\chapter{Prävention der Fehlverhalten von künstlichen neuronalen Netzen}
-\label{chapter:main}
-\section{Erkennung von Fehlverhalten von künstlichen neuronalen Netzen}
-Erkennung von Fehlverhalten von künstlichen neuronalen Netzen durch Menschen/Computer.
-\section{Testdaten Aufbereitung}
-Wie kann ich die Testdaten aufbereiten, damit kein Fehlverhalten von künstlichen neuronalen Netzen auftritt?
-
-\chapter{Analyse}
-Analyse auf Umsetzbarkeit der Lösungsansätze aus \ref{chapter:main}.
-
-\chapter{Fazit}
-Zusammenfassung und Ergebnis.
-
 
 
 \backmatter

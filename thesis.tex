@@ -206,6 +206,7 @@ Aus diesem Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch
 \chapter{Einführung}
 \label{chapter:intro}
 Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen in Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. Ein bekanntes Beispiel ist die Software "alpha go", welche den internationalen GO Champion Lee Sedol besiegte\cite{alphaGo}. Darüber hinaus ermöglicht die KI komplexe Sachverhalte zu simulieren und zu prognostizieren, wie zum Beispiel die vollautomatische Generierung hochaufgelöster, realistischer Videosequenzen auf der Grundlage simpler Eingaben\cite{videoToVideo}.
+\\\\
 Einerseits gibt es viele Erfolge die für ein KI betriebenes System sprechen, andererseits bestärken medienwirksame Verfehlungen, wie z.B. das Bewerbungssystem von Amazon\cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit soll daher sein, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. bias) bzw. Fehlverhalten zu erläutern und Präventionen, welche diese vermeiden sollen, zu schildern.
 \\\\
 Wir beginnen unsere Arbeit damit, Grundlagen für ein fundamentales Wissen spätere Kapitel aufzubauen. Danach möchten wir auf die Entstehung solcher Bias eingehen, die damit verbundenen Probleme und welche Präventionen gegen diese Fehlverhalten unternommen werden können.
@@ -215,8 +216,8 @@ Wir beginnen unsere Arbeit damit, Grundlagen für ein fundamentales Wissen spät
 Wesentlicher Bestandteil der Arbeit ist das erläutern der "Biases", welche durch die Nutzung von künstlicher Intelligenz auftreten können. Das Wort Bias kommt aus dem Englischen und bedeutet im Wesentlichen:
 
 \begin{enumerate}
+	\item Verzerrung – im statistischen Sinn als mittlere systematische Abweichung zwischen dem erwarteten („richtigen“) Modellergebnis und dem mittleren wirklich eingetretenen Modellergebnis.
 	\item Voreingenommenheit – je nachdem, wie wir die Welt aufgrund unserer Erfahrungen sehen, kommen wir zu unterschiedlichen Schlüssen.
-	\item Verzerrung – im statistischen Sinn als mittlere systematische Abweichung zwischen dem erwarteten („richtigen“) Modellergebnis und dem mittleren wirklich eingetretenen Modellergebnis. 
 \end{enumerate}
 
 Der Begriff Voreingenommenheit muss bei der Nutzung von KI vorsichtig behandelt werden, denn eine Maschine besitzt grundsätzlich keinerlei Vorurteile und weiß zu Beginn nicht was richtig oder falsch ist. Hier spricht man daher von einem Fehlverhalten oder einer Verzerrung, welche durch äußere Einflüsse wie z.B. dem Menschen verursacht wurden.\\
@@ -356,28 +357,93 @@ Arten
 \\6.	…
 
 \section{Daten}
-\subsection{Datenaufbereiten}
-Daten sollen Generalisiert sein	\\
-	a.	Beispiel Bilder \\
-		i.	Sammeln \\
-		ii.	Drehen\\
-		iii.	Spiegeln\\
-		iv.	Verzerren\\
-		v.	Etc.\\
+\label{section:Data}
+Erst durch eine Kombination aus Algorithmen und Daten wird die Entscheidungsfindung unterstützt. Wie ein menschlicher Entscheider können auch Algorithmen wegen unvollständiger oder fehlerhafter Daten zu fehlerhaften Entscheidungen gelangen.
+Deswegen sollte bei der Datenaufbereitung bereits darauf geachtet werden die richtige Woge zwischen Quantität und Qualität zu finden.
+\\\\
+\subsection{Quantität}
+\label{section:DataQuantity}
+Je breiter, also je mehr Variablen in den Datensätzen existieren umso komplexer wird die Aufgabe. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
+\\\\
+Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet und zusammengeführt werden. Dadurch verfügt das Fahrzeug jederzeit über ein präzises Abbild der realen Verkehrsbedingungen, kann sich selbst in diesem Umfeld verorten und darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen \cite{autonomesFahren}.
+\\\\
+Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
+\\\\
+%% Eventuell weglassen den Absatz, und einfach direkt in over-underfitting drauf zugreifen und erklären.
+Da aber nicht immer die Datensätze komplex sind und zu viel Trainingsdaten bei weniger Variablen zu Problemen führen können, muss hier eine richtiges Maß gefunden werden. In \ref{section:OverUnderfitting} möchten wir auf das Problem eingehen, wenn zu viele oder zu wenig Daten genutzt werden.
 
-\subsection{Daten und Architektur}
-Daten müssen zur Architektur passen.
-Generell
-\\	Je Komplexer mehr Neuronen
-\\	Mehrfälle desto Fehleranfälliger = mehr Bias
+\subsection{Qualität}
+\label{section:DataQuality}
+Auch die Qualität der Trainingsdaten spielt eine wichtige Rolle. Die Datenqualität zeichnet sich dadurch aus, dass Daten den Zweck in einem bestimmten Zusammenhang erfüllen müssen. \\\\
+Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden, welche auch als Panzer gekennzeichnet wurden. 
+Würden nun Bilder von Autos mit in die Testdaten gelangen, welche auch zuvor als Panzer gekennzeichnet wurden, würde die Maschine diese Autos bei unbekannten Bildern auch als Panzer erkennen.
+\\\\
+Daher ist es für den Erfolg der Daten die Qualität dieser sehr wichtig. Hierbei sollten somit keine unzweideutigen Stammdaten existieren.
+
+%% Panzer problem in Unvollständigkeit der Daten aufgreifen. Und sagen, dass natürlich die Qualität nicht so stimmen muss, sondern auch solche Fälle abdeckt, dass ein Panzer bei unterschiedlichsten Wetter gefahren werden kann.
 
 \chapter{Bias Entstehung}
+Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten entstehen, diese können unterschiedlicher Natur sein und an unterschiedlichen Stellen, in der in Abbildung \ref{fig:dataBias} gezeigten, vereinfachten Machine Learning Pipeline, auftreten. Dabei möchten wir auf die Daten eingehen, welche bei der Eingabe zu Bias führen können und menschliche Fehler verdeutlichen, welche bei der Verarbeitung und der Ausgabe auftreten können. Zuletzt möchten wir Adversial Attacks ansprechen, welche zu weiteren Verzerrungen führen können.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/data_bias.png}
+		\caption{Machine Learning Pipeline: Eingabe, Verarbeitung, Ausgabe}
+		\label{fig:dataBias}
+	\end{center}
+\end{figure}
+
 \section{Daten}
+Im ersten Kapitel möchten wir erläutern welche Bias, durch z.B. eine schlechte Datenqualität oder Datenquantität, entstehen können.
+
 \subsection{Unvollständigkeit der Daten}
-\subsection{Bias in Test-/Trainingsdaten}
+\label{section:uncompleteData}
+Zuerst möchten wir auf ein Problem aufmerksam machen, welches zu Verzerrungen führt, anhand des Beispiels aus \ref{section:DataQuality}.
+\\\\
+Das Pentagon hatte eine Software angefordert, welche Panzer in der Natur erkennen sollte. KI Forscher haben daraufhin ihr neuronales Netz mit Fotos von getarnten Panzern trainiert, und mit Landschaftsfotos ohne getarnte Panzer. Dadurch sollte gewährleistet werden, dass die Software Panzer auf unbekannten Bildern erkennt.
+\\\\
+Bei internen Test funktionierte das System sehr gut, doch bei den realen Test schien die Software nicht zu funktionieren. Das Problem hierbei lag daran, dass diese KI zuvor mit Trainingsdaten gefüttert wurde, welche nur bei schönem Wetter fotografiert wurden (siehe \hyperref{fig:tank}). Auch die internen Testdateien erfüllten dieses Kriterium. Die realen Test hingegen wurden bei jedem Wetter ausgetragen.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/tank.png}
+		\caption{Panzer bei bewölkten Wetter vs Landschaft ohne Panzer bei schönem Wetter}
+		\label{fig:tank}
+	\end{center}
+\end{figure}
+Die Software hatte somit trainiert schlechtes und gutes Wetter auseinander zu halten und nicht Panzer zu erkennen. Das Problem hierbei lag an unvollständigen Daten, hier wurden zu wenig unterschiedliche Fälle getestet und dadurch wurde ein Bias erzeugt, welcher die Nutzung der Software unmöglich machte.
+
+\subsection{Garbage in - Garbage out}
+\label{section:DataGarbage}
+Eine Maschine kennt grundsätzlich keinen Unterschied zwischen Schwarz und Weiß, Mann und Frau oder Jung und Alt. Erst durch eine KI lernt eine Maschine Verhalten und Muster kennen. Hierfür werden wie bereits in \ref{section:Data} beschrieben Daten benötigt, welche die richtige Qualität benötigen um die Ergebnisse zu bestimmen.
+\\\\
+Bleiben fehlerhafte Daten unentdeckt, wird ein System trainiert, welches in Zukunft falsche Ergebnisse liefern wird. Das Beispiel aus \ref{section:DataQuality} erläutert dieses Problem. Möchte ich ein System trainieren, welches Panzer identifizieren kann, muss ich diesem System beibringen Panzer zu erkennen. Füttere ich dieses nun mit Autos und markiere diese versehentlich als Panzer, identifiziert das System daraufhin diese nicht als Autos sondern als Panzer.
+\\\\
+Bei der traditionellen  Datenanalyse können solche schlechte Daten nachträglich entfernt werden. Hat allerdings eine Maschine durch maschinelles Lernen etwas gelernt, wird es schwer dies wieder zu verlernen. Denn ab einem Gewissen Grad wird es nahezu unmöglich, herauszufinden, auf welche Datenelemente die Vorhersagen basieren. Ähnlich wie beim menschlichen Gehirn.\\
+Baut unser erlerntes Wissen in Teilen auf falsche Grundannahmen oder Informationsbausteinen auf, verliert der ganze Komplex seinen Wert und wir müssen von neu alles erlernen.
+\\\\
+Diese Problem wird in der KI als "Garbage in - Garbage out" (Müll rein, Müll raus) bezeichnet.
+
+\subsection{Bias in Trainings-/Testdaten}
+\label{section:biasInTest}
+Ca. 4 Jahre entwickelte Amazon einen Algorithmus, welcher unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, verdeutlichte dabei aber ein grundlegendes Problem des maschinellen Lernens in seiner aktuellen Form.\\\\
+Der Algorithmus hatte mit den Datensätzen der angenommen Bewerber trainiert und lernte daraus welche Eigenschaften Amazon bevorzugt. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, waren in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden, selbst ohne die Angabe eines Geschlechtes und dieses z.B. nur durch Frauenvereine erkennbar wurde. Die KI blieb diesen Auswahlkriterien treu und bevorzugte vorwiegend Männer.\cite{amazon}
+\\\\
+Die Hoffnung solcher Anwendungen liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine wie in \ref{section:DataGarbage} bereits genannt keine Unterschiede kennt. Doch in diesem Beispiel beinhalteten die Trainingsdaten bereits Vorurteile und führten somit zu einem Fehlverhalten des Systems.
+\\\\
+%Beispiel von Tay The Chatbot zeigen, für Beispiel Bias in Testdaten?
+An diesem Beispiel wird deutlich wie zentral die Daten für eine KI sind.
+Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bias enthalten. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung auch als WEIRD Samples (western, educated, industrialized, rich and democratic societies) bezeichnet\cite{BiasInKi}.
+
+
 \subsection{Under-/ Overfitting}
+\label{section:OverUnderfitting}
+
+https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76
+
 \subsection{Ähnlichkeit der Daten}
-Selbst für Menschen auf ersten Blick schwierig zu differenzieren 
+Selbst für Menschen auf ersten Blick schwierig zu differenzieren Beispiel Bild Croissant vs Katze. -> Daher wichtig gute Qualtität der Daten.
+Solche Verfahren aus \ref{section:DataQuality} lassen sich für die verschiedensten Aufgaben einsetzen. Im Normalfall kann ein Computer die Qualität von Daten nicht bewerten. Deshalb besteht immer die Gefahr, dass Maschinelles Lernen zu formal logischen, aber praktisch falschen Ergebnissen führt. Ein Beispiel: In Testreihen für autonomes Fahren stufen die Probanden (weil sie nicht aufmerksam sind) immer wieder das bestimmte Bild eines Menschen als Bild einer Tonne ein. Das System reagiert folgerichtig und wertet in einer kritischen Verkehrssituation das Überfahren einer (vermeintlichen) Tonne als verhältnismäßige Alternative, die möglichst wenig Schaden anrichtet.
 \\ii.	Bild Croissant vs Katze
 \\iii.	https://distill.pub/2019/activation-atlas/
 
@@ -441,6 +507,7 @@ Dieses Fehlverhalten der KI führte dazu, dass die Software nicht genutzt werden
 Unbekannt ist dieses Verhalten allerdings nicht. Es gibt weitere Fälle in der eine KI so wirkt, als hätte sie Vorurteile gegenüber manchen Gruppen/Geschlechter/Religionen, welche allerdings Fehlverhalten sind und durch den Menschen antrainiert wurden.
 
 \section{Garbage in - Garbage Out - Wie entstehen Fehlverhalten von künstlichen neuronalen Netzen?}
+\label{section:oldgarbage}
 Wie in vorangegangen Beispielen bereits erwähnt wurde, wird Künstliche Intelligenz in vielen Bereichen eingesetzt. Die Hoffnung solcher Anwendungen, liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine grundsätzlich keinen Unterschied zwischen Schwarz und Weiß, Mann und Frau oder Jung und Alt erkennt.
 \\\\
 Anhand des Beispiels aus \ref{section:KIBias} sieht man, dass dies nicht der Fall ist, da die Daten, mit welchen die KI lernt, zentralen Einfluss auf das Ergebnis hat. Meist ist es nicht möglich Daten zu finden, welche nicht bereits Vorurteile, enthalten. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung, auch als WEIRD Samples(western, educated, industrialized, rich and democratic societies) bezeichnet.% \cite{BiasInKI} Weiß nicht ob ich das Zitieren will%

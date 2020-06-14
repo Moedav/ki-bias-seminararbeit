@@ -360,7 +360,7 @@ Arten
 \label{section:Data}
 Erst durch eine Kombination aus Algorithmen und Daten wird die Entscheidungsfindung unterstützt. Wie ein menschlicher Entscheider können auch Algorithmen wegen unvollständiger oder fehlerhafter Daten zu fehlerhaften Entscheidungen gelangen.
 Deswegen sollte bei der Datenaufbereitung bereits darauf geachtet werden die richtige Woge zwischen Quantität und Qualität zu finden.
-\\\\
+
 \subsection{Quantität}
 \label{section:DataQuantity}
 Je breiter, also je mehr Variablen in den Datensätzen existieren umso komplexer wird die Aufgabe. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
@@ -369,8 +369,7 @@ Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren m�
 \\\\
 Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
 \\\\
-%% Eventuell weglassen den Absatz, und einfach direkt in over-underfitting drauf zugreifen und erklären.
-Da aber nicht immer die Datensätze komplex sind und zu viel Trainingsdaten bei weniger Variablen zu Problemen führen können, muss hier eine richtiges Maß gefunden werden. In \ref{section:OverUnderfitting} möchten wir auf das Problem eingehen, wenn zu viele oder zu wenig Daten genutzt werden.
+Da aber nicht immer die Anwendungen komplex sind, sind nicht immer viele Datensätze notwendig. Bei geringerer Komplexität reichen somit weniger Datensätze aus um gute Ergebnisse zu erreichen.
 
 \subsection{Qualität}
 \label{section:DataQuality}
@@ -394,6 +393,7 @@ Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten ents
 \end{figure}
 
 \section{Daten}
+\label{section:data}
 Im ersten Kapitel möchten wir erläutern welche Bias, durch z.B. eine schlechte Datenqualität oder Datenquantität, entstehen können.
 
 \subsection{Unvollständigkeit der Daten}
@@ -439,14 +439,27 @@ Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bi
 \subsection{Under-/ Overfitting}
 \label{section:OverUnderfitting}
 
-https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76
+Wie in \ref{section:DataQuantity} bereits beschrieben, spielt die Datenquantität eine große Rolle beim maschinellen Lernen. Die beiden Fehler die allerdings dadurch entstehen können, sind nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine Relevanten Lerninformationen ziehen zu können. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/overUnderfitting.png}
+		\caption{Over- und Underfitting}
+		\label{fig:overUnderFitting}
+	\end{center}
+\end{figure}
+
+Der linke Graph aus \ref{fig:overUnderFitting} zeigt eine Linie, welche viele Punkte falsch abdeckt, da die Linie zu einfach ist. Solche Modelle neigen somit zur Unteranpassung, bzw. zu einer hohen Verzerrung der Vorhersagen.
+\\\\
+Der Graph auf der rechten Seite hingegen sagt alle Punkte richtig vorher. Unter dieser Annahme könnte man denken es wäre ein sehr guter Graph. Das Problem hierbei ist allerdings, dass alle Punkte mit vorher gesagt werden, auch diese die Grundrauschen oder Outliner sind. Aus diesem Grund lernt die Maschine nicht vorhandene Muster kennen und liefert aufgrund ihrer Komplexität schlechte und abweichende Vorhersagen aus.\cite{overUnderfitting}
+\\\\
+Ein Beispiel für Overfitting ist, wenn durch maschinelles Lernen ein System einen Schrank auf einem Bild erkennen soll. Diesem System werden nun alle Möglichkeiten an Schränke antrainiert. Ein Schrank kann sehr ausgefallen sein und somit lernt das System sehr viele unterschiedliche Schränke kennen und wenn nun ein Schrank z.B. aus Autoteilen hergestellt wurde. Könnte es passieren, dass auf einem Bild ein Auto als Schrank erkannt wird, obwohl in diesem Bild kein Schrank vorhanden ist.
+\\\\
+Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt.
+
 
 \subsection{Ähnlichkeit der Daten}
-Selbst für Menschen auf ersten Blick schwierig zu differenzieren Beispiel Bild Croissant vs Katze. -> Daher wichtig gute Qualtität der Daten.
-Solche Verfahren aus \ref{section:DataQuality} lassen sich für die verschiedensten Aufgaben einsetzen. Im Normalfall kann ein Computer die Qualität von Daten nicht bewerten. Deshalb besteht immer die Gefahr, dass Maschinelles Lernen zu formal logischen, aber praktisch falschen Ergebnissen führt. Ein Beispiel: In Testreihen für autonomes Fahren stufen die Probanden (weil sie nicht aufmerksam sind) immer wieder das bestimmte Bild eines Menschen als Bild einer Tonne ein. Das System reagiert folgerichtig und wertet in einer kritischen Verkehrssituation das Überfahren einer (vermeintlichen) Tonne als verhältnismäßige Alternative, die möglichst wenig Schaden anrichtet.
-\\ii.	Bild Croissant vs Katze
-\\iii.	https://distill.pub/2019/activation-atlas/
-
+\label{section:similarData}
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/dog_or_bagel.jpg}
@@ -454,6 +467,11 @@ Solche Verfahren aus \ref{section:DataQuality} lassen sich für die verschiedens
 		\label{fig:dogBagel}
 	\end{center}
 \end{figure}
+
+Es gibt Bilder, welche selbst für den Menschen schwer zu differenzieren sind (Beispiel Abbildung \ref{fig:dogBagel}). Ist nun ein Mensch nicht aufmerksam und sagt der Maschine das ein Bagel ein Hund ist, erlernt die Maschine falsche Bilder und sagt zukünftig auch Bagel als Hunde vorher. Aber auch durch richtiges Kennzeichnen der Bilder durch den Menschen, können solche Bilder zu Verzerrungen führen. 
+\\\\
+Ein weiters Beispiel hierfür kommt aus der Autoindustrie. In Testreihen für autonomes Fahren stuften die Probanden (weil sie nicht aufmerksam waren) immer wieder das bestimmte Bild eines Menschen als Bild einer Tonne ein. Das System reagiert folgerichtig und wertet in einer kritischen Verkehrssituation das Überfahren einer (vermeintlichen) Tonne als verhältnismäßige Alternative, die möglichst wenig Schaden anrichtet \cite{trainingsDataKI}.
+
 \section{Menschliche Fehler}
 \subsection{Falsches Ziel}
 \subsection{Falsche Architektur}
@@ -486,9 +504,20 @@ Unterschiedliche Personen (Entwickler/Tester)
 \\Polizei Berlin Gesichtserkennung bei Überwachungskamera 
 \\3 verschiedene KIs
 \section{Test-/Trainingsdaten Aufbereiten}
-Vollständigkeit prüfen
-\\-> Fehler hier = Bias
-\\\\ Bias aus Daten entfernen
+\label{section:preventData}
+Wie bereits in Abschnitt \ref{section:data} beschrieben, gibt es viele Fehler die gemacht werden können um zu Bias einer KI zu führen. In diesem Kapitel möchten wir darauf eingehen, was dagegen unternommen werden kann.
+\\\\
+Die Datenaufbereitung ist ein wesentlicher Teil für die Nutzung einer KI.
+Wichtig ist das man die Daten generalisiert. Nutzt man wie im Beispiel aus dem Kapitel \ref{section:OverUnderfitting} zu viele Daten, nur um alle Fälle abzudecken, wie ein Schrank aussehen kann, führt dies zu Verzerrungen bei den Vorhersagen. Wichtig ist daher die Daten auf die Standard Schränke zu begrenzen, und Outliner zu ignorieren. da Bilder, welche anderen Objekten zu ähnlich aussehen, lernt die KI falsche Muster kennen und es entstehen Fehlverhalten. Generalisiert man nun die Daten, und lässt die Maschine mit offensichtlichen Schränken trainieren, führt dies zu weniger Fehlern, auch wenn eventuell nicht alle Schränke als solche erkannt werden.
+\\\\
+Damit Vorurteile, Outliner oder falsche Bilder in den Daten nicht zu Problemen führen sollte diese zuvor validiert werden. Beispiele für eine Validierung könnten folgende sein:
+\begin{enumerate}
+	\item Lektorat oder Peer-Review
+	\item Das Vier-Augen-Prinzip (gegenseitige Kontrolle)
+	\item Mehrheitsentscheide bei unterschiedlichen Ergebnissen
+\end{enumerate}
+
+Mit diesen Maßnahmen können zuvor einige Fehler vermieden werden und unnötig hohe Kosten vermieden werden.
 
 \chapter{Fazit}
 Thema ist größer als hier beschreibbar

@@ -205,12 +205,11 @@ Aus diesem Grund und an Mangel an qualitativ hochwertigen Alternativen wird auch
 
 \chapter{Einführung}
 \label{chapter:intro}
-Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen in Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. Ein bekanntes Beispiel ist die Software "alpha go", welche den internationalen GO Champion Lee Sedol besiegte\cite{alphaGo}. Darüber hinaus ermöglicht die KI komplexe Sachverhalte zu simulieren und zu prognostizieren, wie zum Beispiel die vollautomatische Generierung hochaufgelöster, realistischer Videosequenzen auf der Grundlage simpler Eingaben\cite{videoToVideo}.
+Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt allgegenwärtig in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen auf Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine große Rolle. Ein bekanntes Beispiel ist die Software "alpha go", welche den internationalen GO Champion Lee Sedol besiegte\cite{alphaGo}. Darüber hinaus ermöglicht die KI komplexe Sachverhalte zu simulieren und zu prognostizieren, wie zum Beispiel die vollautomatische Generierung hochaufgelöster, realistischer Videosequenzen auf der Grundlage simpler Eingaben\cite{videoToVideo}.
 \\\\
-Einerseits gibt es viele Erfolge die für ein KI betriebenes System sprechen, andererseits bestärken medienwirksame Verfehlungen, wie z.B. das Bewerbungssystem von Amazon\cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit soll daher sein, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. bias) bzw. Fehlverhalten zu erläutern und Präventionen, welche diese vermeiden sollen, zu schildern.
+Einerseits gibt es viele Erfolge, die für ein KI betriebenes System sprechen. Andererseits bestärken medienwirksame Verfehlungen, wie z.B. das frauenfeindliche Bewerbungssystem von Amazon\cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit ist es, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. bias) zu erläutern und Präventionen zu schildern, welche diese vermeiden sollen.
 \\\\
 Wir beginnen unsere Arbeit damit, Grundlagen für ein fundamentales Wissen spätere Kapitel aufzubauen. Danach möchten wir auf die Entstehung solcher Bias eingehen, die damit verbundenen Probleme und welche Präventionen gegen diese Fehlverhalten unternommen werden können.
-
 \chapter{Grundlagen}
 \section{Bias}
 Wesentlicher Bestandteil der Arbeit ist das erläutern der "Biases", welche durch die Nutzung von künstlicher Intelligenz auftreten können. Das Wort Bias kommt aus dem Englischen und bedeutet im Wesentlichen:
@@ -309,19 +308,11 @@ Um eine Aufgabe, wie 'Gesicht in Bild erkennen', zu trainieren, wird nicht nur e
 Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich, sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich, je nach Anwendungsfall, ab einer gewissen Erfolgsrate das Training zu beenden oder neue Trainings- und Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning ein trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
 \subsection{Loss-Funktion}
 %https://www.ai-united.de/arbeitsweise-eines-neuronalen-netzwerkes-algorithmen-training-aktivierungs-und-verlustfunktionen/
-\subsubsection{Performanz}
 \subsection{Informationsverlust zwischen Schichten}
 1.	Erste Schicht verbunden mit letzter Schicht\\
 	a.	Eingabe hoher Einfluss auf Endergebnis\\
 2.	Jede Schicht nur Verbindung zu der Nächsten\\
 	a.	Hohe Informationsverlust\\
-
-\section{Neuronen und Features}
-\subsection{Arten von NN}
-Es gibt drei Arten, wie neuronale Netze Daten verarbeiten können.
-\subsubsection{3D}
-\subsubsection{Gewichtete Netze}
-\subsubsection{Features}
 
 \section{Architekturen}
 Arten
@@ -339,7 +330,7 @@ Deswegen sollte bei der Datenaufbereitung bereits darauf geachtet werden die ric
 
 \subsection{Quantität}
 \label{section:DataQuantity}
-Je breiter, also je mehr Variablen in den Datensätzen existieren umso komplexer wird die Aufgabe. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
+Je breiter, also je mehr Variablen in den Datensätzen existieren, umso komplexer wird die Aufgabe. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
 \\\\
 Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet und zusammengeführt werden. Dadurch verfügt das Fahrzeug jederzeit über ein präzises Abbild der realen Verkehrsbedingungen, kann sich selbst in diesem Umfeld verorten und darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen \cite{autonomesFahren}.
 \\\\
@@ -349,7 +340,8 @@ Da aber nicht immer die Anwendungen komplex sind, sind nicht immer viele Datens�
 
 \subsection{Qualität}
 \label{section:DataQuality}
-Auch die Qualität der Trainingsdaten spielt eine wichtige Rolle. Die Datenqualität zeichnet sich dadurch aus, dass Daten den Zweck in einem bestimmten Zusammenhang erfüllen müssen. \\\\
+Auch die Qualität der Trainingsdaten spielt eine wichtige Rolle. Die Datenqualität zeichnet sich dadurch aus, dass Daten den Zweck in einem bestimmten Zusammenhang erfüllen müssen. 
+\\\\
 Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden, welche auch als Panzer gekennzeichnet wurden.
 Würden nun Bilder von Autos mit in die Testdaten gelangen, welche auch zuvor als Panzer gekennzeichnet wurden, würde die Maschine diese Autos bei unbekannten Bildern auch als Panzer erkennen.
 \\\\
@@ -467,15 +459,29 @@ KI lernt einfachste Unterschiede
 \\i.	Nicht Unterschied zwischen Auto und Boot sondern Untergrund(Wasser/Land)
 \\ii.	Sehr Fehleranfällig z.B. Auto fährt durch flaches Wasser (KI -> Boot)
 \chapter{Sicherheitsprobleme durch BIAS}
-\section{Angriff auf KI}
-Adversarial Attacks
-%https://www.inovex.de/blog/machine-perception-face-recognition/
+
 \section{Gefahren für Maschinen}
 Google KI -> Kühlung von Maschinen
 \section{Gefahren für Menschen}
 Tesla Autopilot
 \\Etc.
+\section{Angriff auf KI}
+Ist eine Künstliche Intelligenz sehr gut trainiert, erzielt sie in ihrem Aufgabebereich überragende Ergebnisse. Doch auch nahe zu perfekte KIs sind nicht unfehlbar. Durch methodisch gestaltete Störungen der Daten kann eine KI bewusst getäuscht werden und die Computer-Wahrnehmung in die Irre führen. Diese Art der Ausnutzung von KI Schwächen nennt man Adversarial Attacks, zu deutsch gegensätzlicher Angriff.
+\subsubsection{Adversarial Attacks}
+Bildererkennungssoftware ist besonders anfällig von dieser Art von Angriff. Hierbei legt man über das Bild bestimmte Pixelmuster, die für das menschliche Auge in der Regel im Gesamtbild untergehen. KIs hingegen registrieren jegliches Muster und nehmen sie in ihre Berechnungen mit auf. Als Ergebnis werden Bilder zum Teil massiv fehlinterpretiert. 
+Im Folgenden Angriff wird mit einer Brille und dessen speziellen Muster, eine KI überlistet.
+\label{section:BrilleAttack}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/Brille_Adversarial_Attack.png}
+		\caption{Reese Witherspoon links korrekt identifiziert. Mitte Bild mit Adversarial Attack. Rechts Klassifizierung von Mitte als Russel Crowe}
+		\label{fig:BrilleAttack}
+	\end{center}
+\end{figure}
+% Paper https://www.cs.cmu.edu/~sbhagava/papers/face-rec-ccs16.pdf
+Im linken Bild sieht man die amerikanische Schauspielerin Reese Witherspoon. Dieses Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man nun ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit Brille als Russel Crowe (Bild rechts).
 
+%https://www.inovex.de/blog/machine-perception-face-recognition/
 \chapter{Prävention}
 \label{chapter:main}
 \section{Passender Algorithmus zu Daten}

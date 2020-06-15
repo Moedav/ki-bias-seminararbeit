@@ -362,7 +362,7 @@ Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten ents
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=15cm]{Bilder/data_bias.png}
+		\includegraphics[width=12cm]{Bilder/data_bias.png}
 		\caption{Machine Learning Pipeline: Eingabe, Verarbeitung, Ausgabe}
 		\label{fig:dataBias}
 	\end{center}
@@ -476,35 +476,97 @@ Google KI -> Kühlung von Maschinen
 Tesla Autopilot
 \\Etc.
 
-\chapter{Prävention }
+\chapter{Prävention}
 \label{chapter:main}
-\section{Passende Architektur zu Daten}
+\section{Passender Algorithmus zu Daten}
+
+Im Abschnitt \ref{section:DataGarbage} wurden die Schwierigkeiten genannt, was passiert wenn ein Modell mit fehlerhaften Daten trainiert wurde und ab einem gewissen Grad es schwer wird diese fehlerhaften Vorhersagen zu verstehen und abzuändern.
+\\\\
+In der Annahme das nun dieses System richtig trainiert wurde, aber die zeitliche Komponente nicht beachtet, wie z.B. dass ein Panzer in Zukunft anders ausschauen könnte, kann es zu dem Problem kommen, das in Zukunft ein Panzer nicht mehr erkannt wird. Wie Stöcker 2019(\cite{stoecker}) bereits erwähnte, benötigt eine sich ändernde Gesellschaft auch kontinuierliche weiterlernende Algorithmen. 
+\\\\
+Solch ein Lernprozess wird auch als \textit{adaptive learning} bezeichnet, womit dem Effekt sich ändernder, d. h. dynamischer Datenumgebungen, concept drift bezeichnet, Rechnung getragen wird \cite{gama}. In DL-Algorithmen ist solche eine Umsetzung nicht trivial, aber das Beispiel von Sahoo et al. \cite{sahoo} zeigt auch die Machbarkeit auch in diesem Feld.
+\\\\
+Auch bei einem für Diskriminierung anfälligen Umfeld, wie im Beispiel von Abschnitt \ref{section:biasInTest}, muss besondere Sorgfalt bei der Wahl des passenden Algorithmus bedacht werden. Oftmals ist es unzureichend einzelne Attribute aus den Eingangsdaten auszuschließen, um beispielsweise eine algorithmische Diskriminierung bestimmter Personengruppen zu verhindern. Dies genügt jedoch in der Regel nicht, denn wie das Beispiel von Amazon zeigt, kann der Algorithmus Rückschlüsse anhand anderer Attribute ziehen(z.B. durch Frauenvereine).
+\\\\
+In diesem Kontext sollten System bevorzugt werden, welche in der Entwicklung solcher Algorithmen zusätzliche Einschränkungen einführen, um eine Diskriminierung aufgrund eines bestimmten Attributs, zu verhindern \cite{kamiran}.
 
 \section{Nur ein Ziel}
-Viele Ziele = Komplex -> Fehleranfällig -> Bias
-\\Beispiel: Baidu Gesichtserkennung (erkennt nur Asiaten)
+\label{section:oneGoal}
+Nimmt man das Beispiel aus dem Abschnitt \ref{section:OverUnderfitting} mit den Schränken und möchte der Maschine alle möglichen Schränke beibringen, kann dies wie in diesem Absatz bereits erläutert zu Overfitting führen. Das Ziel aus diesem Beispiel war zu komplex. Hier hätte man das Ziel einfacher halten und die Daten generalisieren sollen. Dass heißt sich auf Schränke beschränken die sofort als solche erkannt werden. Falls ein Schrank ein komplizierteres Aussehen hätte und durch den Algorithmus nicht erkannt worden wäre, wäre das besser als wenn der Algorithmus viele Autos als Schränke erkennt. 
+\\\\
+Solche Probleme treten häufig auf, da die Ziele meist zu komplex gehalten werden. Das führt zu einer großen Fehleranfälligkeit und somit zu Verzerrungen. Deswegen sollten die Ziele klar und einfach gehalten werden, um unnötige Komplexität zu vermeiden.
 
 \section{Verfahren zum Validieren}
-Unterschiedliche Personen (Entwickler/Tester)
-\\\\An echte Daten Testen (Überwachtes Demo Live Betrieb)
-\\\\Beispiel:
-\\Polizei Berlin Gesichtserkennung bei Überwachungskamera
-\\3 verschiedene KIs
-\section{Test-/Trainingsdaten Aufbereiten}
-\label{section:preventData}
-Wie bereits in Abschnitt \ref{section:data} beschrieben, gibt es viele Fehler die gemacht werden können um zu Bias einer KI zu führen. In diesem Kapitel möchten wir darauf eingehen, was dagegen unternommen werden kann.
-\\\\
-Die Datenaufbereitung ist ein wesentlicher Teil für die Nutzung einer KI.
-Wichtig ist das man die Daten generalisiert. Nutzt man wie im Beispiel aus dem Kapitel \ref{section:OverUnderfitting} zu viele Daten, nur um alle Fälle abzudecken, wie ein Schrank aussehen kann, führt dies zu Verzerrungen bei den Vorhersagen. Wichtig ist daher die Daten auf die Standard Schränke zu begrenzen, und Outliner zu ignorieren. da Bilder, welche anderen Objekten zu ähnlich aussehen, lernt die KI falsche Muster kennen und es entstehen Fehlverhalten. Generalisiert man nun die Daten, und lässt die Maschine mit offensichtlichen Schränken trainieren, führt dies zu weniger Fehlern, auch wenn eventuell nicht alle Schränke als solche erkannt werden.
-\\\\
-Damit Vorurteile, Outliner oder falsche Bilder in den Daten nicht zu Problemen führen sollte diese zuvor validiert werden. Beispiele für eine Validierung könnten folgende sein:
+\label{section:validate}
+
+Damit Vorurteile, Outliner oder falsche Bilder in den Daten nicht zu Problemen führen sollte diese zuvor überprüft werden. Beispiele dafür könnten folgende sein:
 \begin{enumerate}
 	\item Lektorat oder Peer-Review
 	\item Das Vier-Augen-Prinzip (gegenseitige Kontrolle)
 	\item Mehrheitsentscheide bei unterschiedlichen Ergebnissen
 \end{enumerate}
 
-Mit diesen Maßnahmen können zuvor einige Fehler vermieden werden und unnötig hohe Kosten vermieden werden.
+Zudem sollte das Modell ausreichend validiert werden und die Performance gemessen werden. Denn wenn der Algorithmus z.B. bei der Diagnose von Krebs helfen soll, sollten die Ergebnisse nicht falsch sein.
+\\\\
+Würde man einen Datensatz in Trainings und Testdaten unterteilen, könnte es dazu kommen, das die Daten so perfekt aufgeteilt werden, dass er in dieser Aufteilung sehr gute Ergebnisse liefert. Falls nun aber ein Fall nur in den Testdaten vorhanden ist und somit nicht antrainiert wurde, jetzt aber in der realen Welt benötigt wurde, können die Ergebnisse trüben und das Modell könnte zu Problemen führen.
+\\\\
+Eine Möglichkeit um das zu verhindern, bietet die Cross Validierung. Anstelle eines extra Datensatzes, welcher zum Validieren der Daten genutzt wird, wird der Datensatz in viele kleine Blöcke unterteilt. In der Abbildung \ref{fig:crossValidierung} sind es 5. Danach werden 5 Durchläufe gemacht, in denen jeweils mit 4 unterschiedlichen aus diesen 5 Blöcken trainiert und mit einem davon getestet wird. Bei jedem Durchlauf entsteht ein Score, welche angibt, wie gut das Modell ist. Am Ende wird dann ein durchschnittlicher Score über diese 5 einzelnen gebildet, welcher die gesamt Performance des Modells angibt.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/crossValidierung.png}
+		\caption{5 fache Cross Validierung}
+		\label{fig:crossValidierung}
+	\end{center}
+\end{figure}
+
+Mit diesem Score lässt sich das beste Modell ermitteln und man verhindert unbewusste Nebenwirkungen.
+
+\section{Over- und Underfitting vermeiden}
+\label{section:preventData}
+
+Underfitting und Overfittung sind oft Fehler der Test-/Trainingsdaten Aufbereitung. Um Overfitting eventuell zu verhindern, kann ein einfacheres Ziel wie bereits in Absatz \ref{section:oneGoal} beschrieben, ausreichen. Dennoch gibt es Fälle wo das Ziel zu komplex ist oder zu wenig Daten vorhanden sind, um Underfitting oder Overfitting zu verhindern.
+
+\subsection{Underfitting}
+
+Anhand einer polynominialen Regression kann man verdeutlichen, wie Underfitting vermieden werden könnte. Um dies zu erreichen, muss der erwartete Wert einer Variable als Polynom n-ten Grades modelliert werden, welches dann wiederum das allgemeine Polynom ergibt. Wenn wir den Grad ${n}$ des Polynoms erhöhen, nimmt der Trainingsfehler generell ab. Die allgemeine Gleichung eines Polynoms ist folgende:
+
+${\displaystyle y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+...+\beta_{n}^n+\epsilon}$
+
+Aber hier muss aufgepasst werden. Denn wie in der Abbildung \ref{fig:polyReg} zu sehen sinkt zur gleichen Zeit der Cross Validierungsfehler solange wir n bis zu einem gewissen Punkt erhöhen, nach diesem Punkt steigt der Fehler und Overfitting wird das Problem.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=15cm]{Bilder/polynomeRegression.png}
+		\caption{Polynominale Regression}
+		\label{fig:polyReg}
+	\end{center}
+\end{figure}
+
+\subsection{Overfitting}
+
+Eine Möglichkeit um Overfitting zu vermeiden bietet die bereits in Abschnitt \ref{section:validate} Cross Validierung. Eine andere kann durch das erhöhen der Flexibilität des Models erreicht werden. Dabei sollte dies aber in Grenzen bleiben, da ansonsten das gleiche wie bei Underfitting passiert. Um die Flexibilität zu erhöhen können Regulierungstechniken benutzt werden.
+\\\\
+Durch die Regularisierung wird wenn die Komplexität eines Models zunimmt, eine Strafe angehängt. Der Regularisierungsparameter (${\lambda}$) bestraft alle Parameter mit Ausnahme des markierten Bereichs in Abbildung \ref{fig:regFunc}, sodass das Modell die Daten verallgemeinert und nicht überanpasst.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=10cm]{Bilder/regFunc.png}
+		\caption{Regularisierung in Loss Funktion}
+		\label{fig:regFunc}
+	\end{center}
+\end{figure}
+
+Wenn in der Abbildung \ref{fig:regFunc} die Komplexität steigt, wird durch die Regulierung eine Strafe für höhere Terme hinzugefügt. Dass hat zur Folge, dass die Wichtigkeit solcher langen Terme sinkt und zugleich die Komplexität des Models weniger wird.
+\\\\
+Beispiele für solche Techniken sind folgende:
+
+\begin{enumerate}
+	\item L1 Regulierung (Lasso Regulierung)
+	\item L2 Regulierung (Ridge Regulierung)
+	\item Elastic net
+\end{enumerate}
+
 
 \chapter{Fazit}
 Thema ist größer als hier beschreibbar
@@ -513,49 +575,12 @@ http://iphome.hhi.de/samek/pdf/LapNCOMM19.pdf
 https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/
 
 
-\chapter{Alt: Problemstellung Fehlverhalten von künstlichen neuronalen Netzen}
-\section{Was sind Fehlverhalten von künstlichen neuronalen Netzen?}
-\label{section:KIBias}
-Ca. 4 Jahre entwickelte Amazon einen Algorithmus, welcher unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, verdeutlichte dabei aber ein grundlegendes Problem des maschinellen Lernens in seiner aktuellen Form.\\\\
-Der Algorithmus hatte mit den Datensätzen der angenommen Bewerber trainiert und lernte daraus welche Eigenschaften Amazon bevorzugt. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, waren in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden, selbst wenn gar kein Geschlecht angegeben wurde und dieses z.B. nur durch Frauenvereine erkennbar wurde. Die KI blieb diesen Auswahlkriterien treu und bevorzugte vorwiegend Männer.\cite{amazon} \\\\
-Dieses Fehlverhalten der KI führte dazu, dass die Software nicht genutzt werden konnte, bzw. nach Anpassungen nur eine beratende Funktion besaß.
-\\\\
-Unbekannt ist dieses Verhalten allerdings nicht. Es gibt weitere Fälle in der eine KI so wirkt, als hätte sie Vorurteile gegenüber manchen Gruppen/Geschlechter/Religionen, welche allerdings Fehlverhalten sind und durch den Menschen antrainiert wurden.
-
-\section{Garbage in - Garbage Out - Wie entstehen Fehlverhalten von künstlichen neuronalen Netzen?}
-\label{section:oldgarbage}
-Wie in vorangegangen Beispielen bereits erwähnt wurde, wird Künstliche Intelligenz in vielen Bereichen eingesetzt. Die Hoffnung solcher Anwendungen, liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine grundsätzlich keinen Unterschied zwischen Schwarz und Weiß, Mann und Frau oder Jung und Alt erkennt.
-\\\\
-Anhand des Beispiels aus \ref{section:KIBias} sieht man, dass dies nicht der Fall ist, da die Daten, mit welchen die KI lernt, zentralen Einfluss auf das Ergebnis hat. Meist ist es nicht möglich Daten zu finden, welche nicht bereits Vorurteile, enthalten. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung, auch als WEIRD Samples(western, educated, industrialized, rich and democratic societies) bezeichnet.% \cite{BiasInKI} Weiß nicht ob ich das Zitieren will%
-\\\\
-Ein weiteres Problem ist die fehlende Diversität auf Seiten der/die Entwickler/innen. Nur 15\% bei Facebook und 10\% bei Google in der KI Entwicklung sind Frauen. Für dunkelhäutige Menschen ist es noch schlimmer. Bei Google z.B. sind nur 2,5\% und bei Facebook und Microsoft 4\% dunkelhäutige Mitarbeiter\cite{Discriminating}.
-\\\\
-Daher kommt der Ausdruck "Garbage in - Garbage Out", dass heißt benutzt man fehlerhafte Daten oder welche, die Vorurteile beinhalten, erhält man fehlerhafte oder mit Vorurteilen belastete Ergebnisse.
-
-\section{Probleme durch Fehlverhalten von künstlichen neuronalen Netzen}
-Durch die bereits genannten Beispielen in den vorherigen Kapiteln, werden Probleme deutlich. Das Fehlverhalten einer KI kann zu Diskriminierung einzelner Geschlechter/Gruppen oder Kulturen führen. Ein anderes Problem wird aber deutlich, wenn man ein Beispiel aus der Medizin anschaut.
-\\\\
-In der USA existiert eine KI, welche die Gesundheitsversorgung möglichst effektiv gestalten soll. Diese soll eine Person mit besonderem Pflegebedarf identifizieren. Eine im Oktober 2019 veröffentlichte Studie zeigt allerdings auf, dass Menschen mit Afroamerikanischen Wurzeln bei gleicher Krankheitsschwere, seltener für extra Pflege vorgeschlagen wurden als Weiße\cite{Gesundheitsversorgung}. \\
-Dies führt dazu das Afroamerikaner eine niedrigere Gesundheitsversorgung haben als andere und dies kann zu großen Gesundheitliche Problemen führen.
-\\\\
-Ein weiteres Beispiel nannte das Heise Magazin 2017\cite{heise}. Das Online Magazin erwähnte die Software COMPAS, welche auch in der USA verwendet wird und dort in mehreren Bundesstaaten zum Einsatz kommt. COMPAS steht für „Correctional Offender Management Profiling for Alternative Sanctions“ und gibt vor, das Rückfallrisiko von Straftätern verlässlich berechnen zu können.
-\\\\
-COMPAS errechnet für jeden Delinquenten einen individuellen Risk Score, welcher auf das spätere Strafmaß Auswirkungen hat.
-In die Risikobeurteilung des Algorithmus fließen eigene Vorstrafen, eventuelle Vorstrafen naher Verwandter, Alkohol- und Drogenmissbrauch, soziale Bindungen, usw..
-\\\\
-Falls der Risk Score eines Verurteilten nun zwischen 1 und 10 ist, lässt der Richter keine Bewährung mehr zu sondern schickt ihn präventiv hinter Gitter.
-Das Problem hierbei ist, dass der Algorithmus nicht offen gelegt wird und somit wird dem Algorithmus blind vertraut, ohne überprüfen zu können, wie dieser Score zustande kam.
-\\\\
-Wie Heise Magazine weiter berichtete, belegte allerdings 2016 eine Studie der Investigativ-Plattform ProPublica, dass die COMPAS-Algorithmen beispielsweise schwarzen Angeklagten grundsätzlich ein höheres Risiko attestieren, erneut straffällig zu werden, als dies tatsächlich der Fall ist. Bei weißen Angeklagten ist es hingegen genau umgekehrt.
-\\\\
-Falls solche Algorithmen blind vertraut werden, kann dies zu gravierenden Folgen eines Verdächtigen führen, welcher zu unrecht ein ganzes Leben hinter Gitter sitzen könnte.
-
 
 \backmatter
 %%%%%%%%%%%%%%%%%%%
 %% create tables list
 %%%%%%%%%%%%%%%%%%%
-\listoftables
+%\listoftables
 
 %%%%%%%%%%%%%%%%%%%
 %% create listings list

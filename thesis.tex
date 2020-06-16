@@ -303,7 +303,7 @@ Am Anfang ist das künstliche neuronale Netz meist mit relativ zufälligen Werte
 \\\\
 Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur die Eingabe mit der Ausgabe mit Hilfe von Testdaten verglichen werden, um auf die Korrektheit der Aufgabenlösung zu prüfen. Ziel ist es mit möglichst vollständigen Trainingsdaten das Netzwerk so einzustellen, dass diese nicht nur die Trainingsdaten und Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
 \\\\
-Um eine Aufgabe, wie 'Gesicht in Bild erkennen', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen.
+Um eine Aufgabe, wie ''Gesicht in Bild erkennen'', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen.
 \\\\
 Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich, sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich, je nach Anwendungsfall, ab einer gewissen Erfolgsrate das Training zu beenden oder neue Trainings- und Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning ein trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
 
@@ -311,7 +311,7 @@ Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willk�
 \label{section:lossFunction}
 
 Alle Modelle benötigen eine Loss-Funktion(Verlustfunktion), um später trainiert werden zu können. Die Verlustfunktion bestimmt die Differenz zwischen der Prognose, die das Modell liefert, und dem vorgegebenen Label. Sie muss für die Menge aller Daten berechnet werden und beschreibt damit, wie gut das Modell die Trainingsdaten abbildet. 
-% Schreiben
+% vll noch Beispiel dazu
 %https://www.ai-united.de/arbeitsweise-eines-neuronalen-netzwerkes-algorithmen-training-aktivierungs-und-verlustfunktionen/
 %https://www.sigs-datacom.de/trendletter/2018-06/12-werkzeugneutrale-einfuehrung-in-maschinelles-lernen.html
 \subsection{Informationsverlust zwischen Schichten}
@@ -331,30 +331,32 @@ Arten
 
 \section{Daten}
 \label{section:Data}
-Erst durch eine Kombination aus Algorithmen und Daten wird die Entscheidungsfindung unterstützt. Wie ein menschlicher Entscheider können auch Algorithmen wegen unvollständiger oder fehlerhafter Daten zu fehlerhaften Entscheidungen gelangen.
-Deswegen sollte bei der Datenaufbereitung bereits darauf geachtet werden die richtige Woge zwischen Quantität und Qualität zu finden.
+Erst durch eine Kombination aus Algorithmen und Daten wird die Entscheidungsfindung unterstützt. Wie ein menschlicher Entscheider können auch Algorithmen wegen unvollständiger oder fehlerhafter Daten zu fehlerhaften Entscheidungen gelangen. Eine gute Datenqualität und viele Daten ist daher unabdingbar. Auch die richtige Unterteilung zwischen Test- und Trainingsdaten spielt darf bei maschinelles Lernen nicht vergessen werden.
+
+\subsection{Datenaufbereitung}
+\label{section:dataSetup}
+Der Erfolg einer KI hängt von den Daten ab mit welchen dieses Modell trainiert und getestet wird. Zuerst müssen Daten gesammelt werden, welche zu dem Zweck der KI passen. Soll eine System Äpfel und Birnen unterscheiden, müssen Bilder gesammelt werden, welche Birnen und Äpfel enthalten.
+\\\\
+Um nun ein Modell trainieren zu können, müssen die Daten in Trainings- und Testdaten unterteilt werden. Die Testdaten werden nicht für das Training benutzt, sondern dienen dazu, das fertige System gegen unbekannte Daten zu testen, mit welchen es zuvor nicht trainiert wurde. Meist werden 10-20\% der Daten als Testdaten reserviert. Die Trainingsdaten werden genutzt um das Modell zu trainieren.
+\\\\
+Bei überwachtem Lernen müssen die Daten zuvor ein Label enthalten, welches der KI mitteilt um was es sich bei diesem Datensatz enthält, z.B. muss ein Birne auch als solche gekennzeichnet werden.
+\\\\
+Ein Datensatz besteht grundsätzlich aus 2 Elementen. Beim überwachten Lernen wird wie bereits genannt, das Label welches man Vorhersagen möchte, benötigt. Anhand unseres Beispiels wäre ein Attribut welches dem Programm sagt, ob es sich auf dem Bild um eine Birne oder einen Apfel handelt. Damit die Maschine leichter Muster erkennen kann, werden dazu weitere Eigenschaften (z.B. Farbe, Größe) benötigt. Diese helfen dem Modell z.B. das Label richtig vorherzusagen.
 
 \subsection{Quantität}
 \label{section:DataQuantity}
-Je breiter, also je mehr Variablen in den Datensätzen existieren, umso komplexer wird die Aufgabe. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
+Je breiter, also je mehr unterschiedliche Eigenschaften in den Datensätzen existieren, umso komplexer wird das Modell. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
 \\\\
 Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet und zusammengeführt werden. Dadurch verfügt das Fahrzeug jederzeit über ein präzises Abbild der realen Verkehrsbedingungen, kann sich selbst in diesem Umfeld verorten und darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen \cite{autonomesFahren}.
 \\\\
 Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
-\\\\
-Da aber nicht immer die Anwendungen komplex sind, sind nicht immer viele Datensätze notwendig. Bei geringerer Komplexität reichen somit weniger Datensätze aus um gute Ergebnisse zu erreichen.
 
 \subsection{Qualität}
 \label{section:DataQuality}
-Auch die Qualität der Trainingsdaten spielt eine wichtige Rolle. Die Datenqualität zeichnet sich dadurch aus, dass Daten den Zweck in einem bestimmten Zusammenhang erfüllen müssen. 
+Auch die Qualität der Daten ist essentiell, denn meist sind die Daten zu Beginn nicht gelabelt. Daher ist das Sammeln und vorbereiten das wichtigste beim maschinellen Lernen. Dabei sollten die Daten zusammenhängend und vollständig sein.
 \\\\
-Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden, welche auch als Panzer gekennzeichnet wurden.
-Würden nun Bilder von Autos mit in die Testdaten gelangen, welche auch zuvor als Panzer gekennzeichnet wurden, würde die Maschine diese Autos bei unbekannten Bildern auch als Panzer erkennen.
-\\\\
-Daher ist es für den Erfolg der Daten die Qualität dieser sehr wichtig. Hierbei sollten somit keine unzweideutigen Stammdaten existieren.
+Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden und mit Bildern ohne Panzern.
 
-%% Vollständigkeit erwähnen, z.B. auch andere Kulturen beachten usw.
-%% Panzer problem in Unvollständigkeit der Daten aufgreifen. Und sagen, dass natürlich die Qualität nicht so stimmen muss, sondern auch solche Fälle abdeckt, dass ein Panzer bei unterschiedlichsten Wetter gefahren werden kann.
 
 \chapter{Bias Entstehung}
 Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten entstehen, diese können unterschiedlicher Natur sein und an unterschiedlichen Stellen, in der in Abbildung \ref{fig:dataBias} gezeigten, vereinfachten Machine Learning Pipeline, auftreten. Dabei möchten wir auf die Daten eingehen, welche bei der Eingabe zu Bias führen können und menschliche Fehler verdeutlichen, welche bei der Verarbeitung und der Ausgabe auftreten können. Zuletzt möchten wir Adversial Attacks ansprechen, welche zu weiteren Verzerrungen führen können.
@@ -414,7 +416,7 @@ Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bi
 \subsection{Under-/ Overfitting}
 \label{section:OverUnderfitting}
 
-Wie in \ref{section:DataQuantity} bereits beschrieben, spielt die Datenquantität eine große Rolle beim maschinellen Lernen. Die beiden Fehler die allerdings dadurch entstehen können, sind nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine Relevanten Lerninformationen ziehen zu können. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
+Ein komplexer Datensatz wie in Absatz \ref{section:DataQuantity} kann beim überwachten Lernen dazu führen, wenn ein Modell zu gut oder zu schlecht trainiert wurde, nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine Relevanten Lerninformationen ziehen zu können. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
 
 \begin{figure}[h]
 	\begin{center}
@@ -424,11 +426,14 @@ Wie in \ref{section:DataQuantity} bereits beschrieben, spielt die Datenquantitä
 	\end{center}
 \end{figure}
 
-Der linke Graph aus \ref{fig:overUnderFitting} zeigt eine Linie, welche viele Punkte falsch abdeckt, da die Linie zu einfach ist. Solche Modelle neigen somit zur Unteranpassung, bzw. zu einer hohen Verzerrung der Vorhersagen.
+Die Abbildung \ref{fig:overUnderFitting} zeigt 3 Graphen, die das Problem erläutern. Jeder Graph visualisiert, wie gut das Modell anhand der Trainingsdaten die einzelnen Punkte in 2 Cluster unterteilt.
 \\\\
-Der Graph auf der rechten Seite hingegen sagt alle Punkte richtig vorher. Unter dieser Annahme könnte man denken es wäre ein sehr guter Graph. Das Problem hierbei ist allerdings, dass alle Punkte mit vorher gesagt werden, auch diese die Grundrauschen oder Outliner sind. Aus diesem Grund lernt die Maschine nicht vorhandene Muster kennen und liefert aufgrund ihrer Komplexität schlechte und abweichende Vorhersagen aus.\cite{overUnderfitting}
+Das Modell ist unter angepasst, wenn wie im linken Graphen das Model zu schlecht mit den Trainingsdaten abgestimmt wurde. Hier wurden zu wenig Punkte richtig abgedeckt und es konnten zu wenige Muster zwischen den Eigenschaften und dem Label erkannt werden. Solche Modelle neigen zu hohen Verzerrungen der Vorhersagen.
 \\\\
-Ein Beispiel für Overfitting ist, wenn durch maschinelles Lernen ein System einen Schrank auf einem Bild erkennen soll. Diesem System werden nun alle Möglichkeiten an Schränke antrainiert. Ein Schrank kann sehr ausgefallen sein und somit lernt das System sehr viele unterschiedliche Schränke kennen und wenn nun ein Schrank z.B. aus Autoteilen hergestellt wurde. Könnte es passieren, dass auf einem Bild ein Auto als Schrank erkannt wird, obwohl in diesem Bild kein Schrank vorhanden ist.
+Der Graph auf der rechten Seite hingegen sagt alle Punkte richtig vorher. Unter dieser Annahme könnte man denken es wäre ein sehr guter Graph. Hier spricht man allerdings von einer Überanpassung, da das Modell zu gut auf die Trainingsdaten abgestimmt ist, und bei Testdaten schlechte Ergebnisse liefern wird. Ein Grund dafür ist, dass alle Punkte mit vorher gesagt werden, auch diese die Grundrauschen oder Outliner sind. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
+\\\\
+
+Ein Beispiel für z.B. Overfitting ist, wenn durch maschinelles Lernen ein System einen Schrank auf einem Bild erkennen soll. Nun werden zu viele Eigenschaften mit erfasst, welche jede Art an Schränken erkennen soll, auch solche die z.B. Autos ähnlich sehen. Daraufhin könnte es passieren, dass das Modell die Trainingsdaten sehr gut erkennt und sobald man anfängt mit realen Daten zu testen, auf welchen auch Autos vorkommen können, könnte das Programm Autos als Schränke erkennen, da das Modell zuvor zu komplex war.
 \\\\
 Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt.
 
@@ -538,7 +543,7 @@ Mit diesem Score lässt sich das beste Modell ermitteln und man verhindert unbew
 \section{Over- und Underfitting vermeiden}
 \label{section:preventData}
 
-Underfitting und Overfittung sind oft Fehler der Test-/Trainingsdaten Aufbereitung. Um Overfitting eventuell zu verhindern, kann ein einfacheres Ziel wie bereits in Absatz \ref{section:oneGoal} beschrieben, ausreichen. Dennoch gibt es Fälle wo das Ziel zu komplex ist oder zu wenig Daten vorhanden sind, um Underfitting oder Overfitting zu verhindern.
+Underfitting und Overfittung sind oft Fehler der Test-/Trainingsdaten Aufbereitung. Um Overfitting zu verhindern, kann ein einfacheres Ziel wie bereits in Absatz \ref{section:oneGoal} beschrieben, ausreichen. Dennoch gibt es Fälle wo das Ziel zu komplex ist oder zu wenig Daten vorhanden sind, um Underfitting oder Overfitting zu verhindern.
 
 \subsection{Underfitting}
 
@@ -558,9 +563,9 @@ Aber hier muss aufgepasst werden. Denn wie in der Abbildung \ref{fig:polyReg} zu
 
 \subsection{Overfitting}
 
-Eine Möglichkeit um Overfitting zu vermeiden bietet die bereits in Abschnitt \ref{section:validate} Cross Validierung. Eine andere kann durch das erhöhen der Flexibilität des Models erreicht werden. Dabei sollte dies aber in Grenzen bleiben, da ansonsten das gleiche wie bei Underfitting passiert. Um die Flexibilität zu erhöhen können Regulierungstechniken benutzt werden.
+Eine Möglichkeit um Overfitting zu vermeiden bietet die bereits in Abschnitt \ref{section:validate} Cross Validierung. Eine andere kann durch das erhöhen der Flexibilität des Models erreicht werden. Um die Flexibilität zu erhöhen können Regulierungstechniken benutzt werden.
 \\\\
-Durch die Regularisierung wird wenn die Komplexität eines Models zunimmt, eine Strafe angehängt. Der Regularisierungsparameter (${\lambda}$) bestraft alle Parameter mit Ausnahme des markierten Bereichs in Abbildung \ref{fig:regFunc}, sodass das Modell die Daten verallgemeinert und nicht überanpasst.
+Durch die Regulierung wird wenn die Komplexität eines Models zunimmt, eine Strafe angehängt. Der Regulierungsparameter (${\lambda}$) bestraft alle Parameter mit Ausnahme des markierten Bereichs in Abbildung \ref{fig:regFunc}, sodass das Modell die Daten verallgemeinert und nicht überanpasst.
 
 \begin{figure}[h]
 	\begin{center}

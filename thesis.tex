@@ -336,27 +336,26 @@ Ein Datensatz besteht grundsätzlich aus 2 Elementen. Beim überwachten Lernen w
 
 \subsection{Quantität}
 \label{section:DataQuantity}
-Je breiter, also je mehr unterschiedliche Eigenschaften in den Datensätzen existieren, umso komplexer wird das Modell. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
+Je mehr unterschiedliche Eigenschaften in den Datensätzen existieren, umso komplexer wird das Modell. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System, alle Algorithmen korrekt einstellt.
 \\\\
-Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet und zusammengeführt werden. Dadurch verfügt das Fahrzeug jederzeit über ein präzises Abbild der realen Verkehrsbedingungen, kann sich selbst in diesem Umfeld verorten und darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen \cite{autonomesFahren}.
-%Je breiter, also je mehr Variablen in den Datensätzen existieren, umso komplexer wird die Aufgabe. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System immer besser reagiert.
-Je mehr Variablen in einem Datensatz existieren, umso komplexer wird die Aufgabe. Je komplexer die Aufgabe, umso mehr Daten benötigt das zu trainierende System, um alle Algorithmen korrekt einzustellen.
-\\\\
-%Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet und zusammengeführt werden. Dadurch verfügt das Fahrzeug jederzeit über ein präzises Abbild der realen Verkehrsbedingungen, kann sich selbst in diesem Umfeld verorten und darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen \cite{autonomesFahren}.
-%Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
-%\\\\
-%Da aber nicht immer die Anwendungen komplex sind, sind nicht immer viele Datensätze notwendig. Bei geringerer Komplexität reichen somit weniger Datensätze aus um gute Ergebnisse zu erreichen.
 Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet werden. Die KI im Fahrzeug muss jederzeit über ein präzises Abbild der realen Verkehrsbedingungen verfügen, um darauf basierend in jeder Fahrsituation die richtige Entscheidung zu treffen \cite{autonomesFahren}.
 \\\\
-Je nach Komplexität der Anwendungen werden mehr oder weniger Datensätze benötigt. Generell kann man sagen, dass mit zu wenigen Trainingsdaten KNN schwertut Muster in den Daten zu verallgemeinern und dadurch fehleranfälliger wird.
-Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
+Je nach Komplexität der Anwendungen werden mehr oder weniger Datensätze benötigt. Generell kann man sagen, dass mit zu wenigen Trainingsdaten KNN schwerer Muster in den Daten erkennt und dadurch fehleranfälliger wird.
+
+%Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
 
 \subsection{Qualität}
 \label{section:DataQuality}
+%David neu
 Auch die Qualität der Daten ist essentiell, denn meist sind die Daten zu Beginn nicht gelabelt. Daher ist das Sammeln und vorbereiten das wichtigste beim maschinellen Lernen. Dabei sollten die Daten zusammenhängend und vollständig sein.
 \\\\
 Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden und mit Bildern ohne Panzern.
-Mit der Qualität von Trainingsdaten steht und fällt eine KI. \\Um hohe Datenqualität zu erreichen muss man zum einen Zugang zu diesen Daten besitzen. Diese Daten müssen in sich Widerspruchsfrei sein und möglichst generalisiert. Natürlich müssen auch die Dateninhalte fachlich Korrekt sein und benötigen beim überwachten Lernen das dazugehörige korrekte Label. Sind Daten nicht vollständig und es fehlen bestimmte Anwendungsfälle, kann die KI diese in der Praxis nicht korrekt beantworten, siehe \ref{section:uncompleteData}.
+
+% Sebastian
+Mit der Qualität von Trainingsdaten steht und fällt eine KI.
+\\
+Um hohe Datenqualität zu erreichen muss man zum einen Zugang zu diesen Daten besitzen. Diese Daten müssen in sich Widerspruchsfrei sein und möglichst generalisiert. Natürlich müssen auch die Dateninhalte fachlich Korrekt sein und benötigen beim überwachten Lernen das dazugehörige korrekte Label. Sind Daten nicht vollständig und es fehlen bestimmte Anwendungsfälle, kann die KI diese in der Praxis nicht korrekt beantworten, siehe \ref{section:uncompleteData}.
+
 % "Die Qualität kann durch Ihren Zugang zu Informationen (Systemzugang, Sicherheit, Stabilität), die Datenrepräsentation (Interpretierbarkeit, Verständlichkeit, Manipulierbarkeit, Integrität und Widerspruchsfreiheit), den Informationskontext (Relevanz, Zusatznutzen, Aktualität, Vollständigkeit, Informationsumfang) und seinen inneren Wert (Korrektheit, Objektivität, Glaubwürdigkeit, Reputation) definiert werden." Quelle: https://qymatix.de/de/predictive-analytics-methoden-datenqualitaet/
 
 %Alt:

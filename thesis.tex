@@ -330,7 +330,7 @@ Der Erfolg einer KI hängt von den Daten ab mit welchen dieses Modell trainiert 
 \\\\
 Um nun ein Modell trainieren zu können, müssen die Daten in Trainings- und Testdaten unterteilt werden. Die Testdaten werden nicht für das Training benutzt, sondern dienen dazu, das fertige System gegen unbekannte Daten zu testen, mit welchen es zuvor nicht trainiert wurde. Meist werden 10-20\% der Daten als Testdaten reserviert. Die Trainingsdaten werden genutzt um das Modell zu trainieren.
 \\\\
-Bei überwachtem Lernen müssen die Daten zuvor ein Label enthalten, welches der KI mitteilt um was es sich bei diesem Datensatz enthält, z.B. muss ein Birne auch als solche gekennzeichnet werden.
+Bei überwachtem Lernen müssen die Daten zuvor ein Label enthalten, welches der KI mitteilt um was es sich bei diesem Datensatz handelt, z.B. muss ein Birne auch als solche gekennzeichnet werden.
 \\\\
 Ein Datensatz besteht grundsätzlich aus 2 Elementen. Beim überwachten Lernen wird wie bereits genannt, das Label welches man Vorhersagen möchte, benötigt. Anhand unseres Beispiels wäre ein Attribut welches dem Programm sagt, ob es sich auf dem Bild um eine Birne oder einen Apfel handelt. Damit die Maschine leichter Muster erkennen kann, werden dazu weitere Eigenschaften (z.B. Farbe, Größe) benötigt. Diese helfen dem Modell z.B. das Label richtig vorherzusagen.
 
@@ -338,36 +338,19 @@ Ein Datensatz besteht grundsätzlich aus 2 Elementen. Beim überwachten Lernen w
 \label{section:DataQuantity}
 Je mehr unterschiedliche Eigenschaften in den Datensätzen existieren, umso komplexer wird das Modell. Und diese Komplexität der Probleme erfordert, dass die Menge an Daten entsprechend groß sein muss, damit das zu trainierende System, alle Algorithmen korrekt einstellt.
 \\\\
-Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet werden. Die KI im Fahrzeug muss jederzeit über ein präzises Abbild der realen Verkehrsbedingungen verfügen, um darauf basierend in jeder Fahrsituation die richtige Entscheidung zu treffen \cite{autonomesFahren}.
+Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet werden. Die KI im Fahrzeug muss jederzeit über ein präzises Abbild der realen Verkehrsbedingungen verfügen, um darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen zu können \cite{autonomesFahren}.
 \\\\
-Je nach Komplexität der Anwendungen werden mehr oder weniger Datensätze benötigt. Generell kann man sagen, dass mit zu wenigen Trainingsdaten KNN schwerer Muster in den Daten erkennt und dadurch fehleranfälliger wird.
+Je nach Komplexität der Anwendungen werden mehr oder weniger Datensätze benötigt. Generell kann man sagen, dass mit zu wenigen Trainingsdaten, ein KNN schwerer Muster in den Daten erkennt und dadurch fehleranfälliger wird.
 
 %Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
 
 \subsection{Qualität}
 \label{section:DataQuality}
-%David neu
-Auch die Qualität der Daten ist essentiell, denn meist sind die Daten zu Beginn nicht gelabelt. Daher ist das Sammeln und vorbereiten das wichtigste beim maschinellen Lernen. Dabei sollten die Daten zusammenhängend und vollständig sein.
-\\\\
-Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden und mit Bildern ohne Panzern.
 
-% Sebastian
-Mit der Qualität von Trainingsdaten steht und fällt eine KI.
-\\
-Um hohe Datenqualität zu erreichen muss man zum einen Zugang zu diesen Daten besitzen. Diese Daten müssen in sich Widerspruchsfrei sein und möglichst generalisiert. Natürlich müssen auch die Dateninhalte fachlich Korrekt sein und benötigen beim überwachten Lernen das dazugehörige korrekte Label. Sind Daten nicht vollständig und es fehlen bestimmte Anwendungsfälle, kann die KI diese in der Praxis nicht korrekt beantworten, siehe \ref{section:uncompleteData}.
-
-% "Die Qualität kann durch Ihren Zugang zu Informationen (Systemzugang, Sicherheit, Stabilität), die Datenrepräsentation (Interpretierbarkeit, Verständlichkeit, Manipulierbarkeit, Integrität und Widerspruchsfreiheit), den Informationskontext (Relevanz, Zusatznutzen, Aktualität, Vollständigkeit, Informationsumfang) und seinen inneren Wert (Korrektheit, Objektivität, Glaubwürdigkeit, Reputation) definiert werden." Quelle: https://qymatix.de/de/predictive-analytics-methoden-datenqualitaet/
-
-%Alt:
-
-%Auch die Qualität der Trainingsdaten spielt eine wichtige Rolle. Die Datenqualität zeichnet sich dadurch aus, dass Daten den Zweck in einem bestimmten Zusammenhang erfüllen müssen.
-%\\\\
-%Dass heißt wenn nun die KI auf Bildern z.B. einen Panzer erkennen soll\cite{panzer}, muss die KI mit Bildern von Panzern trainiert werden, welche auch als Panzer gekennzeichnet wurden.
-%Würden nun Bilder von Autos mit in die Testdaten gelangen, welche auch zuvor als Panzer gekennzeichnet wurden, würde die Maschine diese Autos bei unbekannten Bildern auch als Panzer erkennen.
-%\\\\
-%Daher ist es für den Erfolg der Daten die Qualität dieser sehr wichtig. Hierbei sollten somit keine unzweideutigen Stammdaten existieren.
-
-%% Panzer problem in Unvollständigkeit der Daten aufgreifen. Und sagen, dass natürlich die Qualität nicht so stimmen muss, sondern auch solche Fälle abdeckt, dass ein Panzer bei unterschiedlichsten Wetter gefahren werden kann.
+Die Qualität der Daten ist für maschinelles Lernen essentiell. Eine hohe Datenqualität wird erreicht, indem man Widersprüchlichkeiten innerhalb der Datenbeständen vermeidet, die Interpretierbarkeit der Daten gewährleistet, die Manipulationsgefahr der Daten verhindert und die Integrität dieser sicherstellt\cite{dataQuality}.
+Um das umsetzen zu können wird ein Zugang zu den Daten benötigt, damit diese kontrolliert und angepasst werden können.\\
+Beim überwachten Lernen wird zudem wie bereits in Absatz \ref{section:dataSetup} beschrieben, ein korrektes Label gebraucht. Sind Daten nicht vollständig und fehlen bestimmte Anwendungsfälle, ethische Gruppe, Geschlechter, kann die KI diese in der Praxis nicht korrekt beantworten, siehe Abschnitt \ref{section:uncompleteData}.
+% https://qymatix.de/de/predictive-analytics-methoden-datenqualitaet/
 
 \chapter{Bias Entstehung}
 Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten entstehen, diese können unterschiedlicher Natur sein und an unterschiedlichen Stellen, in der in Abbildung \ref{fig:dataBias} gezeigten, vereinfachten Machine Learning Pipeline, auftreten. Dabei möchten wir auf die Daten eingehen, welche bei der Eingabe zu Bias führen können und menschliche Fehler verdeutlichen, welche bei der Verarbeitung und der Ausgabe auftreten können. Zuletzt möchten wir Adversial Attacks ansprechen, welche zu weiteren Verzerrungen führen können.
@@ -388,41 +371,35 @@ Im ersten Kapitel möchten wir erläutern, welche Bias, durch z.B. eine schlecht
 \label{section:uncompleteData}
 % Panzer Beispiel, fällt in die Kategorie 'Falsches Lernen'
 % Unvollständigkeit lieber mit dem Beispiel von Gesichtserkennung iPhone nehmen
-Zuerst möchten wir auf ein Problem aufmerksam machen, welches zu Verzerrungen führt, anhand des Beispiels aus \ref{section:DataQuality}.
+Daten können unvollständig sein, indem ein Trainingsdatensatz z.B. nur einen Teil der Bevölkerung umfasst, während ein anderer Teil unterrepräsentiert ist. Dies nennt man eine Stichproben-Voreingenommenheit.
 \\\\
-Das Pentagon hatte eine Software angefordert, welche Panzer in der Natur erkennen sollte. KI Forscher haben daraufhin ihr neuronales Netz mit Fotos von getarnten Panzern trainiert, und mit Landschaftsfotos ohne getarnte Panzer. Dadurch sollte gewährleistet werden, dass die Software Panzer auf unbekannten Bildern erkennt.
+Ein Beispiel dafür lieferte Apple 2017 mit der damals neuen FaceID des IPhone X.
+Diese konnte zu Beginn durch Zwillinge, 3D Masken oder auch eng verwandte Personen ausgetrickst werden. Das größte Problem hierbei war allerdings, dass die Software mit Trainingsdaten trainiert wurden, die eine komplette ethische Gruppe ausgeschlossen hatten. So konnten nicht miteinander verwandte Chinesen das selbe Handy entsperren und machten somit die Nutzung dieser FaceID nutzlos und unsicher.
 \\\\
-Bei internen Test funktionierte das System sehr gut, doch bei den realen Test schien die Software nicht zu funktionieren. Das Problem hierbei lag daran, dass diese KI zuvor mit Trainingsdaten gefüttert wurde, welche nur bei schönem Wetter fotografiert wurden (siehe \hyperref{fig:tank}). Auch die internen Testdateien erfüllten dieses Kriterium. Die realen Test hingegen wurden bei jedem Wetter ausgetragen.
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=15cm]{Bilder/tank.png}
-		\caption{Panzer bei bewölkten Wetter vs Landschaft ohne Panzer bei schönem Wetter}
-		\label{fig:tank}
-	\end{center}
-\end{figure}
-Die Software hatte somit trainiert, schlechtes und gutes Wetter auseinander zu halten und nicht Panzer zu erkennen. Das Problem hierbei lag an unvollständigen Daten, hier wurden zu wenig unterschiedliche Fälle trainiert und dadurch wurde ein Bias erzeugt, welcher die Nutzung der Software unmöglich machte.
+Das ist ein sehr kritisches Beispiel eines unvollständigen Datensatzes, welches verdeutlicht, dass es wichtig ist alle Gruppen zu beachten. Ein weiteres Problem das zu unvollständigen Daten führt, ist wenn bei der Datenpflege viele Werte vergessen werden auszufüllen. Dies kann durch eine zuvor fehlerhafte Dateneingabe erfolgt sein.
 
 \subsection{Garbage in - Garbage out}
 \label{section:DataGarbage}
 Eine Maschine kennt grundsätzlich keinen Unterschied zwischen Schwarz und Weiß, Mann und Frau oder Jung und Alt. Erst durch eine KI lernt eine Maschine Verhalten und Muster kennen. Hierfür werden wie bereits in \ref{section:Data} beschrieben Daten benötigt, welche die richtige Qualität benötigen um die Ergebnisse zu bestimmen.
 \\\\
-Bleiben fehlerhafte Daten unentdeckt, wird ein System trainiert, welches in Zukunft falsche Ergebnisse liefern wird. Das Beispiel aus \ref{section:DataQuality} erläutert dieses Problem. Möchte ich ein System trainieren, welches Panzer identifizieren kann, muss ich diesem System beibringen Panzer zu erkennen. Füttere ich dieses nun mit Autos und markiere diese versehentlich als Panzer, identifiziert das System daraufhin diese nicht als Autos sondern als Panzer.
+Bleiben fehlerhafte Daten unentdeckt oder werden bei den Trainingsdaten falsch gekennzeichnet, wird ein System trainiert, welches in Zukunft falsche Ergebnisse vorhersagen wird. In der Autoindustrie z.B. kennzeichneten in Testreihen für autonomes Fahren, Probanden auf Grund von Unachtsamkeit, einen Menschen am Straßenrand als Bild einer Tonne ab. Das System wurde anhand solcher Kennzeichnungen trainiert, reagierte daraufhin folgerichtig und wertet in einer kritischen Verkehrssituation das Überfahren einer vermeintlichen Tonne als verhältnismäßigen Alternative, die möglichst wenig Schaden anrichtet \cite{trainingsDataKI}.
 \\\\
-Bei der traditionellen  Datenanalyse können solche schlechte Daten nachträglich entfernt werden. Hat allerdings eine Maschine durch maschinelles Lernen etwas gelernt, wird es schwer dies wieder zu verlernen. Denn ab einem Gewissen Grad wird es nahezu unmöglich, herauszufinden, auf welche Datenelemente die Vorhersagen basieren. Ähnlich wie beim menschlichen Gehirn.\\
+Bei der traditionellen  Datenanalyse können solche schlechte Daten nachträglich entfernt werden. Hat allerdings eine Maschine durch maschinelles Lernen etwas gelernt, wird es schwer dies wieder zu verlernen. Denn ähnlich wie beim menschlichen Gehirn, wird es ab einem Gewissen Grad nahezu unmöglich, herauszufinden, auf welche Datenelemente die Vorhersagen basieren.\\
 Baut unser erlerntes Wissen in Teilen auf falsche Grundannahmen oder Informationsbausteinen auf, verliert der ganze Komplex seinen Wert und wir müssen von neu alles erlernen.
 \\\\
 Diese Problem wird in der KI als "Garbage in - Garbage out" (Müll rein, Müll raus) bezeichnet.
 
-\subsection{Bias in Trainings-/Testdaten}
+\subsection{Historische Verzerrung}
 \label{section:biasInTest}
 % Diskriminierung durch Reproduktion von Stereotypen
-Ca. 4 Jahre entwickelte Amazon einen Algorithmus, welcher unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, verdeutlichte dabei aber ein grundlegendes Problem des maschinellen Lernens in seiner aktuellen Form.\\\\
+Eine historische Verzerrung liegt vor, wenn ein Algorithmus anhand eines alten Datensatzes trainiert wird, der vergangene Werte und Moralvorstellungen (etwa die Rolle der Frau) aufgreift.%Verlinkung auf https://www.lernen-wie-maschinen.ai/ki-pedia/was-ist-algorithmische-voreingenommenheit-algorithmic-bias/
+\\\\
+Ein Beispiel liefert Amazons Algorithmus welcher 2014 entwickelte wurde und unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, verdeutlicht dabei aber das Problem der historischen Verzerrung welches beim maschinellen Lernen auftreten kann.
+\\\\
 Der Algorithmus hatte mit den Datensätzen der angenommen Bewerber trainiert und lernte daraus welche Eigenschaften Amazon bevorzugt. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, waren in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden, selbst ohne die Angabe eines Geschlechtes und dieses z.B. nur durch Frauenvereine erkennbar wurde. Die KI blieb diesen Auswahlkriterien treu und bevorzugte vorwiegend Männer.\cite{amazon}
 \\\\
-Die Hoffnung solcher Anwendungen liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine wie in \ref{section:DataGarbage} bereits genannt keine Unterschiede kennt. Doch in diesem Beispiel beinhalteten die Trainingsdaten bereits Vorurteile und führten somit zu einem Fehlverhalten des Systems.
+Die Hoffnung solcher Anwendungen liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine wie in \ref{section:DataGarbage} bereits genannt, grundsätzlich keine Unterschiede kennt. Doch in diesem Beispiel beinhalteten die Trainingsdaten bereits Vorurteile und führten somit zu einem Fehlverhalten des Systems.
 \\\\
-%Beispiel von Tay The Chatbot zeigen, für Beispiel Bias in Testdaten?
 An diesem Beispiel wird deutlich wie zentral die Daten für eine KI sind.
 Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bias enthalten. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung auch als WEIRD Samples (western, educated, industrialized, rich and democratic societies) bezeichnet\cite{BiasInKi}.
 
@@ -432,11 +409,9 @@ Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bi
 
 Ein komplexer Datensatz wie in Absatz \ref{section:DataQuantity} kann beim überwachten Lernen dazu führen, wenn ein Modell zu gut oder zu schlecht trainiert wurde, nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine Relevanten Lerninformationen ziehen zu können. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
 
-Wie in \ref{section:DataQuantity} bereits beschrieben, spielt die Datenquantität eine große Rolle beim maschinellen Lernen. Die beiden Fehler, die allerdings dadurch entstehen können, sind nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine relevanten Lerninformationen ziehen zu können. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
-
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=15cm]{Bilder/overUnderfitting.png}
+		\includegraphics[width=12cm]{Bilder/overUnderfitting.png}
 		\caption{Over- und Underfitting}
 		\label{fig:overUnderFitting}
 	\end{center}
@@ -448,7 +423,6 @@ Das Modell ist unter angepasst, wenn wie im linken Graphen das Model zu schlecht
 \\\\
 Der Graph auf der rechten Seite hingegen sagt alle Punkte richtig vorher. Unter dieser Annahme könnte man denken es wäre ein sehr guter Graph. Hier spricht man allerdings von einer Überanpassung, da das Modell zu gut auf die Trainingsdaten abgestimmt ist, und bei Testdaten schlechte Ergebnisse liefern wird. Ein Grund dafür ist, dass alle Punkte mit vorher gesagt werden, auch diese die Grundrauschen oder Outliner sind. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
 \\\\
-
 Ein Beispiel für z.B. Overfitting ist, wenn durch maschinelles Lernen ein System einen Schrank auf einem Bild erkennen soll. Nun werden zu viele Eigenschaften mit erfasst, welche jede Art an Schränken erkennen soll, auch solche die z.B. Autos ähnlich sehen. Daraufhin könnte es passieren, dass das Modell die Trainingsdaten sehr gut erkennt und sobald man anfängt mit realen Daten zu testen, auf welchen auch Autos vorkommen können, könnte das Programm Autos als Schränke erkennen, da das Modell zuvor zu komplex war.
 \\\\
 Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt.
@@ -464,9 +438,7 @@ Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen i
 	\end{center}
 \end{figure}
 
-Es gibt Bilder, welche selbst für den Menschen schwer zu differenzieren sind (Beispiel Abbildung \ref{fig:dogBagel}). Ist nun ein Mensch nicht aufmerksam und sagt der Maschine das ein Bagel ein Hund ist, erlernt die Maschine falsche Bilder und sagt zukünftig auch Bagel als Hunde vorher. Aber auch durch richtiges Kennzeichnen der Bilder durch den Menschen, können solche Bilder zu Verzerrungen führen.
-\\\\
-Ein weiteres Beispiel hierfür kommt aus der Autoindustrie. In Testreihen für autonomes Fahren stuften die Probanden (weil sie nicht aufmerksam waren) immer wieder das bestimmte Bild eines Menschen als Bild einer Tonne ein. Das System reagiert folgerichtig und wertet in einer kritischen Verkehrssituation das Überfahren einer (vermeintlichen) Tonne als verhältnismäßige Alternative, die möglichst wenig Schaden anrichtet \cite{trainingsDataKI}.
+Es gibt optische Täuschungen, die uns etwas anderes wahrnehmen lässt, als eigentlich auf dem Bild zu sehen ist. Anhand des Beispiels aus der Abbildung \ref{fig:dogBagel} wird deutlich, dass wenn die Farbe, Struktur und die Form identisch sind, die Wahrnehmung trüben kann und ein Bagel auf den ersten Blick als Hund identifiziert wird. Dass gilt auch für eine KI, denn eine KI lernt Muster, Strukturen und besondere Eigenschaften anhand der Bilder kennen. Hat man nicht genug Trainingsdaten, um der Maschine diese Unterschiede zu verdeutlichen, kann es hier auch ohne Falsche Eingaben zu einer Verzerrung der Ergebnisse führen.
 
 \section{Menschliche Fehler}
 Den Faktor Mensch darf man bei der Bias Entstehung nicht vergessen. Konzeptionelle Fehler mangels an Wissen oder einem Missgeschick heraus fördern Fehlverhalten. Markante Defizite können ein funktionale KI-Entstehung komplett verhindern, sind in der Regel noch die besseren Missstände. Denn kleine Mängel, die nicht sofort auffallen, können in Produktion fatale Folgen haben.
@@ -618,7 +590,6 @@ Thema ist größer als hier beschreibbar
 \\Evtl. Deep Fake
 http://iphome.hhi.de/samek/pdf/LapNCOMM19.pdf
 https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/
-
 
 
 \backmatter

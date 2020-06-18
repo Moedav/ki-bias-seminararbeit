@@ -220,9 +220,7 @@ Wesentlicher Bestandteil der Arbeit ist das Erläutern der "Biases", welche durc
 
 Der Begriff Voreingenommenheit muss bei der Nutzung von KI vorsichtig behandelt werden, denn eine Maschine besitzt grundsätzlich keinerlei Vorurteile und weiß zu Beginn nicht was richtig oder falsch ist. Hier spricht man daher von einem Fehlverhalten oder einer Verzerrung, wie diese Entstehen werden im Kapitel \ref{chapter:BiasEntstehung} erläutert.
 \section{Künstliche Intelligenz}
-Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) ist der Oberbegriff für ein Teilgebiet der Informatik. Dieses Gebiet befasst sich mit jeglicher Form von maschinelle intelligenten Verhalten und dem maschinellen Lernen, siehe Abbildung \ref{fig:Uebersicht}. Generell wird bei der künstlichen Intelligenz versucht biologische Intelligenz auf einen Computer zu simulieren. Dies basiert meist auf simplen Algorithmen, wodurch die Begrifflichkeit 'Intelligenz' in Bezug auf Maschinen öfter in Frage gestellt wird.
-% Oder hier irgenwas zitieren hier.
-% Das Rad muss nicht immer neu erfunden werden.
+Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) ist der Oberbegriff für ein Teilgebiet der Informatik. Dieses Gebiet befasst sich mit jeglicher Form von maschinelle intelligenten Verhalten und dem maschinellen Lernen, siehe Abbildung \ref{fig:Uebersicht}. Generell wird bei der künstlichen Intelligenz versucht biologische Intelligenz auf einen Computer zu simulieren. Dies basiert meist auf simplen Algorithmen, wodurch die Begrifflichkeit 'Intelligenz' in Bezug auf Maschinen öfter in Frage gestellt wird. \cite{Grundlagen}
 \begin{figure}[ht]
 	\begin{center}
 		\includegraphics[width=14cm]{Bilder/Abstraktionslevel_von_AI.jpg}
@@ -235,15 +233,14 @@ Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) ist der Oberb
 KIs werden grob in zwei Kategorien aufgeteilt.\\
 Die starke KI besitzt eine Intelligenz, die dem eines Menschens eben würdig ist bzw. sogar übersteigt. Ob eine starke KI überhaupt jemals erreicht wird, ist sehr umstritten. \\Schwache KI hingegen sind in unserem Alltag bereits vertreten. Schwache KI sind Algorithmen, die ganz spezielle Aufgaben lösen und die Arbeit von Menschen unterstützen.
 
-%%% Übergang auf nächsten Themen mit bezug auf Graphik
 \subsection{Maschine Learning}
 Machine Learning (ML) ist der Oberbegriff jeglicher Lernformen von künstlicher Intelligenz. Im Allgemeinen versucht eine KI neue Muster und Gesetzmäßigkeiten in Trainingsdaten zu erkennen, diese zu verallgemeinern und für neue Problemlösungen oder für die Analyse von bisher unbekannten Daten zu verwenden\cite{EliminateHumanBias}.
 \\\\Diese Arbeit speziell konzentriert sich auf Deep Learning, welches eine Variante zum Trainieren von neuronalen Netzen darstellt.
 \subsubsection{Lernformen}
 KIs bestehen aus vielen Algorithmen. Damit eine KI lernt, müssen diese Algorithmen angepasst werden. Hierbei gibt es drei übergeordnete Lernformen: überwachtes, unüberwachtes oder bestärkendes Lernen. \\\\
-Beim überwachten Lernen sind Trainingsdaten bereits kategorisiert. Nach dem Versuch die Daten eigenständig zu kategorisieren, erhält das KI-System ein positives oder negatives Feedback. Auf Basis des Feedbacks lernt die KI, auf welche Muster und Merkmale es achten muss, um die Aufgabe richtig zu lösen. \\
-Die andere Variante ist das unüberwachte Lernen. Hierbei sind die Trainingsdaten nicht kategorisiert und das KI-System kann somit kein Feedback bekommen. Das neuronale Netz erstellt ein statisches Model aus den Trainingsdaten und versucht Zusammenhänge und wiederkehrende Muster zwischen den Daten zu erkennen. Zusammenhängende Daten werden einer Kategorie zugeordnet. Die lernende KI weiß zu keiner Zeit, ob das was es Gruppiert auch zusammengehört.\\
-Bestärkendes Lernen (auch Reinforcement Learning) ist eine Lernmethode bei dem der Algorithmus durch Belohnung und Bestrafung trainiert wird. Hierbei erhält das KI-System Feedback in Form von Belohnung bei Erfolg und Bestrafung, falls das bestimmte Verhalten nicht zielführend war. Mit dieser Lernmethode wurde Google AlphaGo trainiert.
+Beim überwachten Lernen sind Trainingsdaten bereits kategorisiert. Nach dem Versuch die Daten eigenständig zu kategorisieren, erhält das KI-System ein positives oder negatives Feedback. Auf Basis des Feedbacks lernt die KI, auf welche Muster und Merkmale es achten muss, um die Aufgabe richtig zu lösen\cite{Grundlagen}. \\
+Die andere Variante ist das unüberwachte Lernen. Hierbei sind die Trainingsdaten nicht kategorisiert und das KI-System kann somit kein Feedback bekommen. Das neuronale Netz erstellt ein statisches Model aus den Trainingsdaten und versucht Zusammenhänge und wiederkehrende Muster zwischen den Daten zu erkennen. Zusammenhängende Daten werden einer Kategorie zugeordnet. Die lernende KI weiß zu keiner Zeit, ob das was es Gruppiert auch zusammengehört\cite{Grundlagen}.\\
+Bestärkendes Lernen (auch Reinforcement Learning) ist eine Lernmethode bei dem der Algorithmus durch Belohnung und Bestrafung trainiert wird. Hierbei erhält das KI-System Feedback in Form von Belohnung bei Erfolg und Bestrafung, falls das bestimmte Verhalten nicht zielführend war. Mit dieser Lernmethode wurde Google AlphaGo trainiert\cite{Grundlagen}.
 %%% Bestärkendes Lernen überdenken
 \subsection{Neuronale Netze}
 Künstliche neuronale Netze(KNN) bestehen aus künstlichen Neuronen, die untereinander verflechtet sind. Diese Konstrukte sind denen der sich im Nervensystem eines Lebewesens befindenden Neuronenverbindungen nachempfunden. \\
@@ -283,15 +280,15 @@ Dadurch dass ein Neuron mehrere Eingangskanäle besitzt, werden viele Eingangsin
 \\\\
 Jedoch muss jedes künstliche Neuron eines KNNs richtig eingestellt werden, damit das KNN dessen Ziel erfüllt. Eingestellt wird das Neuron durch Training. Trainieren bedeutet hier das Ermitteln der richtigen Werte für Gewichtungen und Schwellwerte, als auch das Einstellen der richtige Verbindungskombinationen der Neuronen untereinander. Diesen Prozess nennt man Deep Learning, eine Form von Machine Learning.
 \subsection{Deep Learning}
-Deep Learning ist eine Maschine Learning Variante, die speziell bei künstliche neuronale Netze eingesetzt wird. Beim Deep Learning werden die zahlreichen Zwischenschichten der Hidden Layer trainiert. Dabei wird eine umfangreiche und komplexe Struktur der Neuronen-Verbindungen aufgebaut. Wie das Programm endgültig die Aufgabe lösen soll, wird hierbei nicht vorgegeben, sondern bei diesem autonomen Prozess evolutionär ermittelt.
+Deep Learning ist eine Maschine Learning Variante, die speziell bei künstliche neuronale Netze eingesetzt wird. Beim Deep Learning werden die zahlreichen Zwischenschichten der Hidden Layer trainiert. Dabei wird eine umfangreiche und komplexe Struktur der Neuronen-Verbindungen aufgebaut. Wie das Programm endgültig die Aufgabe lösen soll, wird hierbei nicht vorgegeben, sondern bei diesem autonomen Prozess evolutionär ermittelt\cite{Grundlagen}.
 \\\\
-Ein künstliches neuronales Netz wird mit dem Zweck aufgebaut, eine bestimmte Aufgabe zu lösen. Extra dafür müssen Trainingsdaten aufbereitet werden. Diese Art der Daten, beispielsweise Bilder, soll das fertig trainierte Netz richtig interpretieren können. Trainings und Testdaten sind Daten, bei dem das korrekte Ergebnis bekannt ist.
+Ein künstliches neuronales Netz wird mit dem Zweck aufgebaut, eine bestimmte Aufgabe zu lösen. Extra dafür müssen Daten aufbereitet werden. Aus diesen Daten werden Muster und Gesetzmäßigkeiten extrahiert, um Erfahrungen zu sammeln. Aus Basis dieser Erfahrungen werden später Entscheidungen auf unbekannte Daten angewandt \cite{Grundlagen}.
 \\\\
-Am Anfang ist das künstliche neuronale Netz meist mit relativ zufälligen Werten und Verbindungen vorbelegt. Trainingsdaten werden dem zu trainierenden Netzwerk an die Eingangsschicht übergeben. Diese durchlaufen das Netz. Das Ergebnis wird an der Ausgabeschicht überprüft. Die Ausgabeschicht besteht im einfachsten Fall aus zwei Neuronen, beispielsweise "'Gesicht erkannt"' oder "'kein Gesicht"', an dem gemessen wird, wie viel gewichtete Signale ankommen. Diese summiert, ergeben die Endergebnisse der Berechnungen und das Neuron mit dem höchsten Gewicht, ergibt die Antwort.
+Damit es ausgeschlossen ist, dass das Netz zufällige Zusammenhänge zwischen den Daten findet, wird eine hinreichend große Datenmenge, abhängig von der Komplexität, benötigt. Auch die Qualität der Daten ist entscheidend, da daraus der KI-System die fachlich Korrekten Schlüsse zieht, siehe Abschnitt \ref{section:Data}.
 \\\\
-Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur die Eingabe mit der Ausgabe mit Hilfe von Testdaten verglichen werden, um auf die Korrektheit der Aufgabenlösung zu prüfen. Ziel ist es mit möglichst vollständigen Trainingsdaten das Netzwerk so einzustellen, dass diese nicht nur die Trainingsdaten und Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
+Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur die Eingabe mit der Ausgabe verglichen werden, um die Korrektheit der Aufgabenlösung zu prüfen. Ziel ist es mit möglichst vollständigen Trainingsdaten das Netzwerk so einzustellen, dass diese unbekannt Daten korrekt interpretiert \cite{Grundlagen}.
 \\\\
-Um eine Aufgabe, wie ''Gesicht in Bild erkennen'', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wieder genommen und leicht modifiziert kopiert und schlechteren verworfen.
+Um eine Aufgabe zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Beim überwachten Lernen werden alle mit den gleichen Trainingsdaten trainiert und mit den Testdaten geprüft. Für jedes Netz wird ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert. Danach werden diese erneut trainiert und getestet. Die Besten werden wieder genommen und schlechteren verworfen.
 \\\\
 Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich, sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich, je nach Anwendungsfall, ab einer gewissen Erfolgsrate das Training zu beenden oder neue Trainings- und Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning ein trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
 %%% Überarbeiten 'abstrakter'
@@ -430,7 +427,7 @@ Den Faktor Mensch darf man bei der Bias Entstehung nicht vergessen. Konzeptionel
 \subsection{Falsche Zielsetzung}
 Die Zielsetzung eines KNNs ist ein nicht zu unterschätzender Teil bei der KI Entwicklung. Setzt man hier den falschen Grundstein, können sich vermeidbare Fehlverhalten einer KI entwickelt.
 \subsubsection{Subjektive Ziel Definition}
-Eine Zielvariable spiegelt eine Antwort einer Frage wieder, die eine KI lösen soll. Wenn die Aufgabe lautet, findet den besten Mitarbeiter, muss die Zielsetzung in messbare Werte übersetzt werden. Bei dieser Definition kann bewusst oder unbewusst Bias eingepflegt werden. Anhand welcher Werte der 'Beste' Mitarbeiter erkannt wird, liegt allein an der subjektiven Meinung des Entwicklers. Ist die Meinung 'männlich, jung, intelligent' würde die KI Frauen diskriminieren.
+Eine Zielvariable spiegelt eine Antwort einer Frage wieder, die eine KI lösen soll. Wenn die Aufgabe lautet, findet den besten Mitarbeiter, muss die Zielsetzung in messbare Werte übersetzt werden. Bei dieser Definition kann bewusst oder unbewusst Bias eingepflegt werden. Anhand welcher Werte der 'Beste' Mitarbeiter erkannt wird, liegt allein an der subjektiven Meinung des Entwicklers. Ist die Meinung 'männlich, jung, intelligent' würde die KI Frauen diskriminieren \cite{KIPediaBias}.
 % https://www.lernen-wie-maschinen.ai/ki-pedia/was-ist-algorithmische-voreingenommenheit-algorithmic-bias/
 \subsubsection{Zu viele Ziele}
 Viele Köche verderben den Brei. Diese Weisheit kann auch auf die Ziele von KNNs umgemünzt werden. Denn je mehr Ziele ein KNN hat, desto größer und komplexer muss ein künstliche neuronales Netz sein, um alle Fälle abdecken zu können. Je komplexer ein KNN ist, desto größer ist die Wahrscheinlichkeit, dass Fehler passieren. Auch ist sich das Netz deutlich unsicherer bei seinen Entscheidungen.
@@ -448,14 +445,14 @@ Wenn man eine nahezu perfekte KI mit einer Aufgabe erweitern möchte, hat das me
 % \\iii. 	Mensch soll Lernprozess kontrollieren, ob KI auf dem richtigen Weg befindet
 \subsection{Bewusste Manipulation der Trainingsdaten}
 \label{section:manipulationInData}
-Vorsätzliches Manipulieren von Trainingsdaten provoziert bewusst Fehlverhalten. Bei geschickter Manipulation ist der Betrug in den Datensätzen nicht erkennbar. Auch die KI funktioniert erwartungsgemäß. Nur bei bestimmten Eingaben tritt ein unerwünschtes Verhalten auf. \\\\
-Vor allem bei öffentlichen Datensätzen kann man nicht hundertprozentig sicherstellen, dass keine Manipulation an den Daten vorgenommen wurden.
+Vorsätzliches Manipulieren von Trainingsdaten provoziert bewusst Fehlverhalten. Bei geschickter Manipulation ist der Betrug in den Datensätzen nicht erkennbar. Auch die KI funktioniert erwartungsgemäß. Nur bei bestimmten Eingaben tritt ein unerwünschtes Verhalten auf \cite{KIPediaBias}. \\\\
+Vor allem bei öffentlichen Datensätzen kann man nicht hundertprozentig sicherstellen, dass keine Manipulation an den Daten vorgenommen wurden .
 %%% Chat-Bot Tay bei Zeichennot
 \chapter{Sicherheitsprobleme durch BIAS}
 \section{Gefahren für Maschinen}
 Computer, die von Computern gesteuert werden, sind heutzutage keine Science Fiction mehr. In der Industrie 4.0 nimmt KI eine immer größere Rolle ein. Somit können Fehlverhalten nicht nur Menschen sondern auch Maschinen schaden.
 \subsubsection{Kühlung von Rechenzentren}
-Seit 2016 setzt Google eine KI zur Optimierung des Kühlungsprozesses ein. Anfangs lieferte die KI nur Konzepte zur Kühlungsoptimierung, welche Mitarbeiter auswerten und einsetzt konnten. Heutzutage nimmt die KI Änderungen autonom an der Kühlung vor. Bis zu 40 Prozent an Energie konnte somit eingespart werden, was sich einerseits aus ökonomischer und als auch auf finanzieller Sicht lohnt.\\
+Seit 2016 setzt Google eine KI zur Optimierung des Kühlungsprozesses ein. Anfangs lieferte die KI nur Konzepte zur Kühlungsoptimierung, welche Mitarbeiter auswerten und einsetzt konnten. Heutzutage nimmt die KI Änderungen autonom an der Kühlung vor. Bis zu 40 Prozent an Energie konnte somit eingespart werden, was sich einerseits aus ökonomischer und als auch auf finanzieller Sicht lohnt \cite{GoogleKI}.\\ 
 % Der Teil ist rein spekulativ und nicht belegbar
 Unterläuft der KI hier ein Fehler, hat dies direkte Folgen auf die Langlebigkeit der Computerelemente des Rechenzentrums und kann sogar zu Brandherden in Gebäuden führen.
 \section{Gefahren für Menschen}
@@ -468,16 +465,16 @@ Dieses Kategorisieren ist einer der Hauptfunktion der KI. Dadurch werden schnell
 \\\\ Einleitungsvariante 2\\
 Durch die \#BlackLivesMatters Bewegung 2020 ist die Forderung nach Gleichberechtigung aktuell wieder omnipräsent. KI könnte hier abhelfen. Denn KIs sind Programme und können somit keine Vorurteile besitzen. Leider ist die Theorie nur eine Halbwahrheit. Natürlich sind Algorithmen von sich aus nicht rassistisch Motiviert, jedoch spiegeln sie diskriminiertes Verhalten aus Daten oder sonstigen Fehlern heraus wider.
 \subsubsection{Alltagsrassismus}
-Amazon entwickelte 2014 ein Bewertungsauswahlsystem, wie bereits in \ref{section:biasInTest} beschrieben. Dort hat die KI empfohlen nur Männer einzustellen. \\
-%%% Beispiel zwei. 
-%%% Chat-Bot Maybe
-%%% Kreditwürdigkeit Quelle: https://www.br.de/br-fernsehen/sendungen/puzzle/rassismus-durch-algorithmen-puzzle-100.html
-\subsubsection{Rückfallgefahr}
+Amazon entwickelte 2014 ein Bewerbungsauswahlsystem, wie bereits in \ref{section:biasInTest} beschrieben. Dort hat die KI empfohlen nur Männer einzustellen. \\\\
+In Finnland wurde Svea Ekonomi ein Onlinekreditvergabe Unternehmen auf 100.000 Euro Strafe verurteilt, aufgrund eines Falles von direkter Mehrfachdiskriminierung. Der Antragssteller wurde ein Verlängerung des Kredits verweigerten ohne Berücksichtigung des Kreditverhaltens und Kreditwürdigkeit. \\Allein basierend auf statistische Zusammenhänge von Faktoren wie Geschlecht, Muttersprache, Alter und Wohnort wurde ein Score berechnet, auf dem die Kreditwürdigkeit beruht. \\Männer wurden schlechter bewertet als Frauen, auch wurden schwedische Muttersprachler besser bewertet als finnische. Da der finnisch sprechende Antragssteller aus einem für das System unbekannten Gebiet kam, welches ebenso eine Benachteiligung darstellt, wurde der Kredit verweigert. Statistisch gesehen, ist es korrekt, dass junge finnische Männer, die aus einer schlechteren Gegend kommen, häufiger Rückzahlungsprobleme haben. Jedoch diese Daten zu verallgemeinern und ohne auf individuelle Berücksichtigung des Kreditverhaltens und Kreditwürdigkeit einzugehen, ist schlicht weg diskriminierend. 
+Wäre nur ein Faktor, arithmetisch gesehen, günstiger für den männlichen Antragssteller gelegen, hätte er den Kredit bekommen \cite{DiskriminierungKredit}.
+
+\subsubsection{Risikobeurteilung}
 In Amerika wird eine KI namens COMPAS eingesetzt, um Risikobeurteilung von Angeklagten und Häftlingen zu erstellen. Benachteiligt werden eindeutig Minderheiten. Nachweislich lag die Software doppelt so oft mit den Prognosen zukünftiger Verbrechen von Afroamerikanern falsch im Vergleich zu weißen Angeklagten. %%% Passt der Satz so?
 Durch schlechte Sozialprognosen haben afroamerikanische Angeklagte eine geringe Chance auf frühzeitige Entlassung oder auf Bewährung. Bedeutet, afroamerikanische Straftäter müssen durchschnittlich länger Inhaftieren als Weiße, dank KIs.
 %%% evtl. ref auf Historische Verzerrung 
 \subsection{Lebensgefahr}
-Tesla und Volvo prognostizierten 2015, dass 2017 vollständig autonome Fahrzeuge marktreif wären. Das Fraunhofer-Institut prophezeit 2025 als frühesten Zeitpunkt, während die Deutsche Akademie der Technikwissenschaften 2030 nennt. % Zahlen aus https://www.welytics.ai/blog/2019-01-12-autonomes-fahren/
+Tesla und Volvo prognostizierten 2015, dass 2017 vollständig autonome Fahrzeuge marktreif wären. Das Fraunhofer-Institut prophezeit 2025 als frühesten Zeitpunkt, während die Deutsche Akademie der Technikwissenschaften 2030 nennt \cite{AutonomAuto}.
 \\Trotzdem schickt Tesla seine Kunden mit einer unausgereiften KI autonom auf die Straßen. Allein mit dem Zweck Daten zu sammeln. Dass in Verbindung mit autonomen Fahren immer wieder Unfälle bis hin zu Todesfällen gemeldet werden, zeigt, dass künstliche Intelligenz unmittelbare Konsequenzen für den Mensch mit sich bringt. \\\\
 Ein Beispiel für die Unausgereiftheit ist dieses Verkehrsschild. %%% Unausgereiftheit?
 \begin{figure}[h]
@@ -487,7 +484,7 @@ Ein Beispiel für die Unausgereiftheit ist dieses Verkehrsschild. %%% Unausgerei
 		\label{fig:Verkehrsschild}
 	\end{center}
 \end{figure}
-Die Geschwindigkeitsbegrenzung wurde bewusst manipuliert und indem das mittele Teil der Drei verlängert wurde. Teslas KI erkannte die Drei als Acht und beschleunigte automatisch um mehr als 80 km/h. Diese bewusste Manipulation nennt man Adversarial Attacks.
+Die Geschwindigkeitsbegrenzung wurde bewusst manipuliert und indem das mittele Teil der Drei verlängert wurde. Teslas KI erkannte die Drei als Acht und beschleunigte automatisch um mehr als 80 km/h. Diese bewusste Manipulation nennt man Adversarial Attacks \cite{TeslaHack}.
 \section{Angriff auf KI}
 Ist eine Künstliche Intelligenz sehr gut trainiert, erzielt sie in ihrem Aufgabebereich überragende Ergebnisse. Selbst nahezu perfekte KIs sind nicht unfehlbar. Durch methodisch gestaltete Störungen der Eingeben kann eine KI bewusst getäuscht werden und damit die Computer-Wahrnehmung in die Irre führen. Diese Art der Ausnutzung von KI Schwächen nennt man Adversarial Attacks, zu deutsch gegensätzlicher Angriff.
 \subsubsection{Adversarial Attacks}
@@ -504,9 +501,8 @@ Im folgenden Angriff wird mit einer Brille und dessen speziellen Muster, eine KI
 	\end{center}
 \end{figure}
 % Paper https://www.cs.cmu.edu/~sbhagava/papers/face-rec-ccs16.pdf
-\\Im linken Bild sieht man die amerikanische Schauspielerin Reese Witherspoon. Dieses Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit der Brille als Russel Crowe (Bild rechts).
+\\Im linken Bild sieht man die amerikanische Schauspielerin Reese Witherspoon. Dieses Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit der Brille als Russel Crowe (Bild rechts) \cite{Attack}.
 
-%https://www.inovex.de/blog/machine-perception-face-recognition/
 \chapter{Prävention}
 \label{chapter:main}
 \section{Passender Algorithmus zu Daten}

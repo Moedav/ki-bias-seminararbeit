@@ -377,16 +377,17 @@ Dieses Problem wird in der KI als "Garbage in - Garbage out" (Müll rein, Müll 
 % Diskriminierung durch Reproduktion von Stereotypen
 Eine historische Verzerrung liegt vor, wenn ein Algorithmus anhand eines alten Datensatzes trainiert wird, der vergangene Werte und Moralvorstellungen etwa die Rolle der Frau in der Vergangenheit aufgreift.%Verlinkung auf https://www.lernen-wie-maschinen.ai/ki-pedia/was-ist-algorithmische-voreingenommenheit-algorithmic-bias/
 \\\\
-Ein Beispiel liefert Amazons Algorithmus aus dem Jahr 2014, der unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, lernte daraus welche Eigenschaften Amazon bevorzugt. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, sind in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden. Selbst ohne Angabe eines Geschlechtes wurden Frauen durch Frauenvereine identifiziert. Dabei verdeutlicht sich das Problem der historischen Verzerrung, welches beim maschinellen Lernen auftreten kann.\cite{amazon}
+Ein Beispiel liefert Amazons Algorithmus aus dem Jahr 2014, der unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, lernte daraus, welche Eigenschaften Amazon bevorzugte. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, sind in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden. Selbst ohne Angabe eines Geschlechtes wurden Frauen durch Frauenvereine identifiziert und kategorisch ausgeschlossen. Dies veranschaulicht das Problem der historischen Verzerrung, welches beim maschinellen Lernen in den Daten auftreten kann\cite{amazon}.
 \\\\
-Die Hoffnung solcher Anwendungen liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine wie in \ref{section:DataGarbage} bereits genannt, grundsätzlich keine Unterschiede kennt. Doch in diesem Beispiel beinhalteten die Trainingsdaten bereits Vorurteile und führten somit zu einem Fehlverhalten des Systems.
+Die Hoffnung solcher Anwendungen liegt eigentlich darin, Vorurteile zu vermeiden und Prozesse fairer zu gestalten, da eine Maschine wie in \ref{section:DataGarbage} bereits genannt, grundsätzlich keine Unterschiede kennt.
 \\\\
-An diesem Beispiel wird deutlich wie zentral die Daten für eine KI sind.
-Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bias enthalten. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung auch als WEIRD Samples (western, educated, industrialized, rich and democratic societies) bezeichnet\cite{BiasInKi}.
+An diesem Beispiel wird allerdings deutlich, wie zentral die Daten für eine KI sind.
+Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bias beinhaltet. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung auch als WEIRD Samples (western, educated, industrialized, rich and democratic societies) bezeichnet\cite{BiasInKi}.
 \subsection{Under-/ Overfitting}
 \label{section:OverUnderfitting}
 
-Ein komplexer Datensatz wie in Absatz \ref{section:DataQuantity} kann beim überwachten Lernen dazu führen, wenn ein Modell zu gut oder zu schlecht trainiert wurde, nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine Relevanten Lerninformationen ziehen zu können. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
+Ein komplexer Datensatz (siehe Absatz \ref{section:DataQuantity}) kann beim überwachten Lernen dazu führen nutzloses Wissen aufzubauen oder aus einem vorhandenem Trainingsdatensatz keine relevanten Lerninformationen gezogen wurden. %%% 'ziehen zu können' oder 'gezogen wurden' überprüfen
+Dies passiert, wenn ein Netz zu gut oder zu schlecht trainiert wurde. Diese Phänomene werden als Overfitting (Überanpassung) und Underfitting(Unteranpassung) bezeichnet.
 
 \begin{figure}[h]
 	\begin{center}
@@ -396,15 +397,19 @@ Ein komplexer Datensatz wie in Absatz \ref{section:DataQuantity} kann beim über
 	\end{center}
 \end{figure}
 
-Die Abbildung \ref{fig:overUnderFitting} zeigt 3 Graphen, die das Problem erläutern. Jeder Graph visualisiert, wie gut das Modell anhand der Trainingsdaten die einzelnen Punkte in 2 Cluster unterteilt.
+Die Abbildung \ref{fig:overUnderFitting} zeigt drei Graphen, die das Problem erläutern. Jeder Graph visualisiert abstrakt, wie unterschiedlich das KI-System anhand der Trainingsdaten die einzelnen Punkte in zwei Cluster unterteilt.
+%%% evtl. Graphen erklären, x ist Kategorie 1, o Kategorie 2, links vom Graphen ist Kategorie 1 rechts Kategorie 2
 \\\\
-Das Modell ist unter angepasst, wenn wie im linken Graphen das Model zu schlecht mit den Trainingsdaten abgestimmt wurde. Hier wurden zu wenig Punkte richtig abgedeckt und es konnten zu wenige Muster zwischen den Eigenschaften und dem Label erkannt werden. Solche Modelle neigen zu hohen Verzerrungen der Vorhersagen.
+Die KI im linken Graphen ist unter angepasst, da das Modell mit den Trainingsdaten zu schlecht abgestimmt wurde. Hier wurden zu wenig Punkte richtig abgedeckt, da zu wenige Muster zwischen den Eigenschaften und dem Label erkannt wurden. Solche KI-Modelle neigen zu hohen Verzerrungen der Ergebnisse und teilt die einzelnen Trainingsdaten nur oberflächlich ein.
 \\\\
-Der Graph auf der rechten Seite hingegen sagt alle Punkte richtig vorher. Unter dieser Annahme könnte man denken es wäre ein sehr guter Graph. Hier spricht man allerdings von einer Überanpassung, da das Modell zu gut auf die Trainingsdaten abgestimmt ist, und bei Testdaten schlechte Ergebnisse liefern wird. Ein Grund dafür ist, dass alle Punkte mit vorher gesagt werden, auch diese die Grundrauschen oder Outliner sind. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
+Der rechte Graph hingegen kategorisiert alle Punkte richtig ein. Unter dieser Annahme könnte man denken, es wäre der beste Graph. Hier spricht man allerdings von einer Überanpassung, da das Modell zu gut auf die Trainings- und Testdaten abgestimmt wurde. In der Praxis liefert dieses Model schlechte Ergebnisse. Verantwortlich dafür ist die Integration der Outliner, die starke Abweichungen der eigenen Kategorie beinhalten. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.%%%Varianz der Vorhersagen = hohe Fehleranfälligkeit
 \\\\
-Ein Beispiel für z.B. Overfitting ist, wenn durch maschinelles Lernen ein System einen Schrank auf einem Bild erkennen soll. Nun werden zu viele Eigenschaften mit erfasst, welche jede Art an Schränken erkennen soll, auch solche die z.B. Autos ähnlich sehen. Daraufhin könnte es passieren, dass das Modell die Trainingsdaten sehr gut erkennt und sobald man anfängt mit realen Daten zu testen, auf welchen auch Autos vorkommen können, könnte das Programm Autos als Schränke erkennen, da das Modell zuvor zu komplex war.
+Beispielsweise wird eine KI mit Deep Learning darauf trainiert, einen Schrank auf einem Bild zu erkennen. Ist das KI-System über angepasst, beinhaltet es zu viele Eigenschaften der Outliner beispielsweise Sessel ähnliche Schränke. Das KI-Programm erkennt alle Trainings- und Testdaten perfekt, sobald man jedoch anfängt mit realen Daten zu testen, ist das Programm bei überschneidenden Eingaben sehr fehleranfällig. Outliner ähnliche Daten, wie in diesem Beispiel ein normaler Sessel, werden vom Programm als Schränke fehlinterpretiert, da das Modell zuvor über angepasst wurde. \\
 \\\\
-Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt.
+Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt. 
+\subsection{Aufteilung der Daten}
+\label{section:AufteilungDerDaten}
+Bei der Aufteilung von Trainings- und Testdaten können explizite Fälle nur in den Trainingsdaten auftreten. Zwar werden diese Fälle antrainiert, dadurch dass sie in den Testdaten fehlen nicht validiert. Das Netz liefert sehr gute Testergebnisse, jedoch nur da diese speziellen Fälle nicht getestet wurden. Diese fallen meist erst in der Praxis auf.
 \subsection{Ähnlichkeit der Daten}
 \label{section:similarData}
 \begin{figure}[h]
@@ -415,56 +420,68 @@ Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen i
 	\end{center}
 \end{figure}
 
-Es gibt optische Täuschungen, die uns etwas anderes wahrnehmen lässt, als eigentlich auf dem Bild zu sehen ist. Anhand des Beispiels aus der Abbildung \ref{fig:dogBagel} wird deutlich, dass wenn die Farbe, Struktur und die Form identisch sind, die Wahrnehmung trüben kann und ein Bagel auf den ersten Blick als Hund identifiziert wird. Dass gilt auch für eine KI, denn eine KI lernt Muster, Strukturen und besondere Eigenschaften anhand der Bilder kennen. Hat man nicht genug Trainingsdaten, um der Maschine diese Unterschiede zu verdeutlichen, kann es hier auch ohne Falsche Eingaben zu einer Verzerrung der Ergebnisse führen.
+Optische Täuschungen sind Bilder, die Menschen in die Irre führen können. 
+Anhand des Beispiels aus der Abbildung \ref{fig:dogBagel} wird deutlich,
+dass wenn die Farbe, Struktur und die Form identisch sind,
+die Wahrnehmung trüben kann. Ein Bagel wird auf den ersten Blick zum Hund oder andersrum. 
+Das gilt auch für eine KI, denn das Programm lernt anhand Muster, Strukturen und sonstige besondere Eigenschaften zu kategorisieren. Hier kann es auch ohne falsche Eingaben zu einer Verzerrung der Ergebnisse führen.
 
 \section{Menschliche Fehler}
-Den Faktor Mensch darf man bei der Bias Entstehung nicht vergessen. Konzeptionelle Fehler mangels an Wissen oder einem Missgeschick heraus fördern Fehlverhalten. Markante Defizite können ein funktionale KI-Entstehung komplett verhindern, sind in der Regel noch die besseren Missstände. Denn kleine Mängel, die nicht sofort auffallen, können in Produktion fatale Folgen haben.
+\label{section:humanFehler}
+Den Faktor Mensch darf man bei der Bias Entstehung nicht vergessen. Konzeptionelle Fehler, mangels an Wissen oder einem Missgeschick heraus, fördern Fehlverhalten. Markante Defizite können eine funktionale KI Entstehung komplett verhindern, sind jedoch in der Regel noch die besseren Missstände. Denn kleinere Mängel, die nicht sofort auffallen, können in Produktion fatale Folgen haben. %%% Nochmal drüberlesen, ob verständlich
 \subsection{Falsche Zielsetzung}
 Die Zielsetzung eines KNNs ist ein nicht zu unterschätzender Teil bei der KI Entwicklung. Setzt man hier den falschen Grundstein, können sich vermeidbare Fehlverhalten einer KI entwickelt.
 \subsubsection{Subjektive Ziel Definition}
-Die Zielvariablen spiegeln die Antworten der Aufgabe wieder, die eine KI lösen soll. Wenn die Frage lautet, findet den besten Mitarbeiter, muss die Zielsetzung in messbare Werte übersetzt werden. Bei dieser Definition kann bewusst oder unbewusst Bias eingepflegt werden. Anhand welcher Werte der 'Beste' Mitarbeiter ist, liegt allein an dem subjektiven Meinung des Entwicklers. Ist die Meinung 'männlich, jung, intelligent' würde die KI Frauen diskriminieren.
+Eine Zielvariable spiegelt eine Antwort einer Frage wieder, die eine KI lösen soll. Wenn die Aufgabe lautet, findet den besten Mitarbeiter, muss die Zielsetzung in messbare Werte übersetzt werden. Bei dieser Definition kann bewusst oder unbewusst Bias eingepflegt werden. Anhand welcher Werte der 'Beste' Mitarbeiter erkannt wird, liegt allein an der subjektiven Meinung des Entwicklers. Ist die Meinung 'männlich, jung, intelligent' würde die KI Frauen diskriminieren.
 % https://www.lernen-wie-maschinen.ai/ki-pedia/was-ist-algorithmische-voreingenommenheit-algorithmic-bias/
 \subsubsection{Zu viele Ziele}
-Viele Köche verderben den Brei. Diese Weisheit kann auch auf die Ziele von KNNs umgemünzt werden. Denn je mehr Ziele ein KNN hat, desto größer und komplexer muss ein KNN sein, um alle Fälle abdecken zu können. Je komplexer ein KNN ist, desto größer ist die Wahrscheinlichkeit, dass Fehler passieren. Auch ist sich das Netz deutlich unsicherer bei seinen Entscheidungen.
+Viele Köche verderben den Brei. Diese Weisheit kann auch auf die Ziele von KNNs umgemünzt werden. Denn je mehr Ziele ein KNN hat, desto größer und komplexer muss ein künstliche neuronales Netz sein, um alle Fälle abdecken zu können. Je komplexer ein KNN ist, desto größer ist die Wahrscheinlichkeit, dass Fehler passieren. Auch ist sich das Netz deutlich unsicherer bei seinen Entscheidungen.
 \\\\ % Ohne Quelle :(
 Wenn man eine nahezu perfekte KI mit einer Aufgabe erweitern möchte, hat das meist zu Folge, dass die KI nach der Erweiterung zwar mehr kann, jedoch seine ehemalige Hauptaufgabe nicht mehr so gut meistert wie zuvor.
 % Beispiel: Baidu Gesichtserkennung (erkennt nur Asiaten)
-\subsection{Falsches Lernen}
+%%% Maybe ref Overfitting 
+% \subsection{Falsches Lernen}
+%%% Bescheibung nur bei Zeichennot
 % Panzer Beispiel von oben, fällt in die Kategorie 'Falsches Lernen' mit ein
 % Unvollständigkeit lieber mit dem Beispiel von Gesichtserkennung iPhone nehmen
-KI lernt oft einfachste Unterschiede
-\\i.	Nicht Unterschied zwischen Auto und Boot sondern Untergrund(Wasser/Land)
-\\ii.	Sehr Fehleranfällig z.B. Auto fährt durch flaches Wasser (KI -> Boot)
-\\iii. 	Mensch soll Lernprozess kontrollieren, ob KI auf dem richtigen Weg befindet
+% KI lernt oft einfachste Unterschiede
+% \\i.	Nicht Unterschied zwischen Auto und Boot sondern Untergrund(Wasser/Land)
+% \\ii.	Sehr Fehleranfällig z.B. Auto fährt durch flaches Wasser (KI -> Boot)
+% \\iii. 	Mensch soll Lernprozess kontrollieren, ob KI auf dem richtigen Weg befindet
 \subsection{Bewusste Manipulation der Trainingsdaten}
-Vorsätzliches Manipulieren von Trainingsdaten provoziert bewusst Fehlverhalten. Bei geschickter Manipulation ist die Betrug in den Datensätzen nicht erkennbar. Auch die KI funktioniert erwartungsgemäß. Nur bei bestimmten Eingaben tritt ein unerwünschtes Verhalten auf. \\\\
+\label{section:manipulationInData}
+Vorsätzliches Manipulieren von Trainingsdaten provoziert bewusst Fehlverhalten. Bei geschickter Manipulation ist der Betrug in den Datensätzen nicht erkennbar. Auch die KI funktioniert erwartungsgemäß. Nur bei bestimmten Eingaben tritt ein unerwünschtes Verhalten auf. \\\\
 Vor allem bei öffentlichen Datensätzen kann man nicht hundertprozentig sicherstellen, dass keine Manipulation an den Daten vorgenommen wurden.
-
+%%% Chat-Bot Tay bei Zeichennot
 \chapter{Sicherheitsprobleme durch BIAS}
-
 \section{Gefahren für Maschinen}
-Computer, die von Computern gesteuert werden, sind heutzutage keine Science Fiction mehr. In der Industrie 4.0 nimmt KI eine große Rolle ein. Somit können Fehlverhalten nicht nur uns Menschen sondern auch Maschinen schaden.
+Computer, die von Computern gesteuert werden, sind heutzutage keine Science Fiction mehr. In der Industrie 4.0 nimmt KI eine immer größere Rolle ein. Somit können Fehlverhalten nicht nur Menschen sondern auch Maschinen schaden.
 \subsubsection{Kühlung von Rechenzentren}
 Seit 2016 setzt Google eine KI zur Optimierung des Kühlungsprozesses ein. Anfangs lieferte die KI nur Konzepte zur Kühlungsoptimierung, welche Mitarbeiter auswerten und einsetzt konnten. Heutzutage nimmt die KI Änderungen autonom an der Kühlung vor. Bis zu 40 Prozent an Energie konnte somit eingespart werden, was sich einerseits aus ökonomischer und als auch auf finanzieller Sicht lohnt.\\
 % Der Teil ist rein spekulativ und nicht belegbar
 Unterläuft der KI hier ein Fehler, hat dies direkte Folgen auf die Langlebigkeit der Computerelemente des Rechenzentrums und kann sogar zu Brandherden in Gebäuden führen.
 \section{Gefahren für Menschen}
-In Zukunft werden KIs immer mehr zu unseren Alltag gehören und greifen immer stärker in unseren Leben ein. Dies hat viele Vorteile, jedoch haben sie ebenso Nachteile insbesondere für ärmere Teile der Bevölkerung sowie Minderheiten.
+In Zukunft werden KIs immer mehr zu unseren Alltag gehören und greifen immer stärker in unseren Leben ein. Dies hat viele Vorteile, jedoch ebenso Nachteile insbesondere für ärmere Teile der Bevölkerung sowie Minderheiten.
+%%% Übereinleitung kann auch gestrichen werden
 \subsection{Diskriminierung von bestimmten Personengruppen oder Minderheiten}
 Einleitungsvariante 1 \\
-Alltagsrassismus ist ein Denkschemata größerer sozialen Gruppen, diese ein 'Wir' konstruieren und andere insbesondere Minderheiten kategorisch ausgeschlossen oder andersartig benachteiligen.\\
-Dieses Kategorisieren ist eine Hauptfunktion der KI. Dadurch werden schnell bewusst oder unbewusst Diskriminierungen eingepflegt. Was das für Auswirkungen heute schon hat, zeigen folgende Beispiele.
+Alltagsrassismus ist ein Denkschemata größerer sozialen Gruppen, die ein 'Wir' konstruieren und andere insbesondere Minderheiten kategorisch ausschließen oder andersartig benachteiligen.\\
+Dieses Kategorisieren ist einer der Hauptfunktion der KI. Dadurch werden schnell bewusst oder unbewusst Diskriminierungen eingepflegt. Was das für Auswirkungen heute schon hat, zeigen folgende Beispiele.
 \\\\ Einleitungsvariante 2\\
 Durch die \#BlackLivesMatters Bewegung 2020 ist die Forderung nach Gleichberechtigung aktuell wieder omnipräsent. KI könnte hier abhelfen. Denn KIs sind Programme und können somit keine Vorurteile besitzen. Leider ist die Theorie nur eine Halbwahrheit. Natürlich sind Algorithmen von sich aus nicht rassistisch Motiviert, jedoch spiegeln sie diskriminiertes Verhalten aus Daten oder sonstigen Fehlern heraus wider.
 \subsubsection{Alltagsrassismus}
 Amazon entwickelte 2014 ein Bewertungsauswahlsystem, wie bereits in \ref{section:biasInTest} beschrieben. Dort hat die KI empfohlen nur Männer einzustellen. \\
-% Beispiel zwei.
+%%% Beispiel zwei. 
+%%% Chat-Bot Maybe
+%%% Kreditwürdigkeit Quelle: https://www.br.de/br-fernsehen/sendungen/puzzle/rassismus-durch-algorithmen-puzzle-100.html
 \subsubsection{Rückfallgefahr}
-In Amerika wird eine KI namens COMPAS eingesetzt, um Risikobeurteilung von Angeklagten und Häftlingen zu erstellen. Benachteiligt werden eindeutig Dunkelhäutige. Nachweislich lag die Software doppelt so oft mit Prognosen zukünftiger Verbrechen von Afroamerikanern falsch im Vergleich zu weißen Angeklagten. Durch schlechte Sozialprognosen haben Angeklagten eine geringe Chance auf frühzeitige Entlassung oder auf Bewährung. Bedeutet, afroamerikanische Straftäter müssen durchschnittlich länger Inhaftieren als Weiße, dank KIs.
+In Amerika wird eine KI namens COMPAS eingesetzt, um Risikobeurteilung von Angeklagten und Häftlingen zu erstellen. Benachteiligt werden eindeutig Minderheiten. Nachweislich lag die Software doppelt so oft mit den Prognosen zukünftiger Verbrechen von Afroamerikanern falsch im Vergleich zu weißen Angeklagten. %%% Passt der Satz so?
+Durch schlechte Sozialprognosen haben afroamerikanische Angeklagte eine geringe Chance auf frühzeitige Entlassung oder auf Bewährung. Bedeutet, afroamerikanische Straftäter müssen durchschnittlich länger Inhaftieren als Weiße, dank KIs.
+%%% evtl. ref auf Historische Verzerrung 
 \subsection{Lebensgefahr}
 Tesla und Volvo prognostizierten 2015, dass 2017 vollständig autonome Fahrzeuge marktreif wären. Das Fraunhofer-Institut prophezeit 2025 als frühesten Zeitpunkt, während die Deutsche Akademie der Technikwissenschaften 2030 nennt. % Zahlen aus https://www.welytics.ai/blog/2019-01-12-autonomes-fahren/
-\\Trotzdem schickt Tesla seine Kunden mit einer Beta-KI autonom auf die Straßen. Allein mit dem Zweck Daten zu sammeln. Das in Verbindung mit autonomen Fahren, immer wieder Unfälle bis hin zu Todesfällen gemeldet werden, zeigt das künstliche Intelligenz mit Fehlverhalten unmittelbar direkte Konsequenzen für den Mensch mit sich bringt. \\\\
-Ein Beispiel für die Unausgereiftheit ist dieses Verkehrsschild.
+\\Trotzdem schickt Tesla seine Kunden mit einer unausgereiften KI autonom auf die Straßen. Allein mit dem Zweck Daten zu sammeln. Dass in Verbindung mit autonomen Fahren immer wieder Unfälle bis hin zu Todesfällen gemeldet werden, zeigt, dass künstliche Intelligenz unmittelbare Konsequenzen für den Mensch mit sich bringt. \\\\
+Ein Beispiel für die Unausgereiftheit ist dieses Verkehrsschild. %%% Unausgereiftheit?
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/Tesla_Adversarial_Attack.png}
@@ -474,58 +491,58 @@ Ein Beispiel für die Unausgereiftheit ist dieses Verkehrsschild.
 \end{figure}
 Die Geschwindigkeitsbegrenzung wurde bewusst manipuliert und indem das mittele Teil der Drei verlängert wurde. Teslas KI erkannte die Drei als Acht und beschleunigte automatisch um mehr als 80 km/h. Diese bewusste Manipulation nennt man Adversarial Attacks.
 \section{Angriff auf KI}
-Ist eine Künstliche Intelligenz sehr gut trainiert, erzielt sie in ihrem Aufgabebereich überragende Ergebnisse. Doch auch nahezu perfekte KIs sind nicht unfehlbar. Durch methodisch gestaltete Störungen der Eingeben kann eine KI bewusst getäuscht werden und die Computer-Wahrnehmung in die Irre führen. Diese Art der Ausnutzung von KI Schwächen nennt man Adversarial Attacks, zu deutsch gegensätzlicher Angriff.
+Ist eine Künstliche Intelligenz sehr gut trainiert, erzielt sie in ihrem Aufgabebereich überragende Ergebnisse. Selbst nahezu perfekte KIs sind nicht unfehlbar. Durch methodisch gestaltete Störungen der Eingeben kann eine KI bewusst getäuscht werden und damit die Computer-Wahrnehmung in die Irre führen. Diese Art der Ausnutzung von KI Schwächen nennt man Adversarial Attacks, zu deutsch gegensätzlicher Angriff.
 \subsubsection{Adversarial Attacks}
-Bildererkennungssoftware ist besonders anfällig für dieser Art von Angriff. Hierbei legt man über das Bild bestimmte Pixelmuster, die für das menschliche Auge in der Regel im Gesamtbild untergehen. KIs hingegen registrieren jegliches Muster und nehmen sie in ihre Berechnungen mit auf. Als Ergebnis werden Bilder zum Teil massiv fehlinterpretiert.
-Im Folgenden Angriff wird mit einer Brille und dessen speziellen Muster, eine KI überlistet.
+Bildererkennungssoftware ist besonders anfällig für dieser Art von Angriff. 
+%%% ref auf fig:Verkehrsschild
+Hierbei legt man über das Bild bestimmte Pixelmuster, die für das menschliche Auge in der Regel im Gesamtbild untergehen. KIs hingegen registrieren jegliches Muster und nehmen sie in ihre Berechnungen mit auf. Als Ergebnis werden Bilder zum Teil massiv fehlinterpretiert.
+Im folgenden Angriff wird mit einer Brille und dessen speziellen Muster, eine KI überlistet.
 \label{section:BrilleAttack}
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/Brille_Adversarial_Attack.png}
-		\caption{Reese Witherspoon links korrekt identifiziert. Mitte Bild mit Adversarial Attack. Rechts Klassifizierung von Mitte als Russel Crowe}
+		\caption{Reese Witherspoon wird mit Adversarial Attack Brille zu Russel Crowe}
 		\label{fig:BrilleAttack}
 	\end{center}
 \end{figure}
 % Paper https://www.cs.cmu.edu/~sbhagava/papers/face-rec-ccs16.pdf
-Im linken Bild sieht man die amerikanische Schauspielerin Reese Witherspoon. Dieses Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man nun ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit der Brille als Russel Crowe (Bild rechts).
+\\Im linken Bild sieht man die amerikanische Schauspielerin Reese Witherspoon. Dieses Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit der Brille als Russel Crowe (Bild rechts).
 
 %https://www.inovex.de/blog/machine-perception-face-recognition/
 \chapter{Prävention}
 \label{chapter:main}
 \section{Passender Algorithmus zu Daten}
 
-Im Abschnitt \ref{section:DataGarbage} wurden die Schwierigkeiten genannt, was passiert wenn ein Modell mit fehlerhaften Daten trainiert wurde und ab einem gewissen Grad es schwer wird diese fehlerhaften Vorhersagen zu verstehen und abzuändern.
+Ab einem gewissen Grad ist es schwer ein bestehendes Modell, dass mit fehlerhaften Daten trainiert wurde, das Fehlverhalten zu verstehen und zu entfernen, siehe Abschnitt \ref{section:DataGarbage}.
 \\\\
-In der Annahme das nun dieses System richtig trainiert wurde, aber die zeitliche Komponente nicht beachtet, wie z.B. dass ein Panzer in Zukunft anders ausschauen könnte, kann es zu dem Problem kommen, das in Zukunft ein Panzer nicht mehr erkannt wird. Wie Stöcker 2019(\cite{stoecker}) bereits erwähnte, benötigt eine sich ändernde Gesellschaft auch kontinuierliche weiterlernende Algorithmen.
+In der Annahme, ein KI-System wurde richtig trainiert, aber die zeitliche Komponente nicht beachtet, kann es zu einer historischen Verzerrung \ref{section:biasInTest} kommen.
+Wie Stöcker 2019 \cite{stoecker} bereits erwähnte, benötigt eine sich ändernde Gesellschaft auch kontinuierliche weiterlernende Algorithmen. Solch ein Lernprozess wird auch als \textit{adaptive learning} bezeichnet, womit dem Effekt sich ändernder Datenumgebungen(concept drift) Rechnung getragen wird \cite{gama}. 
+%%% evtl. \cite{sahoo} hier erklären
+%In DL-Algorithmen ist solche eine Umsetzung nicht trivial, aber das Beispiel von Sahoo et al. \cite{sahoo} zeigt auch die Machbarkeit auch in diesem Feld.
 \\\\
-Solch ein Lernprozess wird auch als \textit{adaptive learning} bezeichnet, womit dem Effekt sich ändernder, d. h. dynamischer Datenumgebungen, concept drift bezeichnet, Rechnung getragen wird \cite{gama}. In DL-Algorithmen ist solche eine Umsetzung nicht trivial, aber das Beispiel von Sahoo et al. \cite{sahoo} zeigt auch die Machbarkeit auch in diesem Feld.
+Auch bei einem für Diskriminierung anfälligen Umfeld muss besondere Sorgfalt bei der Wahl des passenden Algorithmus bedacht werden. In der Regel reicht es einzelne Attribute aus den Eingangsdaten auszuschließen, um eine algorithmische Diskriminierung bestimmter Personengruppen zu verhindern. Dies genügt jedoch oftmals nicht, denn wie das Beispiel von Amazon aus \ref{section:biasInTest} zeigt, kann der Algorithmus Rückschlüsse anhand anderer Attribute ziehen(z.B. durch Frauenvereine).
 \\\\
-Auch bei einem für Diskriminierung anfälligen Umfeld, wie im Beispiel von Abschnitt \ref{section:biasInTest}, muss besondere Sorgfalt bei der Wahl des passenden Algorithmus bedacht werden. Oftmals ist es unzureichend einzelne Attribute aus den Eingangsdaten auszuschließen, um beispielsweise eine algorithmische Diskriminierung bestimmter Personengruppen zu verhindern. Dies genügt jedoch in der Regel nicht, denn wie das Beispiel von Amazon zeigt, kann der Algorithmus Rückschlüsse anhand anderer Attribute ziehen(z.B. durch Frauenvereine).
-\\\\
-In diesem Kontext sollten System bevorzugt werden, welche in der Entwicklung solcher Algorithmen zusätzliche Einschränkungen einführen, um eine Diskriminierung aufgrund eines bestimmten Attributs, zu verhindern \cite{kamiran}.
+In diesem Kontext sollten KI-System bevorzugt werden, welche in der Entwicklung zusätzliche Einschränkungen einführen, um eine Diskriminierung aufgrund bestimmten Attributen zu verhindern \cite{kamiran}.
 
 \section{Nur ein Ziel}
 \label{section:oneGoal}
-Nimmt man das Beispiel aus dem Abschnitt \ref{section:OverUnderfitting} mit den Schränken und möchte der Maschine alle möglichen Schränke beibringen, kann dies wie in diesem Absatz bereits erläutert zu Overfitting führen. Das Ziel aus diesem Beispiel war zu komplex. Hier hätte man das Ziel einfacher halten und die Daten generalisieren sollen. Dass heißt sich auf Schränke beschränken die sofort als solche erkannt werden. Falls ein Schrank ein komplizierteres Aussehen hätte und durch den Algorithmus nicht erkannt worden wäre, wäre das besser als wenn der Algorithmus viele Autos als Schränke erkennt.
-\\\\
-Solche Probleme treten häufig auf, da die Ziele meist zu komplex gehalten werden. Das führt zu einer großen Fehleranfälligkeit und somit zu Verzerrungen. Deswegen sollten die Ziele klar und einfach gehalten werden, um unnötige Komplexität zu vermeiden.
 
+Generell ist es zu empfehlen mehrere spezialisierte KIs für einzelne Aufgaben zu verwenden, anstatt einer KI immer mehr Aufgaben aufzulasten. Je konkreter und einfacher die Aufgabe und dessen Zielsetzung gehalten wird, desto fehlerfreier kann eine KI die Aufgabe lösen.\\\\
+Setzt man sich zu hohe Ziele, kann das komplexe System leicht unter trainiert oder übertrainiert werden, siehe Abschnitt \ref{section:OverUnderfitting}. Man braucht dementsprechend exorbitant mehr Datensätze zum Trainieren des Netzes und bei denen man auch leicht historische Verzerrungen \ref{section:biasInTest} oder Manipulationen \ref{section:manipulationInData} übersehen kann.
 \section{Verfahren zum Validieren}
 \label{section:validate}
 
-Damit Vorurteile, Outliner oder falsche Bilder in den Daten nicht zu Problemen führen sollte diese zuvor überprüft werden. Beispiele dafür könnten folgende sein:
+Damit menschliche Fehler (Abschnitt \ref{section:humanFehler}) oder fehlerhafte Daten (Abschnitt \ref{section:Data}) frühzeitig erkannt werden und nicht zu Fehlern führen, sollten diese zuvor validiert werden. Folgende Verfahren wirken menschliche Fehler entgegen:
 \begin{enumerate}
 	\item Lektorat oder Peer-Review
-	\item Das Vier-Augen-Prinzip (gegenseitige Kontrolle)
+	\item Das Vier-Augen-Prinzip
 	\item Mehrheitsentscheide bei unterschiedlichen Ergebnissen
 \end{enumerate}
-
-Zudem sollte das Modell ausreichend validiert werden und die Performance gemessen werden. Denn wenn der Algorithmus z.B. bei der Diagnose von Krebs helfen soll, sollten die Ergebnisse nicht falsch sein.
+Die oben genannten Verfahren bekämpfen Flüchtigkeitsfehler und bewusste Manipulation. Beim Peer-Review kontrollieren nachträglich Experten das KI-System auf dessen Korrektheit. Beim Vier-Augen-Prinzip und bei Mehrheitsentscheide passiert dies während des Arbeitsprozesses. 
 \\\\
-Würde man einen Datensatz in Trainings und Testdaten unterteilen, könnte es dazu kommen, das die Daten so perfekt aufgeteilt werden, dass er in dieser Aufteilung sehr gute Ergebnisse liefert. Falls nun aber ein Fall nur in den Testdaten vorhanden ist und somit nicht antrainiert wurde, jetzt aber in der realen Welt benötigt wurde, können die Ergebnisse trüben und das Modell könnte zu Problemen führen.
+Zudem sollte das KI-System ausreichend auf Fehleranfälligkeit geprüft werden. Vor allem im kritischen Bereichen, wie in der Medizindiagnostik, sollten die Fehleranfälligkeit gegen null gehen. Anhand des Problem aus Abschnitt \ref{section:AufteilungDerDaten}, können ungeprüfte Fälle fehlerhaft sein.
 \\\\
-Eine Möglichkeit um das zu verhindern, bietet die Cross Validierung. Anstelle eines extra Datensatzes, welcher zum Validieren der Daten genutzt wird, wird der Datensatz in viele kleine Blöcke unterteilt. In der Abbildung \ref{fig:crossValidierung} sind es 5. Danach werden 5 Durchläufe gemacht, in denen jeweils mit 4 unterschiedlichen aus diesen 5 Blöcken trainiert und mit einem davon getestet wird. Bei jedem Durchlauf entsteht ein Score, welche angibt, wie gut das Modell ist. Am Ende wird dann ein durchschnittlicher Score über diese 5 einzelnen gebildet, welcher die gesamt Performance des Modells angibt.
-
+Eine Möglichkeit um das zu verhindern, bietet die Cross Validierung. 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/crossValidierung.png}
@@ -533,35 +550,34 @@ Eine Möglichkeit um das zu verhindern, bietet die Cross Validierung. Anstelle e
 		\label{fig:crossValidierung}
 	\end{center}
 \end{figure}
-
-Mit diesem Score lässt sich das beste Modell ermitteln und man verhindert unbewusste Nebenwirkungen.
+\\Anstelle eines fixen Testdatensatzes wird der komplette Datensatz in viele kleine Blöcke unterteilt, in der Abbildung \ref{fig:crossValidierung} Fünf. In diesem Beispiel werden fünf Durchläufe ausgeführt, in denen jeweils abwechselnd mit vier unterschiedlichen Datensätzen trainiert und mit einem validiert wird. Bei jedem Durchlauf entsteht ein Score über die Fehleranfälligkeit. Am Ende wird ein durchschnittlicher Score über diese fünf Durchläufe gebildet, welcher die gesamt Fehleranfälligkeit für alle Datensätze wider gibt.
 
 \section{Over- und Underfitting vermeiden}
 \label{section:preventData}
-
-Underfitting und Overfittung sind oft Fehler der Test-/Trainingsdaten Aufbereitung. Um Overfitting zu verhindern, kann ein einfacheres Ziel wie bereits in Absatz \ref{section:oneGoal} beschrieben, ausreichen. Dennoch gibt es Fälle wo das Ziel zu komplex ist oder zu wenig Daten vorhanden sind, um Underfitting oder Overfitting zu verhindern.
+%%% Datengeneralisierung kucken, ob drinn ist
+Underfitting und Overfittung sind oft Fehler der Test-/Trainingsdaten Aufbereitung. Um Overfitting zu verhindern, kann ein einfacheres Ziel, wie bereits in Absatz \ref{section:oneGoal} beschrieben, ausreichen. Dennoch gibt es Fälle, wo das Ziel zu komplex ist oder zu wenig Daten vorhanden sind, um Underfitting oder Overfitting zu verhindern.
 
 \subsection{Underfitting}
-
-Anhand einer polynominialen Regression kann man verdeutlichen, wie Underfitting vermieden werden könnte. Um dies zu erreichen, muss der erwartete Wert einer Variable als Polynom n-ten Grades modelliert werden, welches dann wiederum das allgemeine Polynom ergibt. Wenn wir den Grad ${n}$ des Polynoms erhöhen, nimmt der Trainingsfehler generell ab. Die allgemeine Gleichung eines Polynoms ist folgende:
-
-${\displaystyle y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+...+\beta_{n}^n+\epsilon}$
-
-Aber hier muss aufgepasst werden. Denn wie in der Abbildung \ref{fig:polyReg} zu sehen sinkt zur gleichen Zeit der Cross Validierungsfehler solange wir n bis zu einem gewissen Punkt erhöhen, nach diesem Punkt steigt der Fehler und Overfitting wird das Problem.
-
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=15cm]{Bilder/polynomeRegression.png}
+		\includegraphics[width=14cm]{Bilder/polynomeRegression.png}
 		\caption{Polynominale Regression}
 		\label{fig:polyReg}
 	\end{center}
 \end{figure}
+Anhand einer polynomialen Regression kann man verdeutlichen, wie Underfitting vermieden werden könnte. Um dies zu erreichen, muss der erwartete Wert einer Variable als Polynom d-ten Grades modelliert werden, welches dann wiederum das allgemeine Polynom ergibt. Wenn wir den Grad ${d}$ des Polynoms erhöhen, nimmt der Trainingsfehler generell ab. Die allgemeine Gleichung eines Polynoms ist folgende:
+%%% Quelle?
 
+${\displaystyle y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+...+\beta_{n}^n+\epsilon}$
+
+Aber hier muss aufgepasst werden. Denn, wie in der Abbildung \ref{fig:polyReg} zu sehen, sinkt zur gleichen Zeit der Cross Validierungsfehler, solange wir ${d}$ bis zu einem gewissen Punkt erhöhen, nach diesem Punkt steigt der Fehler und Overfitting wird das Problem.
 \subsection{Overfitting}
-
-Eine Möglichkeit um Overfitting zu vermeiden bietet die bereits in Abschnitt \ref{section:validate} Cross Validierung. Eine andere kann durch das erhöhen der Flexibilität des Models erreicht werden. Um die Flexibilität zu erhöhen können Regulierungstechniken benutzt werden.
+%%% Evtl Problem: Ähnlichkeit der Daten aufgreifen -> Outliner sind egal
+Eine Möglichkeit um Overfitting zu vermeiden, bietet die bereits in Abschnitt \ref{section:validate} Cross Validierung. %%% Warum löst das das Problem
+Eine andere kann durch das Erhöhen der Flexibilität des Models erreicht werden. Um die Flexibilität zu erhöhen, können Regulierungstechniken benutzt werden.
 \\\\
-Durch die Regulierung wird wenn die Komplexität eines Models zunimmt, eine Strafe angehängt. Der Regulierungsparameter (${\lambda}$) bestraft alle Parameter mit Ausnahme des markierten Bereichs in Abbildung \ref{fig:regFunc}, sodass das Modell die Daten verallgemeinert und nicht überanpasst.
+Durch die Regulierung wird eine Strafe für bestimmte Parameter angehängt, um die Komplexität eines Modells zu verhindern. Der Regulierungsparameter (${\lambda}$) bestraft alle Parameter mit Ausnahme des markierten Bereichs in Abbildung \ref{fig:regFunc}(lila Umrahmt), sodass das Modell die Daten verallgemeinert und nicht überanpasst. 
+%%% Erklären, warum nicht den makierten Bereich bestrafen wird %%% Loss-Funktion nenne verlinken, 
 
 \begin{figure}[h]
 	\begin{center}
@@ -570,8 +586,8 @@ Durch die Regulierung wird wenn die Komplexität eines Models zunimmt, eine Stra
 		\label{fig:regFunc}
 	\end{center}
 \end{figure}
-
-Wenn in der Abbildung \ref{fig:regFunc} die Komplexität steigt, wird durch die Regulierung eine Strafe für höhere Terme hinzugefügt. Dass hat zur Folge, dass die Wichtigkeit solcher langen Terme sinkt und zugleich die Komplexität des Models weniger wird.
+%%% Strafe wird drei mal erklärt.
+Wenn in der Abbildung \ref{fig:regFunc} die Komplexität steigt, wird durch die Regulierung eine Strafe für höhere Terme hinzugefügt. Das hat zur Folge, dass die Wichtigkeit solcher langen Terme sinkt und zugleich die Komplexität des Models weniger wird.
 \\\\
 Beispiele für solche Techniken sind folgende:
 
@@ -580,7 +596,6 @@ Beispiele für solche Techniken sind folgende:
 	\item L2 Regulierung (Ridge Regulierung)
 	\item Elastic net
 \end{enumerate}
-
 
 \chapter{Fazit}
 Die künstliche Intelligenz ist weiterhin auf den Vormarsch. So wundert es nicht, dass sich immer mehr Unternehmen mit dieser Technologie beschäftigen. Die Nutzung birgt jedoch das Risiko, KI Bias zu erzeugen, welche im schlechtesten Fall zu hohen Kosten führen können. Diese Arbeit beschäftigte sich daher mit der Entstehung solcher Bias und wie diese verhindert werden können.

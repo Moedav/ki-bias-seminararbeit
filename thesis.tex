@@ -207,7 +207,7 @@ Die Arbeit bezieht sich auf mehrere wissenschaftliche Arbeiten und ist meist mit
 \label{chapter:intro}
 Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt allgegenwärtig in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen auf Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine immer größere Rolle. Ein bekanntes Beispiel ist die Software AlphaGo, die als erstes Computer Programm 2016 den weltbesten Profispieler im komplexen Brettspiel Go besiegen konnte\cite{alphaGo}. Darüber hinaus ermöglicht die KI komplexe Sachverhalte zu simulieren und zu prognostizieren, wie zum Beispiel die vollautomatische Generierung hochaufgelöster, realistischer Videosequenzen auf der Grundlage simpler Eingaben\cite{videoToVideo}.
 \\\\
-Einerseits gibt es viele Erfolge, die für ein KI betriebenes System sprechen. Andererseits bestärken medienwirksame Verfehlungen, wie z.B. das frauenfeindliche Bewerbungssystem von Amazon\cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit ist es, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. bias) zu erläutern und Präventionen zu schildern, welche diese vermeiden sollen.
+Einerseits gibt es viele Erfolge, die für ein KI betriebenes System sprechen. Andererseits bestärken medienwirksame Verfehlungen, wie z.B. das frauenfeindliche Bewerbungssystem von Amazon\cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit ist es, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. \textit{bias}) zu erläutern und Präventionen zu schildern, welche diese vermeiden sollen.
 \\\\
 Wir beginnen unsere Arbeit damit, Grundlagen für spätere Kapitel aufzubauen. Danach möchten wir auf die Entstehung solcher Bias eingehen, die damit verbundenen Probleme und welche Präventionen gegen diese Fehlverhalten unternommen werden können.
 \chapter{Grundlagen}
@@ -286,16 +286,9 @@ Ein künstliches neuronales Netz wird mit dem Zweck aufgebaut, eine bestimmte Au
 \\\\
 Damit es ausgeschlossen ist, dass das Netz zufällige Zusammenhänge zwischen den Daten findet, wird eine hinreichend große Datenmenge, abhängig von der Komplexität, benötigt. Auch die Qualität der Daten ist entscheidend, da daraus der KI-System die fachlich Korrekten Schlüsse zieht, siehe Abschnitt \ref{section:Data}.
 \\\\
-Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit kann nur die Eingabe mit der Ausgabe verglichen werden, um die Korrektheit der Aufgabenlösung zu prüfen. Ziel ist es mit möglichst vollständigen Trainingsdaten das Netzwerk so einzustellen, dass diese unbekannt Daten korrekt interpretiert \cite{Grundlagen}.
-%%% anschauen
-Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit können Eingaben und Ausgaben nur mit Hilfe von Testdaten verglichen werden, um so auf die Korrektheit des Ergebnis zu prüfen.
-% kann nur die Eingabe mit der Ausgabe mit Hilfe von Testdaten verglichen werden, um auf die Korrektheit der Aufgabenlösung zu prüfen.
-Ziel ist es mit möglichst vollständigen Trainingsdaten das Netzwerk so einzustellen, dass dieses nicht nur die Trainingsdaten und Testdaten richtig beantwortet, sondern auch unbekannt Daten korrekt interpretiert.
+Neuronale Netze sind für Menschen ab einer gewissen Größe nicht mehr nachvollziehbar. Somit können Eingaben und Ausgaben nur mit Hilfe von Testdaten verglichen werden, um so auf die Korrektheit des Ergebnis zu prüfen. Ziel ist es mit möglichst vollständigen Trainingsdaten das Netzwerk so einzustellen, dass diese unbekannt Daten korrekt interpretiert werden\cite{Grundlagen}.
 \\\\
-Um eine Aufgabe zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Beim überwachten Lernen werden alle mit den gleichen Trainingsdaten trainiert und mit den Testdaten geprüft. Für jedes Netz wird ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze Initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert. Danach werden diese erneut trainiert und getestet. Die Besten werden wieder genommen und schlechteren verworfen.
-
-%%% anschauen
-Um eine Aufgabe, wie ''Gesicht in Bild erkennen'', zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Alle werden mit den gleichen Testdaten geprüft und für jedes Netz ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wiederum genommen, leicht modifiziert, kopiert und schlechteren verworfen.
+Um eine Aufgabe zu trainieren, wird nicht nur ein Netz mit Zufallswerten und Verbindungen generiert sondern tausende. Beim überwachten Lernen werden alle mit den gleichen Trainingsdaten trainiert und mit den Testdaten geprüft. Für jedes Netz wird ein Mittelwert über die Korrektheit der Antworten erstellt. Da alle Netze initial mit Zufallswerten belegt sind, haben die meisten Netze eine Erfolgsrate von ca. 50 Prozent. Die Netze mit den höchsten Erfolgsraten, mit beispielsweise mehr als 60 Prozent, werden behalten, der Rest wird verworfen. Die erfolgreichsten Netze werden mehrfach kopiert und bei jedem Kopiervorgang individuell leicht verändert und erneut getestet. Die Besten werden wiederum genommen, leicht modifiziert, kopiert und schlechteren verworfen.
 \\\\
 Nach einer gewissen Anzahl an Iterationen entscheidet das Netz nicht mehr willkürlich, sondern scheint intelligent die Aufgabe zu lösen. Dieser Iterationsschritt kann unendlich oft laufen, jedoch empfiehl es sich, je nach Anwendungsfall, ab einer gewissen Erfolgsrate das Training zu beenden oder neue Trainings- und Testdaten zu verwenden. Als Ergebnis des Prozesses erhält man durch Deep Learning ein trainiertes künstliches neuronales Netz, das im Allgemeinen als KI bezeichnet wird.
 %%% Überarbeiten 'abstrakter'
@@ -347,7 +340,7 @@ Bei der Nutzung von KI Systemen können Verzerrungen(Bias) bzw. Fehlverhalten en
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/data_bias.png}
-		\caption{Machine Learning Pipeline: Eingabe, Verarbeitung, Ausgabe\cite{biasEffekt}}
+		\caption{Machine Learning Pipeline: Eingabe, Verarbeitung, Ausgabe}
 		\label{fig:dataBias}
 	\end{center}
 \end{figure}
@@ -393,18 +386,16 @@ Dies passiert, wenn ein Netz zu gut oder zu schlecht trainiert wurde. Diese Phä
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/overUnderfitting.png}
-		\caption{Over- und Underfitting\cite{overUnderfitting}}
+		\caption{Over- und Underfitting}
 		\label{fig:overUnderFitting}
 	\end{center}
 \end{figure}
-
+%cite{overUnderfitting}
 Die Abbildung \ref{fig:overUnderFitting} zeigt drei Graphen, die das Problem erläutern. Jeder Graph visualisiert abstrakt, wie unterschiedlich das KI-System anhand der Trainingsdaten, die einzelnen Punkte in zwei Cluster unterteilt. Die ''x'' und ''o'' stellen die zugewiesenen Kategorien durch den Menschen dar.
 \\\\
 Die KI im linken Graphen ist unter angepasst, da das Modell mit den Trainingsdaten zu schlecht abgestimmt wurde. Hier wurden zu wenig Punkte richtig abgedeckt, da die Funktion zu schwach ist um eine Generalisierung zu erreichen. Solche KI-Modelle neigen zu hohen Verzerrungen der Ergebnisse und teilt die einzelnen Trainingsdaten nur oberflächlich ein.
-% Hier wurden zu wenig Punkte richtig abgedeckt, da zu wenige Muster zwischen den Eigenschaften und dem Label erkannt wurden. Solche KI-Modelle neigen zu hohen Verzerrungen der Ergebnisse und teilt die einzelnen Trainingsdaten nur oberflächlich ein.
 \\\\
 Der rechte Graph hingegen kategorisiert alle Punkte richtig ein. Unter dieser Annahme könnte man denken, es wäre der beste Graph. Hier spricht man allerdings von einer Überanpassung, da die Trainingsdaten zu stark auswendig gelernt und zu wenig generalisiert wurden. Verantwortlich dafür ist die Integration der Outliner(Ausreißer), die starke Abweichungen der eigenen Kategorie beinhalten. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
-%da das Modell zu gut auf die Trainings- und Testdaten abgestimmt wurde. In der Praxis liefert dieses Model schlechte Ergebnisse. Verantwortlich dafür ist die Integration der Outliner, die starke Abweichungen der eigenen Kategorie beinhalten. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
 \\\\
 Beispielsweise wird eine KI mit Deep Learning darauf trainiert, einen Schrank auf einem Bild zu erkennen. Ist das KI-System über angepasst, beinhaltet es zu viele Eigenschaften der Ausreißer beispielsweise Sessel ähnliche Schränke. Das KI-Programm erkennt alle Trainings- und Testdaten perfekt, sobald man jedoch anfängt mit realen Daten zu testen, ist das Programm bei überschneidenden Eingaben sehr fehleranfällig. Outliner ähnliche Daten, wie in diesem Beispiel ein normaler Sessel, werden vom Programm als Schränke fehlinterpretiert, da das Modell zuvor über angepasst wurde. \\
 \\\\
@@ -417,10 +408,11 @@ Bei der Aufteilung von Trainings- und Testdaten können explizite Fälle nur in 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/dog_or_bagel.jpg}
-		\caption{Hund oder Bagel?\cite{dogOrBagel}}
+		\caption{Hund oder Bagel?}
 		\label{fig:dogBagel}
 	\end{center}
 \end{figure}
+%cite{dogOrBagel}
 
 Optische Täuschungen sind Bilder, die Menschen in die Irre führen können.
 Anhand des Beispiels aus der Abbildung \ref{fig:dogBagel} wird deutlich,
@@ -430,12 +422,12 @@ Das gilt auch für eine KI, denn das Programm lernt anhand Muster, Strukturen un
 
 \section{Menschliche Fehler}
 \label{section:humanFehler}
-Den Faktor Mensch darf man bei der Bias Entstehung nicht vergessen. Konzeptionelle Fehler, mangels Wissen oder aus einem Missgeschick heraus, fördern Fehlverhalten. Markante Defizite können eine funktionale KI Entstehung komplett verhindern, sind jedoch in der Regel noch die besseren Missstände. Denn kleinere Mängel, die nicht sofort auffallen, können in Produktion fatale Folgen haben. %%% Nochmal drüberlesen, ob verständlich
+Den Faktor Mensch darf man bei der Bias Entstehung nicht vergessen. Konzeptionelle Fehler, mangels Wissen oder aus einem Missgeschick heraus, fördern Fehlverhalten. Markante Defizite können eine funktionale KI Entstehung komplett verhindern, sind jedoch in der Regel noch die besseren Missstände. Denn kleinere Mängel, die nicht sofort auffallen, können in Produktion fatale Folgen haben. 
 \subsection{Falsche Zielsetzung}
 Die Zielsetzung eines KNNs ist ein nicht zu unterschätzender Teil bei der KI Entwicklung. Setzt man hier den falschen Grundstein, können sich vermeidbare Fehlverhalten einer KI entwickeln.
 \subsubsection{Subjektive Ziel Definition}
 Eine Zielvariable spiegelt eine Antwort einer Frage wider, die eine KI lösen soll. Wenn die Aufgabe lautet, "'finde den besten Mitarbeiter"', muss die Zielsetzung in messbare Werte übersetzt werden. Bei dieser Definition kann bewusst oder unbewusst Bias eingepflegt werden. Anhand welcher Werte der 'Beste' Mitarbeiter erkannt wird, liegt allein an der subjektiven Meinung des Entwicklers. Ist die Meinung 'männlich, jung, intelligent' würde die KI Frauen diskriminieren \cite{KIPediaBias}.
-% https://www.lernen-wie-maschinen.ai/ki-pedia/was-ist-algorithmische-voreingenommenheit-algorithmic-bias/
+
 \subsubsection{Zu viele Ziele}
 Viele Köche verderben den Brei. Diese Weisheit kann auch auf die Ziele von KNNs umgemünzt werden. Denn je mehr Ziele ein KNN hat, desto größer und komplexer muss ein künstliches neuronales Netz sein, um alle Fälle abdecken zu können. Je komplexer ein KNN ist, desto größer ist die Wahrscheinlichkeit, dass Fehler passieren. Auch ist sich das Netz deutlich unsicherer bei seinen Entscheidungen.
 \\\\ % Ohne Quelle :(
@@ -473,9 +465,9 @@ In Finnland wurde Svea Ekonomi ein Onlinekreditvergabe Unternehmen auf 100.000 E
 Wäre nur ein Faktor, arithmetisch gesehen, günstiger für den männlichen Antragssteller gelegen, hätte er den Kredit bekommen \cite{DiskriminierungKredit}.
 
 \subsubsection{Risikobeurteilung}
-In Amerika wird eine KI namens COMPAS eingesetzt, um Risikobeurteilung von Angeklagten und Häftlingen zu erstellen. Benachteiligt werden eindeutig Minderheiten. Nachweislich lag die Software doppelt so oft mit den Prognosen zukünftiger Verbrechen von Afroamerikanern falsch im Vergleich zu weißen Angeklagten. %%% Passt der Satz so?
+In Amerika wird eine KI namens COMPAS eingesetzt, um Risikobeurteilung von Angeklagten und Häftlingen zu erstellen. Benachteiligt werden eindeutig Minderheiten. Nachweislich lag die Software doppelt so oft mit den Prognosen zukünftiger Verbrechen von Afroamerikanern falsch im Vergleich zu weißen Angeklagten.
 Durch schlechte Sozialprognosen haben afroamerikanische Angeklagte eine geringe Chance auf frühzeitige Entlassung oder auf Bewährung. Bedeutet, afroamerikanische Straftäter müssen durchschnittlich länger Inhaftieren als Weiße, dank KIs.
-%%% evtl. ref auf Historische Verzerrung
+
 \subsection{Lebensgefahr}
 Tesla und Volvo prognostizierten 2015, dass 2017 vollständig autonome Fahrzeuge marktreif wären. Das Fraunhofer-Institut prophezeit 2025 als frühesten Zeitpunkt, während die Deutsche Akademie der Technikwissenschaften 2030 nennt \cite{AutonomAuto}.
 \\Trotzdem schickt Tesla seine Kunden mit einer unausgereiften KI autonom auf die Straßen. Allein mit dem Zweck Daten zu sammeln. Dass in Verbindung mit autonomen Fahren immer wieder Unfälle bis hin zu Todesfällen gemeldet werden, zeigt, dass künstliche Intelligenz unmittelbare Konsequenzen für den Menschen mit sich bringt. \\\\
@@ -546,8 +538,9 @@ Eine Möglichkeit um das zu verhindern, bietet die Kreuzvalidierung.
 		\label{fig:crossValidierung}
 	\end{center}
 \end{figure}
-
-\\Anstelle eines fixen Testdatensatzes wird der komplette Datensatz in viele kleine Blöcke unterteilt, in Abbildung \ref{fig:crossValidierung} Fünf. In diesem Beispiel werden fünf Durchläufe ausgeführt, in denen jeweils abwechselnd mit vier unterschiedlichen Datensätzen trainiert und mit einem validiert wird. Bei jedem Durchlauf entsteht ein Score über die Fehleranfälligkeit. Am Ende wird ein durchschnittlicher Score über diese fünf Durchläufe gebildet, welcher die gesamte Fehleranfälligkeit für alle Datensätze wiedergibt.
+%cite{towardData}
+\\
+Anstelle eines fixen Testdatensatzes wird der komplette Datensatz in viele kleine Blöcke unterteilt, in Abbildung \ref{fig:crossValidierung} Fünf. In diesem Beispiel werden fünf Durchläufe ausgeführt, in denen jeweils abwechselnd mit vier unterschiedlichen Datensätzen trainiert und mit einem validiert wird. Bei jedem Durchlauf entsteht ein Score über die Fehleranfälligkeit. Am Ende wird ein durchschnittlicher Score über diese fünf Durchläufe gebildet, welcher die gesamte Fehleranfälligkeit für alle Datensätze wiedergibt.
 \\\\
 Mit Hilfe der Kreuzvalidierung lässt sich eine Aussage treffen, wie gut das Modell mit unbekannten Daten trainiert. Dieses Prinzip nennt man Generalisierung.
 
@@ -571,6 +564,7 @@ Bei der Regulierung wird ein Strafterm eingeführt, der die Anzahl an Variablen 
 		\label{fig:regFunc}
 	\end{center}
 \end{figure}
+%cite{towardDataReg}
 Wenn in der Abbildung \ref{fig:regFunc} die Komplexität steigt, wird eine Strafe hinzugefügt. Das hat zur Folge, dass die Wichtigkeit solcher langen Terme sinkt und zugleich die Komplexität des Modells weniger wird.
 \\\\
 Beispiele für solche Techniken sind folgende:

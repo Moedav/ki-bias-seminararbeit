@@ -307,13 +307,11 @@ Alle KKN benötigen eine Loss-Funktion(Verlustfunktion), um später trainiert we
 \label{section:Data}
 Erst durch eine Kombination aus Algorithmen und Daten wird die Entscheidungsfindung ermittelt. Wie menschlicher Entscheider können Algorithmen aufgrund von unvollständigen oder fehlerhaften Daten falsche Prognosen treffen. Eine gute Datenqualität und Quantität sind ebenso wie eine richtige Unterteilung zwischen Test- und Trainingsdaten unabdingbar.
 
-\subsection{Datenaufbereitung}%%% Nochmal überprüfen
+\subsection{Datenaufbereitung}
 \label{section:dataSetup}
-Der Erfolg einer KI hängt von den Daten ab. Zuerst müssen Daten gesammelt werden, welche zu dem Zweck der KI passen. Soll ein System Äpfel und Birnen unterscheiden, müssen Birnen und Äpfel-Bilder gesammelt werden.%%% Nochmal überprüfen
+Der Erfolg einer KI hängt von den Daten ab. Zuerst müssen Daten für den Zweck der KI Anwendung gesammelt und anschließend aufbereitet werden. Dabei müssen die Eigenschaften(z.B. eines Bildes) erfasst werden. Zusätzlich benötigt der Datensatz zur Kategorisierung beim überwachten Lernen, ein Label.
 \\\\
-Um nun ein KNN trainieren zu können, müssen die Daten in Trainings- und Testdaten unterteilt werden. Die Testdaten werden nicht für das Training benutzt, sondern dienen dazu, das fertige System gegen unbekannte Daten zu testen, mit welchen es zuvor nicht trainiert wurde. Meist werden 10-20\% der Daten als Testdaten reserviert. Die Trainingsdaten werden genutzt um das Modell zu trainieren.%%% Nochmal überprüfen
-\\\\
-Ein Datensatz besteht grundsätzlich aus 2 Elementen. Beim überwachten Lernen wird das Label benötigt, welches man für das Feedback nutzt. Damit die Maschine leichter Muster erkennen kann, werden dazu weitere Eigenschaften (z.B. Farbe, Größe) benötigt. Diese helfen dem Modell z.B. das Label richtig vorherzusagen.%%% Nochmal überprüfen
+Um nun ein KNN trainieren zu können, müssen die Daten in Trainings- und Testdaten unterteilt werden. Mit den Trainingsdaten wird die Maschine trainiert. Die Testdaten hingegen werden nicht für das Training benutzt, sondern dienen dazu, das fertige System gegen unbekannte Daten zu testen. Meist werden 10-20\% der Daten als Testdaten reserviert.
 
 \subsection{Quantität}
 \label{section:DataQuantity}
@@ -322,8 +320,6 @@ Je mehr unterschiedliche Eigenschaften in den Datensätzen existieren, umso komp
 Ein Beispiel hierfür findet sich in der Autoindustrie. Beim autonomen Fahren müssen Daten von Laser-, Kamera- und Radarsensoren im Auto zuverlässig und schnell verarbeitet werden. Die KI im Fahrzeug muss jederzeit über ein präzises Abbild der realen Verkehrsbedingungen verfügen, um darauf basierend in jeder Fahrsituation die richtige Entscheidung treffen zu können \cite{autonomesFahren}.
 \\\\
 Je nach Komplexität der Anwendungen werden mehr oder weniger Datensätze benötigt. Generell kann man sagen, dass mit zu wenigen Trainingsdaten, ein KNN schwerer Muster in den Daten erkennt und dadurch fehleranfälliger wird.
-
-%Anhand dieses Beispiels erkennt man die Wichtigkeit der Quantität der Trainingsdaten, da die Anzahl möglicher Situationen im Straßenverkehr prinzipiell unendlich ist. Um gleichartige Strukturen im Verkehrsgeschehen zu erkennen, sind viele Trainingsdaten erforderlich, die ein immer genaueres Bild ergeben.
 
 \subsection{Qualität}
 \label{section:DataQuality}
@@ -342,7 +338,7 @@ Um das umsetzen zu können, wird ein Zugang zu den Daten benötigt, damit diese 
 
 \chapter{Bias Entstehung}
 \label{chapter:BiasEntstehung}
-Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten entstehen, diese können unterschiedlicher Natur sein und an unterschiedlichen Stellen der Machine Learning Pipeline (Abbildung \ref{fig:dataBias}) auftreten. Dabei möchten wir auf die Daten eingehen, welche bei der Eingabe zu Bias führen können. Menschliche Fehler verdeutlichen, welche bei der Verarbeitung und der Ausgabe auftreten können. %%% Letzten Satz Überarbeiten
+Bei der Nutzung von KI System können Verzerrungen(Bias) bzw. Fehlverhalten entstehen, diese können unterschiedlicher Natur sein und an unterschiedlichen Stellen der Machine Learning Pipeline (Abbildung \ref{fig:dataBias}) auftreten. Dabei möchten wir auf die Daten eingehen, welche bei der Eingabe zu Bias führen können. Anschließend werden die Menschliche Fehler erläutert, die in diesen Verarbeitungsschritten auftreten können.
 
 \begin{figure}[h]
 	\begin{center}
@@ -361,6 +357,7 @@ Unvollständige Daten sind Trainingsdatensätze, die z.B. nur einen Teil der Bev
 Ein Beispiel dafür lieferte Apple 2017 mit der damals neuen FaceID des IPhone X.
 Diese konnte zu Beginn durch Zwillinge, 3D Masken oder auch eng verwandte Personen ausgetrickst werden. Das größte Problem hierbei war allerdings, dass die Software mit Trainingsdaten trainiert wurde, bei der eine komplette ethische Gruppe unterrepräsentiert war. So konnten nicht miteinander verwandte Chinesen das selbe Handy entsperren und machten somit die Nutzung der FaceID unsicher\cite{iphone}.
 %%% Übergang optional :)
+
 \subsection{Garbage in - Garbage out}
 \label{section:DataGarbage}
 Eine Maschine kennt grundsätzlich keinen Unterschied zwischen Schwarz und Weiß, Mann und Frau oder Jung und Alt. Erst durch das Trainieren einer KI lernt eine Maschine Verhalten und Muster zu differenzieren. Hierfür werden qualitativ hochwertige Daten (siehe \ref{section:DataQuality}) benötigt, um das Netz richtig einzustellen.
@@ -374,8 +371,7 @@ Dieses Problem wird in der KI als "Garbage in - Garbage out" (Müll rein, Müll 
 
 \subsection{Historische Verzerrung}
 \label{section:biasInTest}
-% Diskriminierung durch Reproduktion von Stereotypen
-Eine historische Verzerrung liegt vor, wenn ein Algorithmus anhand eines alten Datensatzes trainiert wird, der vergangene Werte und Moralvorstellungen etwa die Rolle der Frau in der Vergangenheit aufgreift.%Verlinkung auf https://www.lernen-wie-maschinen.ai/ki-pedia/was-ist-algorithmische-voreingenommenheit-algorithmic-bias/
+Eine historische Verzerrung liegt vor, wenn ein Algorithmus anhand eines alten Datensatzes trainiert wird, der vergangene Werte und Moralvorstellungen etwa die Rolle der Frau in der Vergangenheit aufgreift\cite{kipedia}.
 \\\\
 Ein Beispiel liefert Amazons Algorithmus aus dem Jahr 2014, der unter mehreren Bewerbungstexten automatisch die besten Bewerber herausfiltern sollte. Dabei bezog die Software sich auf voran gegangene Bewerbungen, lernte daraus, welche Eigenschaften Amazon bevorzugte. Weil das Unternehmen aber Teil einer von Männern dominierten Industrie ist, sind in den zugrunde gelegten vergangenen zehn Jahren vor allem Männer eingestellt worden. Daraus resultierte, dass Frauen grundsätzlich schlechter bewertet wurden. Selbst ohne Angabe eines Geschlechtes wurden Frauen durch Frauenvereine identifiziert und kategorisch ausgeschlossen. Dies veranschaulicht das Problem der historischen Verzerrung, welches beim maschinellen Lernen in den Daten auftreten kann\cite{amazon}.
 \\\\
@@ -383,6 +379,7 @@ Die Hoffnung solcher Anwendungen liegt eigentlich darin, Vorurteile zu vermeiden
 \\\\
 An diesem Beispiel wird allerdings deutlich, wie zentral die Daten für eine KI sind.
 Meist ist es nicht möglich Daten zu finden, welche nicht bereits menschliche Bias beinhaltet. Solch verzerrte Trainingsdaten, werden unter Bezug auf ihre Zusammensetzung auch als WEIRD Samples (western, educated, industrialized, rich and democratic societies) bezeichnet\cite{BiasInKi}.
+
 \subsection{Under-/ Overfitting}
 \label{section:OverUnderfitting}
 
@@ -392,21 +389,22 @@ Dies passiert, wenn ein Netz zu gut oder zu schlecht trainiert wurde. Diese Phä
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/overUnderfitting.png}
-		\caption{Over- und Underfitting}
+		\caption{Over- und Underfitting\cite{overUnderfitting}}
 		\label{fig:overUnderFitting}
 	\end{center}
 \end{figure}
 
-Die Abbildung \ref{fig:overUnderFitting} zeigt drei Graphen, die das Problem erläutern. Jeder Graph visualisiert abstrakt, wie unterschiedlich das KI-System anhand der Trainingsdaten die einzelnen Punkte in zwei Cluster unterteilt.
-%%% evtl. Graphen erklären, x ist Kategorie 1, o Kategorie 2, links vom Graphen ist Kategorie 1 rechts Kategorie 2
+Die Abbildung \ref{fig:overUnderFitting} zeigt drei Graphen, die das Problem erläutern. Jeder Graph visualisiert abstrakt, wie unterschiedlich das KI-System anhand der Trainingsdaten, die einzelnen Punkte in zwei Cluster unterteilt. Die ''x'' und ''o'' stellen die zugewiesenen Kategorien durch den Menschen dar.
 \\\\
-Die KI im linken Graphen ist unter angepasst, da das Modell mit den Trainingsdaten zu schlecht abgestimmt wurde. Hier wurden zu wenig Punkte richtig abgedeckt, da zu wenige Muster zwischen den Eigenschaften und dem Label erkannt wurden. Solche KI-Modelle neigen zu hohen Verzerrungen der Ergebnisse und teilt die einzelnen Trainingsdaten nur oberflächlich ein.
+Die KI im linken Graphen ist unter angepasst, da das Modell mit den Trainingsdaten zu schlecht abgestimmt wurde. Hier wurden zu wenig Punkte richtig abgedeckt, da die Funktion zu schwach ist um eine Generalisierung zu erreichen. Solche KI-Modelle neigen zu hohen Verzerrungen der Ergebnisse und teilt die einzelnen Trainingsdaten nur oberflächlich ein.
+% Hier wurden zu wenig Punkte richtig abgedeckt, da zu wenige Muster zwischen den Eigenschaften und dem Label erkannt wurden. Solche KI-Modelle neigen zu hohen Verzerrungen der Ergebnisse und teilt die einzelnen Trainingsdaten nur oberflächlich ein.
 \\\\
-Der rechte Graph hingegen kategorisiert alle Punkte richtig ein. Unter dieser Annahme könnte man denken, es wäre der beste Graph. Hier spricht man allerdings von einer Überanpassung, da das Modell zu gut auf die Trainings- und Testdaten abgestimmt wurde. In der Praxis liefert dieses Model schlechte Ergebnisse. Verantwortlich dafür ist die Integration der Outliner, die starke Abweichungen der eigenen Kategorie beinhalten. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.%%%Varianz der Vorhersagen = hohe Fehleranfälligkeit
+Der rechte Graph hingegen kategorisiert alle Punkte richtig ein. Unter dieser Annahme könnte man denken, es wäre der beste Graph. Hier spricht man allerdings von einer Überanpassung, da die Trainingsdaten zu stark auswendig gelernt und zu wenig generalisiert wurden. Verantwortlich dafür ist die Integration der Outliner(Ausreißer), die starke Abweichungen der eigenen Kategorie beinhalten. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
+%da das Modell zu gut auf die Trainings- und Testdaten abgestimmt wurde. In der Praxis liefert dieses Model schlechte Ergebnisse. Verantwortlich dafür ist die Integration der Outliner, die starke Abweichungen der eigenen Kategorie beinhalten. Solche Modelle besitzen eine hohe Varianz der Vorhersagen\cite{overUnderfitting}.
 \\\\
-Beispielsweise wird eine KI mit Deep Learning darauf trainiert, einen Schrank auf einem Bild zu erkennen. Ist das KI-System über angepasst, beinhaltet es zu viele Eigenschaften der Outliner beispielsweise Sessel ähnliche Schränke. Das KI-Programm erkennt alle Trainings- und Testdaten perfekt, sobald man jedoch anfängt mit realen Daten zu testen, ist das Programm bei überschneidenden Eingaben sehr fehleranfällig. Outliner ähnliche Daten, wie in diesem Beispiel ein normaler Sessel, werden vom Programm als Schränke fehlinterpretiert, da das Modell zuvor über angepasst wurde. \\
+Beispielsweise wird eine KI mit Deep Learning darauf trainiert, einen Schrank auf einem Bild zu erkennen. Ist das KI-System über angepasst, beinhaltet es zu viele Eigenschaften der Ausreißer beispielsweise Sessel ähnliche Schränke. Das KI-Programm erkennt alle Trainings- und Testdaten perfekt, sobald man jedoch anfängt mit realen Daten zu testen, ist das Programm bei überschneidenden Eingaben sehr fehleranfällig. Outliner ähnliche Daten, wie in diesem Beispiel ein normaler Sessel, werden vom Programm als Schränke fehlinterpretiert, da das Modell zuvor über angepasst wurde. \\
 \\\\
-Am besten ist somit der mittlere Graph, welcher Outliner und das Grundrauschen ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt. 
+Am besten ist somit der mittlere Graph, welcher Outliner ignoriert und eine gute Balance zwischen Verzerrung und Abweichungen besitzt. 
 \subsection{Aufteilung der Daten}
 \label{section:AufteilungDerDaten}
 Bei der Aufteilung von Trainings- und Testdaten können explizite Fälle nur in den Trainingsdaten auftreten. Zwar werden diese Fälle antrainiert, dadurch dass sie in den Testdaten fehlen nicht validiert. Das Netz liefert sehr gute Testergebnisse, jedoch nur da diese speziellen Fälle nicht getestet wurden. Diese fallen meist erst in der Praxis auf.
@@ -516,9 +514,7 @@ Im folgenden Angriff wird mit einer Brille und dessen speziellen Muster, eine KI
 Ab einem gewissen Grad ist es schwer ein bestehendes Modell, dass mit fehlerhaften Daten trainiert wurde, das Fehlverhalten zu verstehen und zu entfernen, siehe Abschnitt \ref{section:DataGarbage}.
 \\\\
 In der Annahme, ein KI-System wurde richtig trainiert, aber die zeitliche Komponente nicht beachtet, kann es zu einer historischen Verzerrung \ref{section:biasInTest} kommen.
-Wie Stöcker 2019 \cite{stoecker} bereits erwähnte, benötigt eine sich ändernde Gesellschaft auch kontinuierliche weiterlernende Algorithmen. Solch ein Lernprozess wird auch als \textit{adaptive learning} bezeichnet, womit dem Effekt sich ändernder Datenumgebungen(concept drift) Rechnung getragen wird \cite{gama}. 
-%%% evtl. \cite{sahoo} hier erklären
-%In DL-Algorithmen ist solche eine Umsetzung nicht trivial, aber das Beispiel von Sahoo et al. \cite{sahoo} zeigt auch die Machbarkeit auch in diesem Feld.
+Wie Stöcker 2019 \cite{stoecker} bereits erwähnte, benötigt eine sich ändernde Gesellschaft auch kontinuierliche weiterlernende Algorithmen. Solch ein Lernprozess wird auch als \textit{adaptive learning} bezeichnet, womit dem Effekt sich ändernder Datenumgebungen(concept drift) Rechnung getragen wird \cite{gama}.%%% Vll nochmal ansprechen
 \\\\
 Auch bei einem für Diskriminierung anfälligen Umfeld muss besondere Sorgfalt bei der Wahl des passenden Algorithmus bedacht werden. In der Regel reicht es einzelne Attribute aus den Eingangsdaten auszuschließen, um eine algorithmische Diskriminierung bestimmter Personengruppen zu verhindern. Dies genügt jedoch oftmals nicht, denn wie das Beispiel von Amazon aus \ref{section:biasInTest} zeigt, kann der Algorithmus Rückschlüsse anhand anderer Attribute ziehen(z.B. durch Frauenvereine).
 \\\\
@@ -542,42 +538,31 @@ Die oben genannten Verfahren bekämpfen Flüchtigkeitsfehler und bewusste Manipu
 \\\\
 Zudem sollte das KI-System ausreichend auf Fehleranfälligkeit geprüft werden. Vor allem im kritischen Bereichen, wie in der Medizindiagnostik, sollten die Fehleranfälligkeit gegen null gehen. Anhand des Problem aus Abschnitt \ref{section:AufteilungDerDaten}, können ungeprüfte Fälle fehlerhaft sein.
 \\\\
-Eine Möglichkeit um das zu verhindern, bietet die Cross Validierung. 
+Eine Möglichkeit um das zu verhindern, bietet die Kreuzvalidierung. 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/crossValidierung.png}
-		\caption{5 fache Cross Validierung}
+		\caption{fünf fache Kreuzvalidierung}
 		\label{fig:crossValidierung}
 	\end{center}
 \end{figure}
 \\Anstelle eines fixen Testdatensatzes wird der komplette Datensatz in viele kleine Blöcke unterteilt, in der Abbildung \ref{fig:crossValidierung} Fünf. In diesem Beispiel werden fünf Durchläufe ausgeführt, in denen jeweils abwechselnd mit vier unterschiedlichen Datensätzen trainiert und mit einem validiert wird. Bei jedem Durchlauf entsteht ein Score über die Fehleranfälligkeit. Am Ende wird ein durchschnittlicher Score über diese fünf Durchläufe gebildet, welcher die gesamt Fehleranfälligkeit für alle Datensätze wider gibt.
+\\\\
+Mit Hilfe der Kreuzvalidierung lässt sich eine Aussage treffen, wie gut das Modell mit unbekannten Daten trainiert. Dieses Prinzip nennt man die Generalisierung.
 
-\section{Over- und Underfitting vermeiden}
+\subsection{Over- und Underfitting}
 \label{section:preventData}
 %%% Datengeneralisierung kucken, ob drinn ist
-Underfitting und Overfittung sind oft Fehler der Test-/Trainingsdaten Aufbereitung. Um Overfitting zu verhindern, kann ein einfacheres Ziel, wie bereits in Absatz \ref{section:oneGoal} beschrieben, ausreichen. Dennoch gibt es Fälle, wo das Ziel zu komplex ist oder zu wenig Daten vorhanden sind, um Underfitting oder Overfitting zu verhindern.
+Die Kunst der Modellierung besteht darin, ein optimales Modell(siehe mittleren Graphen \ref{fig:overUnderFitting}) zu finden, dass eine perfekte Balance zwischen Verzerrung und Abweichung der Daten besitzt. Dieses Modell sollte eine so gering wie mögliche Komplexität und gut beschriebene Daten haben. Da das nicht immer einfach ist, treten in der Generalisierung Underfitting und Overfitting auf, siehe Abschnitt \ref{section:OverUnderfitting}.
 
-\subsection{Underfitting}
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=14cm]{Bilder/polynomeRegression.png}
-		\caption{Polynominale Regression}
-		\label{fig:polyReg}
-	\end{center}
-\end{figure}
-Anhand einer polynomialen Regression kann man verdeutlichen, wie Underfitting vermieden werden könnte. Um dies zu erreichen, muss der erwartete Wert einer Variable als Polynom d-ten Grades modelliert werden, welches dann wiederum das allgemeine Polynom ergibt. Wenn wir den Grad ${d}$ des Polynoms erhöhen, nimmt der Trainingsfehler generell ab. Die allgemeine Gleichung eines Polynoms ist folgende:
-%%% Quelle?
+\subsubsection{Underfitting}
+Underfitting ist die Folge eines zu einfachen Modells und liefert somit schlechte Vorhersagen. Eine Möglichkeit um dies zu verhindern ist das Erhöhen der Flexibilität. Dass heißt die Anzahl an Merkmalen die einen Datensatz auszeichnen und die Menge der Trainingsdaten müssen erhöht werden. Eine weitere Möglichkeit bietet das Erhöhen der Durchläufen beim Trainieren der Trainingsdaten.
 
-${\displaystyle y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+...+\beta_{n}^n+\epsilon}$
-
-Aber hier muss aufgepasst werden. Denn, wie in der Abbildung \ref{fig:polyReg} zu sehen, sinkt zur gleichen Zeit der Cross Validierungsfehler, solange wir ${d}$ bis zu einem gewissen Punkt erhöhen, nach diesem Punkt steigt der Fehler und Overfitting wird das Problem.
-\subsection{Overfitting}
-%%% Evtl Problem: Ähnlichkeit der Daten aufgreifen -> Outliner sind egal
-Eine Möglichkeit um Overfitting zu vermeiden, bietet die bereits in Abschnitt \ref{section:validate} Cross Validierung. %%% Warum löst das das Problem
-Eine andere kann durch das Erhöhen der Flexibilität des Models erreicht werden. Um die Flexibilität zu erhöhen, können Regulierungstechniken benutzt werden.
+\subsubsection{Overfitting}
+Overfitting stellt in der KI eine große Herausforderung dar und ist die Folge aus einem zu komplexen Modell. Eine Möglichkeit um eine Überanpassung zu vermeiden, bietet eine Resampling Methode, wie z.B. die Kreuzvalidierung, siehe Abschnitt \ref{section:validate}. 
+Eine andere Methode ist die Vereinfachung des Ki-Systems. So kann mit Hilfe von Pruning die Größe eines Bäumen reguliert werden\cite{overUnderfittingNovu}. Bei Regressionsmodellen hingegen können Regulierungstechniken angewandt werden.
 \\\\
-Durch die Regulierung wird eine Strafe für bestimmte Parameter angehängt, um die Komplexität eines Modells zu verhindern. Der Regulierungsparameter (${\lambda}$) bestraft alle Parameter mit Ausnahme des markierten Bereichs in Abbildung \ref{fig:regFunc}(lila Umrahmt), sodass das Modell die Daten verallgemeinert und nicht überanpasst. 
-%%% Erklären, warum nicht den makierten Bereich bestrafen wird %%% Loss-Funktion nenne verlinken, 
+Bei der Regulierung wird ein Strafterm eingeführt, der die Anzahl an Variablen und deren Wechselwirkungen berücksichtigt(siehe Abbildung \ref{fig:regFunc}).
 
 \begin{figure}[h]
 	\begin{center}
@@ -586,11 +571,9 @@ Durch die Regulierung wird eine Strafe für bestimmte Parameter angehängt, um d
 		\label{fig:regFunc}
 	\end{center}
 \end{figure}
-%%% Strafe wird drei mal erklärt.
-Wenn in der Abbildung \ref{fig:regFunc} die Komplexität steigt, wird durch die Regulierung eine Strafe für höhere Terme hinzugefügt. Das hat zur Folge, dass die Wichtigkeit solcher langen Terme sinkt und zugleich die Komplexität des Models weniger wird.
+Wenn in der Abbildung \ref{fig:regFunc} die Komplexität steigt, wird eine Strafe hinzugefügt. Das hat zur Folge, dass die Wichtigkeit solcher langen Terme sinkt und zugleich die Komplexität des Models weniger wird.
 \\\\
 Beispiele für solche Techniken sind folgende:
-
 \begin{enumerate}
 	\item L1 Regulierung (Lasso Regulierung)
 	\item L2 Regulierung (Ridge Regulierung)

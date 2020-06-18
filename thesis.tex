@@ -550,15 +550,14 @@ Eine Möglichkeit um das zu verhindern, bietet die Kreuzvalidierung.
 \\\\
 Mit Hilfe der Kreuzvalidierung lässt sich eine Aussage treffen, wie gut das Modell mit unbekannten Daten trainiert. Dieses Prinzip nennt man die Generalisierung.
 
-\subsection{Over- und Underfitting}
+\section{Over- und Underfitting}
 \label{section:preventData}
-%%% Datengeneralisierung kucken, ob drinn ist
-Die Kunst der Modellierung besteht darin, ein optimales Modell(siehe mittleren Graphen \ref{fig:overUnderFitting}) zu finden, dass eine perfekte Balance zwischen Verzerrung und Abweichung der Daten besitzt. Dieses Modell sollte eine so gering wie mögliche Komplexität und gut beschriebene Daten haben. Da das nicht immer einfach ist, treten in der Generalisierung Underfitting und Overfitting auf, siehe Abschnitt \ref{section:OverUnderfitting}.
+Die Kunst der Modellierung besteht darin, ein optimales Modell(siehe mittleren Graphen \ref{fig:overUnderFitting}) zu finden, dass eine perfekte Balance zwischen Verzerrung und Abweichung der Daten besitzt. Dieses Modell sollte eine so gering wie mögliche Komplexität und gut beschriebene und generalisierte Daten haben. Da das nicht immer einfach zu erreichen ist, treten Underfitting und Overfitting auf, siehe Abschnitt \ref{section:OverUnderfitting}.
 
-\subsubsection{Underfitting}
+\subsection{Underfitting}
 Underfitting ist die Folge eines zu einfachen Modells und liefert somit schlechte Vorhersagen. Eine Möglichkeit um dies zu verhindern ist das Erhöhen der Flexibilität. Dass heißt die Anzahl an Merkmalen die einen Datensatz auszeichnen und die Menge der Trainingsdaten müssen erhöht werden. Eine weitere Möglichkeit bietet das Erhöhen der Durchläufen beim Trainieren der Trainingsdaten.
 
-\subsubsection{Overfitting}
+\subsection{Overfitting}
 Overfitting stellt in der KI eine große Herausforderung dar und ist die Folge aus einem zu komplexen Modell. Eine Möglichkeit um eine Überanpassung zu vermeiden, bietet eine Resampling Methode, wie z.B. die Kreuzvalidierung, siehe Abschnitt \ref{section:validate}. 
 Eine andere Methode ist die Vereinfachung des Ki-Systems. So kann mit Hilfe von Pruning die Größe eines Bäumen reguliert werden\cite{overUnderfittingNovu}. Bei Regressionsmodellen hingegen können Regulierungstechniken angewandt werden.
 \\\\

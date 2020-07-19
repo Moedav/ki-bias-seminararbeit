@@ -247,11 +247,11 @@ Machine Learning (ML) ist der Oberbegriff jeglicher Lernformen von künstlicher 
 \subsubsection{Lernformen}
 KIs bestehen aus vielen Algorithmen. Damit eine KI lernt, müssen die Algorithmen angepasst werden. Hierbei gibt es drei übergeordnete Lernformen: überwachtes, unüberwachtes oder bestärkendes Lernen. \\\\
 Beim überwachten Lernen sind Trainingsdaten bereits kategorisiert. Nach dem Versuch die Daten eigenständig zu kategorisieren, erhält das KI-System ein positives oder negatives Feedback. Auf Basis des Feedbacks lernt die KI, auf welche Muster und Merkmale es achten muss, um die Aufgabe richtig zu lösen \cite{Grundlagen}. \\
-Die andere Variante ist das unüberwachte Lernen. Hierbei sind die Trainingsdaten nicht kategorisiert und das KI-System kann somit kein Feedback bekommen. Das neuronale Netz erstellt ein statisches Modell aus den Trainingsdaten und versucht Zusammenhänge und wiederkehrende Muster zwischen den Daten zu erkennen. Zusammenhängende Daten werden einer Kategorie zugeordnet. Die lernende KI weiß zu keiner Zeit, ob das was es gruppiert auch zusammengehört \cite{Grundlagen}.\\
+Die andere Variante ist das unüberwachte Lernen. Hierbei sind die Trainingsdaten nicht kategorisiert und das KI-System kann somit kein Feedback bekommen. Das neuronale Netz erstellt ein statisches Modell aus den Trainingsdaten und versucht Zusammenhänge und wiederkehrende Muster zwischen den Daten zu erkennen. Zusammenhängende Daten werden einer Kategorie zugeordnet. Die lernende KI weiß zu keiner Zeit, ob das was es gruppiert auch zusammengehört.\\
 Bestärkendes Lernen (auch Reinforcement Learning) ist eine Lernmethode bei dem der Algorithmus durch Belohnung und Bestrafung trainiert wird. Hierbei erhält das KI-System Feedback in Form von Belohnung bei Erfolg und Bestrafung, falls das bestimmte Verhalten nicht zielführend war. Mit dieser Lernmethode wurde Google AlphaGo trainiert \cite{Grundlagen}.
 %%% Bestärkendes Lernen überdenken
 \subsection{Neuronale Netze}
-Künstliche neuronale Netze(KNN) bestehen aus künstlichen Neuronen, die untereinander verflechtet sind. Die Konstrukte sind denen der sich im Nervensystem eines Lebewesens befindenden Neuronenverbindungen nachempfunden. \\
+Künstliche neuronale Netze(KNN) bestehen aus künstlichen Neuronen, die untereinander verflechtet sind. Die Konstrukte sind denen der sich im Nervensystem eines Lebewesens befindenden Neuronen-Verbindungen nachempfunden. \\
 KNNs sind nicht dazu da das Nervensystem von Lebewesen nachzubilden, sondern abstrakt die Eigenschaften der Informationsverarbeitung und der Lernfähigkeit zu imitieren.
 \begin{figure}[h]
 	\begin{center}
@@ -261,13 +261,13 @@ KNNs sind nicht dazu da das Nervensystem von Lebewesen nachzubilden, sondern abs
 	\end{center}
 \end{figure}
 % https://de.wikipedia.org/wiki/K%C3%BCnstliches_Neuron#/media/Datei:ArtificialNeuronModel_deutsch.png
-\\\\KNNs sind meist in Schichten mit beliebig vielen künstlichen Neuronen aufgebaut. In der Regel besteht ein KNN aus drei Teilen der Eingangsschicht (grün), der verdeckte Schicht (blau) im Englischen Hidden Layer und der Ausgabeschicht (gelb). In der Eingangsschicht fließen die Informationen in das Netz ein und in der Ausgabeschicht das Ergebnis der Berechnungen aus. Jede Schicht besteht aus beliebig vielen Neuronen je nach Komplexität des Zieles, die Hidden Layer sogar aus beliebig viele Schichten.
+\\\\KNNs sind meist in Schichten mit beliebig vielen künstlichen Neuronen aufgebaut. In der Regel besteht ein KNN aus drei Teilen (ähnlich Abbildung \cite{fig:wikiNeuronalesNetz}) der Eingangsschicht (grün), der verdeckte Schicht (blau) im Englischen Hidden Layer und der Ausgabeschicht (gelb). In der Eingangsschicht fließen die Informationen in das Netz ein und in der Ausgabeschicht das Ergebnis der Berechnungen aus. Jede Schicht besteht aus beliebig vielen Neuronen je nach Komplexität des Zieles, die Hidden Layer sogar aus beliebig viele Schichten \cite{wikiNN2}.
 \\\\
 In der Regel arbeiten KNNs nach dem feedforward-Prinzip, bei dem die Informationen nur in eine Richtung fließen. Es gibt jedoch auch rekurrente Netze, bei denen durch rückgerichtete Kanten Rückkopplungen im Netz entstehen. \\
 Die einfachste Netzstruktur ist das einschichtige feedforward-Netz. Dies besteht ohne Rückkopplungen aus nur einer Schicht, der Ausgabeschicht.
 \subsubsection{Das künstliche Neuron}
 Künstliche Neuronen sind die Grundbestandteile eines künstlichen neuronalen Netzes.
-Ein künstliches Neuron ist die vereinfachte, abstrakte Version einer biologischen Nervenzelle und ist wie folgt aufgebaut.\\\\
+Ein künstliches Neuron ist die vereinfachte, abstrakte Version einer biologischen Nervenzelle und ist wie in der Abbildung \ref{fig:wikiNeuron} aufgebaut.\\\\
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/ArtificialNeuronModel_deutsch.png}
@@ -277,7 +277,7 @@ Ein künstliches Neuron ist die vereinfachte, abstrakte Version einer biologisch
 \end{figure}
 % https://de.wikipedia.org/wiki/K%C3%BCnstliches_Neuron#/media/Datei:ArtificialNeuronModel_deutsch.png
 Ein künstliches Neuron besitzt $n$ Eingangskanäle und einen Ausgangskanal. $j$ repräsentiert hier die eindeutige Nummer des Neuron. Jede Eingabe $x_{i}$ besitzt ein dazugehörendes Gewicht $w_{1j}..w_{nj}$. Das Gewicht spiegelt die Wichtigkeit der Eingabe wider, welche hemmend (negativer Wert) oder erregend (positiver Wert) wirken kann. Die Übertragungsfunktion $\Sigma$ summiert alle multiplizierten Eingaben mit ihrem Gewicht und geht als Netzeingabe $net_j$ in die Aktivierungsfunktion $\varphi$ ein. \\
-Ob das Neuron "'feuert"' oder kein Signal sendet, wird hier berechnet. Auf die Netzeingabe $net_j$ wird ein Schwellenwert $\theta_j$ addiert. Als mathematische Vereinfachung wird der Schwellwert $\theta$ als $w_0$ bezeichnet und $x_0 = 1$ eingeführt und somit in der folgenden Formel immer auf die Netzeingabe $net_j$ addiert.
+Ob das Neuron "'feuert"' oder kein Signal sendet, wird hier berechnet. Auf die Netzeingabe $net_j$ wird ein Schwellenwert $\theta_j$ addiert. Als mathematische Vereinfachung wird der Schwellwert $\theta$ als $w_0$ bezeichnet und $x_0 = 1$ eingeführt und somit in der folgenden Formel immer auf die Netzeingabe $net_j$ addiert \cite{wikiNN}.
 \\\\
 ${\displaystyle a=\sum _{i=0}^{n}x_{i}w_{i}}$
 \\\\
@@ -439,7 +439,7 @@ Eine Zielvariable spiegelt eine Antwort einer Frage wider, die eine KI lösen so
 \subsubsection{Zu viele Ziele}
 Viele Köche verderben den Brei. Diese Weisheit kann auch auf die Ziele von KNNs umgemünzt werden. Denn je mehr Ziele ein KNN hat, desto größer und komplexer muss ein künstliches neuronales Netz sein, um alle Fälle zu abdecken. Je komplexer ein KNN ist, desto größer ist die Wahrscheinlichkeit, dass Fehler passieren. Auch ist sich das Netz deutlich unsicherer bei seinen Entscheidungen.
 \\\\ % Ohne Quelle :(
-Wenn man eine nahezu perfekte KI mit einer Aufgabe erweitern möchte, hat das meist zu Folge, dass die KI nach der Erweiterung zwar mehr kann, jedoch seine ehemalige Hauptaufgabe nicht mehr so gut meistert wie zuvor.
+Wenn man eine ausgereifte KI mit einer Aufgabe erweitern möchte, hat das meist zu Folge, dass die KI nach der Erweiterung zwar mehr kann, jedoch seine ehemalige Hauptaufgabe nicht mehr so gut meistert wie zuvor.
 % Beispiel: Baidu Gesichtserkennung (erkennt nur Asiaten)
 %%% Maybe ref Overfitting
 % \subsection{Falsches Lernen}
@@ -489,10 +489,9 @@ Ein Beispiel für die Unausgereiftheit ist das Verkehrsschild aus Abbildung \ref
 \end{figure}
 Die Geschwindigkeitsbegrenzung wurde bewusst manipuliert und indem das mittele Teil der Drei verlängert wurde. Teslas KI erkannte die Drei als Acht und beschleunigte automatisch auf mehr als 80 km/h. Solche bewusste Manipulationen nennt man Adversarial Attacks \cite{TeslaHack}.
 \section{Angriff auf KI}
-Ist eine Künstliche Intelligenz sehr gut trainiert, erzielt sie in ihrem Aufgabebereich überragende Ergebnisse. Doch selbst nahezu perfekte KIs sind nicht unfehlbar. Durch methodisch gestaltete Störungen der Eingaben kann eine KI bewusst getäuscht werden und damit die Computer-Wahrnehmung in die Irre führen. Diese Art der Ausnutzung von KI Schwächen nennt man Adversarial Attacks, zu deutsch gegensätzlicher Angriff.
+Ist eine künstliche Intelligenz sehr gut trainiert, erzielt sie in ihrem Aufgabebereich dementsprechend sehr gute Ergebnisse. Doch selbst ausgereifte KIs sind nicht unfehlbar. Durch methodisch gestaltete Störungen der Eingaben kann eine KI bewusst getäuscht werden und damit die Computer-Wahrnehmung in die Irre führen. Diese Art der Ausnutzung von KI Schwächen nennt man Adversarial Attacks, zu deutsch gegensätzlicher Angriff.
 \subsubsection{Adversarial Attacks}
-Bildererkennungssoftware ist besonders anfällig für solche Angriffe.
-%%% ref auf fig:Verkehrsschild
+Bildererkennungssoftware ist besonders anfällig für solche Angriffe, wie Abbildung \ref{fig:Verkehrsschild} zeigt.
 Hierbei legt man über das Bild bestimmte Pixelmuster, die für das menschliche Auge in der Regel im Gesamtbild untergehen. KIs hingegen registrieren jegliches Muster und nehmen sie in ihre Berechnungen mit auf. Als Ergebnis werden Bilder zum Teil massiv fehlinterpretiert.
 Im folgenden Angriff wird mit einer Brille und deren speziellen Muster, eine KI überlistet.
 \label{section:BrilleAttack}
@@ -504,7 +503,7 @@ Im folgenden Angriff wird mit einer Brille und deren speziellen Muster, eine KI 
 	\end{center}
 \end{figure}
 % Paper https://www.cs.cmu.edu/~sbhagava/papers/face-rec-ccs16.pdf
-\\Im linken Bild ist die amerikanische Schauspielerin Reese Witherspoon zu sehen. Das linke Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit der Brille als Russel Crowe (Bild rechts) \cite{Attack}.
+\\Im linken Bild von \ref{fig:BrilleAttack} ist die amerikanische Schauspielerin Reese Witherspoon zu sehen. Das linke Bild wird auch korrekt als sie selbst von der KI erkannt. Setzt man ihr eine spezielle Brille auf, beginnt das neuronale Netz Fehler zu begehen. Plötzlich erkennt die KI Reese Witherspoon mit der Brille als Russel Crowe (Bild rechts von \ref{fig:BrilleAttack}) \cite{Attack}.
 
 \chapter{Prävention}
 \label{chapter:main}

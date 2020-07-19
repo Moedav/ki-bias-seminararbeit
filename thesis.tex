@@ -35,7 +35,7 @@
 %%%%%%%%%%%%%%%%%%%
 %% definitions
 %%%%%%%%%%%%%%%%%%%
-\def\BaAuthor{David Mödl\, Sebastian Lober}
+\def\BaAuthor{David Mödl, Sebastian Lober}
 \def\BaAuthorStudyProgram{Informatik} %% Wirtschaftsinformatik, E-Commerce, Informationssysteme
 \def\BaType{Seminararbeit} %% Masterarbeit
 \def\BaTitle{Bias of Neural Networks - Security implications}
@@ -46,7 +46,7 @@
 \ifdefined\iswithfullname
   \def\ShowBaAuthor{\BaAuthor}
 \else
-  \def\ShowBaAuthor{David Mödl \, Sebastian Lober}
+  \def\ShowBaAuthor{David Mödl, Sebastian Lober}
 \fi
 
 \hypersetup{
@@ -204,6 +204,7 @@ Das Grundverständnis, wie KI-Bias entstehen, kombiniert mit den Präventionsma�
 
 \chapter{Einführung}
 \label{chapter:intro}
+%Künstliche Intelligenz hat unglaubliche Fortschritte in den letzten Jahren erzielt. Neuronale Netze haben sich in vielen Bereichen bereits etabliert. Trotz des ganzen Hypes um das Thema wurden viele Missstände in Bezug auf KIs aufgedeckt. Diese gingen in den Medien meist unter. Hauptursache der Fehlverhalten sind KI-Bias, die oftmals auf einfachen Fehlern rückführbar waren.
 Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt allgegenwärtig in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen auf Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine immer größere Rolle. Ein bekanntes Beispiel ist die Software AlphaGo, die als erstes Computer Programm 2016 den weltbesten Profispieler im komplexen Brettspiel Go besiegen konnte \cite{alphaGo}. Darüber hinaus ermöglicht die KI komplexe Sachverhalte zu simulieren und zu prognostizieren, wie zum Beispiel die vollautomatische Generierung hochaufgelöster, realistischer Videosequenzen auf der Grundlage simpler Eingaben \cite{videoToVideo}.
 \\\\
 Einerseits gibt es viele Erfolge, die für ein KI betriebenes System sprechen. Andererseits bestärken medienwirksame Verfehlungen, wie z. B. das frauenfeindliche Bewerbungssystem von Amazon \cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit ist es, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. \textit{bias}) zu erläutern und Präventionen zu schildern, welche Bias vermeiden sollen.
@@ -223,7 +224,7 @@ Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) ist der Oberb
 \begin{figure}[ht]
 	\begin{center}
 		\includegraphics[width=14cm]{Bilder/Abstraktionslevel_von_AI.jpg}
-		\caption{Verschiedene Abstraktionslevel von Artificial Intelligence in hierarchischer Ordnung}
+		\caption{Verschiedene Abstraktionslevel von Artificial Intelligence in hierarchischer Ordnung\cite{dataScience}}
 		\label{fig:Uebersicht}
 	\end{center}
 \end{figure}
@@ -247,7 +248,7 @@ KNNs sind nicht dazu da das Nervensystem von Lebewesen nachzubilden, sondern abs
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=10cm]{Bilder/Neurales_Netz.png}
-		\caption{Vereinfachte Darstellung eines künstlichen neuronalen Netzes}
+		\caption{Vereinfachte Darstellung eines künstlichen neuronalen Netzes\cite{wikiNN2}}
 		\label{fig:wikiNeuronalesNetz}
 	\end{center}
 \end{figure}
@@ -262,7 +263,7 @@ Ein künstliches Neuron ist die vereinfachte, abstrakte Version einer biologisch
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/ArtificialNeuronModel_deutsch.png}
-		\caption{Ein künstliches Neuron}
+		\caption{Ein künstliches Neuron\cite{wikiNN}}
 		\label{fig:wikiNeuron}
 	\end{center}
 \end{figure}
@@ -339,10 +340,11 @@ Bei der Nutzung von KI Systemen können Verzerrungen(Bias) bzw. Fehlverhalten en
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/data_bias.png}
-		\caption{Machine Learning Pipeline: Eingabe, Verarbeitung, Ausgabe}
+		\caption{Machine Learning Pipeline: Eingabe, Verarbeitung, Ausgabe\cite{biasEffekt}}
 		\label{fig:dataBias}
 	\end{center}
 \end{figure}
+% \cite{biasEffekt}
 
 \section{Daten}
 \label{section:data}
@@ -384,7 +386,7 @@ Wird ein Netz zu gut oder zu schlecht trainiert, tritt das Phänomene Overfittin
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=12cm]{Bilder/overUnderfitting.png}
-		\caption{Over- und Underfitting}
+		\caption{Over- und Underfitting\cite{overUnderfitting}}
 		\label{fig:overUnderFitting}
 	\end{center}
 \end{figure}
@@ -406,7 +408,7 @@ Bei der Aufteilung von Trainings- und Testdaten können explizite Fälle nur in 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/dog_or_bagel.jpg}
-		\caption{Hund oder Bagel?}
+		\caption{Hund oder Bagel?\cite{dogOrBagel}}
 		\label{fig:dogBagel}
 	\end{center}
 \end{figure}
@@ -473,7 +475,7 @@ Ein Beispiel für die Unausgereiftheit ist das Verkehrsschild aus Abbildung \ref
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/Tesla_Adversarial_Attack.png}
-		\caption{35 oder 85 mph?}
+		\caption{35 oder 85 mph?\cite{teslaCarImage}}
 		\label{fig:Verkehrsschild}
 	\end{center}
 \end{figure}
@@ -489,7 +491,7 @@ Im folgenden Angriff wird mit einer Brille und deren speziellen Muster, eine KI 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/Brille_Adversarial_Attack.png}
-		\caption{Reese Witherspoon wird mit Adversarial Attack Brille zu Russel Crowe}
+		\caption{Reese Witherspoon wird mit Adversarial Attack Brille zu Russel Crowe\cite{Attack}}
 		\label{fig:BrilleAttack}
 	\end{center}
 \end{figure}
@@ -532,7 +534,7 @@ Eine Möglichkeit um das zu verhindern, bietet die Kreuzvalidierung.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=15cm]{Bilder/crossValidierung.png}
-		\caption{fünf fache Kreuzvalidierung}
+		\caption{fünf fache Kreuzvalidierung\cite{towardData}}
 		\label{fig:crossValidierung}
 	\end{center}
 \end{figure}
@@ -558,7 +560,7 @@ Bei der Regulierung wird ein Strafterm eingeführt, der die Anzahl an Variablen 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=10cm]{Bilder/regFunc.png}
-		\caption{Regularisierung in Loss Funktion}
+		\caption{Regularisierung in Loss Funktion\cite{towardDataReg}}
 		\label{fig:regFunc}
 	\end{center}
 \end{figure}

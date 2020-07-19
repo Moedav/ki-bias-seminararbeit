@@ -184,13 +184,13 @@ pdfkeywords={Keywords}
 %%%%%%%%%%%%%%%%%%%
 
 \section*{Zusammenfassung}
-Künstliche Intelligenz (KI) ist eines der Gesprächsthemen beim Umstieg in die Industrie 4.0. Trotz des ganzen Hypes um das Thema, gibt es zahlreiche Herausforderungen die dabei gemeistert werden müssen.
-\\\\
-Eine dieser Herausforderung nennt sich KI-Bias. Das Ziel dieser Arbeit ist es ein allgemeines Verständnis, wie KI-Bias auftreten und vermieden werden können, zu vermitteln. Anhand konkreter Beispiele wird die Entstehung solcher Bias gezeigt. Im Abschluss werden Präventionen dagegen aufgezeigt.\\
-Außerdem soll dem Lesern ein Grundwissen über Sicherheitsrisiken für Mensch und Maschine, solcher KI-System vermittelt werden.
-\\\\
-Die Arbeit bezieht sich auf mehrere wissenschaftliche Arbeiten und ist meist mit solchen belegt worden.
-
+Künstliche Intelligenz hat unglaubliche Fortschritte in den letzten Jahren erzielt. Neuronale Netze haben sich in vielen Bereichen bereits etabliert. Trotz des ganzen Hypes um das Thema wurden viele Missstände in Bezug auf KIs aufgedeckt. Diese gingen in den Medien meist unter. Hauptursache der Fehlverhalten sind KI-Bias, die oftmals auf einfachen Fehlern rückführbar waren.
+\\
+% 20-30%  Vorgehen was habe ich in dieser Arbeit getan
+Das Ziel der Arbeit war es ein allgemeines Verständnis über KI, Deep Learning und was KI-Bias sind, aufzubauen und dessen Präventionsmaßnahmen zu nennen. Des Weiteren wurden die Entstehungen von KI-Bias erläutert. Ferner wurde die Sicherheitsimplikationen anhand von konkreten Beispielen aktueller KIs aufgezeigt und Präventionsmaßnahmen geschildert.
+\\
+% Ergebnisse 30-40%
+Es war wichtig die Problematik von Bias aufzudecken und sich mit dem Thema auseinander zu setzen. Das Grundverständnis wie KI-Bias entstehen, kombiniert mit den Präventionsmaßnahmen, verhindern zukünftige Fehler in Verbindung mit dieser Technologie.
 %%%%%%%%%%%%%%%%%%%
 %% Inhaltsverzeichnis
 %%%%%%%%%%%%%%%%%%%
@@ -524,7 +524,7 @@ Damit menschliche Fehler (Abschnitt \ref{section:humanFehler}) oder fehlerhafte 
 \begin{enumerate}
 	\item Lektorat oder Peer-Review
 	\item Das Vier-Augen-Prinzip
-	\item Mehrheitsentscheide bei unterschiedlichen Ergebnissen
+	\item Mehrheitsentscheide bei unterschiedlichen Ergebnissen\cite{trainingsDataKI}
 \end{enumerate}
 Die oben genannten Verfahren bekämpfen Flüchtigkeitsfehler und bewusste Manipulation. Beim Peer-Review kontrollieren nachträglich Experten das KI-System auf dessen Korrektheit. Beim Vier-Augen-Prinzip und bei Mehrheitsentscheiden passiert dies während des Arbeitsprozesses.
 \\\\
@@ -540,7 +540,7 @@ Eine Möglichkeit um das zu verhindern, bietet die Kreuzvalidierung.
 \end{figure}
 %cite{towardData}
 \\
-Anstelle eines fixen Testdatensatzes wird der komplette Datensatz in viele kleine Blöcke unterteilt, in Abbildung \ref{fig:crossValidierung} Fünf. In diesem Beispiel werden fünf Durchläufe ausgeführt, in denen jeweils abwechselnd mit vier unterschiedlichen Datensätzen trainiert und mit einem validiert wird. Bei jedem Durchlauf entsteht ein Score über die Fehleranfälligkeit. Am Ende wird ein durchschnittlicher Score über diese fünf Durchläufe gebildet, welcher die gesamte Fehleranfälligkeit für alle Datensätze wiedergibt.
+Anstelle eines fixen Testdatensatzes wird der komplette Datensatz in viele kleine Blöcke unterteilt, in Abbildung \ref{fig:crossValidierung} Fünf. In diesem Beispiel werden fünf Durchläufe ausgeführt, in denen jeweils abwechselnd mit vier unterschiedlichen Datensätzen trainiert und mit einem validiert wird. Bei jedem Durchlauf entsteht ein Score über die Fehleranfälligkeit. Am Ende wird ein durchschnittlicher Score über diese fünf Durchläufe gebildet, welcher die gesamte Fehleranfälligkeit für alle Datensätze wiedergibt\cite{towardData}.
 \\\\
 Mit Hilfe der Kreuzvalidierung lässt sich eine Aussage treffen, wie gut das Modell mit unbekannten Daten trainiert. Dieses Prinzip nennt man Generalisierung.
 
@@ -549,7 +549,7 @@ Mit Hilfe der Kreuzvalidierung lässt sich eine Aussage treffen, wie gut das Mod
 Die Kunst der Modellierung besteht darin, ein optimales Modell(siehe mittleren Graphen \ref{fig:overUnderFitting}) zu finden, dass eine perfekte Balance zwischen Verzerrung und Abweichung der Daten besitzt. Dieses Modell sollte eine möglichst geringe Komplexität aufweisen und gut beschriebene, generalisierte Daten beinhalten. Da das nicht immer einfach zu realisieren ist, treten Underfitting und Overfitting auf, siehe Abschnitt \ref{section:OverUnderfitting}.
 
 \subsection{Underfitting}
-Underfitting ist die Folge eines zu einfachen Modells und liefert somit schlechte Vorhersagen. Eine Möglichkeit um dies zu verhindern ist das Erhöhen der Flexibilität. Das heißt die Anzahl an Merkmalen die einen Datensatz auszeichnen und die Menge der Trainingsdaten müssen erhöht werden. Eine weitere Möglichkeit bietet das Erhöhen der Durchläufe beim Trainieren der Trainingsdaten.
+Underfitting ist die Folge eines zu einfachen Modells und liefert somit schlechte Vorhersagen. Eine Möglichkeit um dies zu verhindern ist das Erhöhen der Flexibilität. Das heißt die Anzahl an Merkmalen die einen Datensatz auszeichnen und die Menge der Trainingsdaten müssen erhöht werden. Eine weitere Möglichkeit bietet das Erhöhen der Durchläufe beim Trainieren der Trainingsdaten\cite{amazonOverUnderfitting}.
 
 \subsection{Overfitting}
 Overfitting stellt in der KI eine große Herausforderung dar und ist die Folge aus einem zu komplexen Modell. Eine Möglichkeit um eine Überanpassung zu vermeiden, bietet eine Resampling Methode, wie z.B. die Kreuzvalidierung, siehe Abschnitt \ref{section:validate}.

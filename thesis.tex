@@ -46,7 +46,7 @@
 \ifdefined\iswithfullname
   \def\ShowBaAuthor{\BaAuthor}
 \else
-  \def\ShowBaAuthor{N.~N.}
+  \def\ShowBaAuthor{David Mödl \, Sebastian Lober}
 \fi
 
 \hypersetup{
@@ -184,22 +184,12 @@ pdfkeywords={Keywords}
 %%%%%%%%%%%%%%%%%%%
 
 \section*{Zusammenfassung}
-% 30-40% Motivation der Arbeit
-% Warum habe ich die Arbeit geschrieben
-KI ist unglaublich komplex daher fehleranfällig.
-KI benachteiligt rassistisch Minderheiten.
-KI-Bias aufmerksam machen.
-KI-Bias Entstehung aufzeigen und Lösungskonzepte anbieten.
-Nicht so viele Papers zu Sicherheitsimplikationen 
-
-
-
-\\
+% 30-40% Motivation der Arbeit | Warum habe ich die Arbeit geschrieben
+Künstliche neuronale Netze sind komplex. Wie genau die Algorithmen zu einem Ergebnis kommen, ist meist nicht mehr nachvollziehbar. Viele Entwickler beginnen  sich ohne große Vorkenntnisse leichtfertig in diese Thema einzuarbeiten und kommen mit diversen KI-Bias und daraus resultierenden Sicherheitsrisiken in Berührung. Im wissenschaftlichen Bereich ist die Verbindung zwischen KI-Bias und Sicherheitsproblem nicht sehr präsent. Um diese Lücke zufüllen, setzte sich die vorliegende Seminararbeit zum Ziel über KI-Bias und dessen verbundenen Sicherheitsimplikationen aufzuklären.\\
 % 20-30%  Vorgehen was habe ich in dieser Arbeit getan
-Das Ziel der Arbeit war es ein allgemeines Verständnis über KI, Deep Learning und was KI-Bias sind, aufzubauen und dessen Präventionsmaßnahmen zu nennen. Des Weiteren wurden die Entstehungen von KI-Bias erläutert. Ferner wurde die Sicherheitsimplikationen durch Bias anhand von konkreten Beispielen aktueller KIs aufgezeigt und Präventionsmaßnahmen geschildert.
-\\
+Die Arbeit führt zunächst in den Grundlagen von neuronalen Netzen und Deep Learning ein. Weiter wurden die verschiedenen KI-Bias Entstehungen erklärt und dessen Sicherheitsimplikationen an konkreten Beispielen genannt. Ferner wurden die verschiedenen Präventionsmaßnahmen für die jeweiligen spezifischen Ursachen aufbereitet.\\
 % Ergebnisse 30-40%
-Es war wichtig die Problematik von Bias aufzudecken und sich mit dem Thema auseinander zu setzen. Das Grundverständnis wie KI-Bias entstehen, kombiniert mit den Präventionsmaßnahmen, verhindern zukünftige Fehler in Verbindung mit dieser Technologie.
+Das Grundverständnis, wie KI-Bias entstehen, kombiniert mit den Präventionsmaßnahmen, verhindern zukünftige Bias in Verbindung mit dieser Technologie und dessen daraus folgenden Sicherheitsimplikationen.
 %%%%%%%%%%%%%%%%%%%
 %% Inhaltsverzeichnis
 %%%%%%%%%%%%%%%%%%%
@@ -214,7 +204,6 @@ Es war wichtig die Problematik von Bias aufzudecken und sich mit dem Thema ausei
 
 \chapter{Einführung}
 \label{chapter:intro}
-%Künstliche Intelligenz hat unglaubliche Fortschritte in den letzten Jahren erzielt. Neuronale Netze haben sich in vielen Bereichen bereits etabliert. Trotz des ganzen Hypes um das Thema wurden viele Missstände in Bezug auf KIs aufgedeckt. Diese gingen in den Medien meist unter. Hauptursache der Fehlverhalten sind KI-Bias, die oftmals auf einfachen Fehlern rückführbar waren.
 Künstliche Intelligenz(KI) oder auch artifizielle Intelligenz(AI) tritt allgegenwärtig in großen Teilen unserer Gesellschaft auf. Von Kaufvorschlägen auf Amazon, über Chat-Bots bis hin zu autonom fahrenden Autos spielt die KI eine immer größere Rolle. Ein bekanntes Beispiel ist die Software AlphaGo, die als erstes Computer Programm 2016 den weltbesten Profispieler im komplexen Brettspiel Go besiegen konnte \cite{alphaGo}. Darüber hinaus ermöglicht die KI komplexe Sachverhalte zu simulieren und zu prognostizieren, wie zum Beispiel die vollautomatische Generierung hochaufgelöster, realistischer Videosequenzen auf der Grundlage simpler Eingaben \cite{videoToVideo}.
 \\\\
 Einerseits gibt es viele Erfolge, die für ein KI betriebenes System sprechen. Andererseits bestärken medienwirksame Verfehlungen, wie z. B. das frauenfeindliche Bewerbungssystem von Amazon \cite{amazon}, die Skeptiker solcher Systeme. Ziel dieser Arbeit ist es, die unterschiedlichen Ursprünge solcher algorithmischen Verzerrungen (engl. \textit{bias}) zu erläutern und Präventionen zu schildern, welche Bias vermeiden sollen.
@@ -584,13 +573,14 @@ Beispiele für solche Techniken sind folgende:
 \end{enumerate}
 
 \chapter{Fazit}
-Die künstliche Intelligenz ist weiterhin auf dem Vormarsch. So wundert es nicht, dass sich immer mehr Unternehmen mit der Technologie beschäftigen. Die Nutzung birgt jedoch das Risiko, KI Bias zu erzeugen, welche im schlechtesten Fall zu hohen Kosten führen. Die Arbeit beschäftigte sich daher mit der Entstehung solcher Bias und wie sie verhindert werden.
+Die künstliche Intelligenz ist weiterhin auf dem Vormarsch. So wundert es nicht, dass sich immer mehr Unternehmen mit der Technologie beschäftigen. Das Erzeugen einer KI birgt jedoch das Risiko, unwissentlich Bias zu implementieren, welche im schlechtesten Fall zu hohen Kosten und Imageschäden führen. Die Arbeit beschäftigte sich daher mit der Entstehung solcher Bias und wie sie verhindert werden.
 \\\\
-Die Datenaufbereitung ist ein zentraler Baustein für den Erfolg einer KI. Ohne die Aufbereitung der Daten entstehen zahlreiche Bias. Die Folgen von Verzerrungen sind Sicherheitsrisiken für einzelne Gruppen oder Geschlechter oder auch Maschinen. Die Folgen solcher Fehlimplementierungen sind teilweise sehr hohe Kosten oder Imageschäden, können jedoch mit guter Datenqualität vermieden werden.
+Die Datenaufbereitung ist ein zentraler Baustein für den Erfolg einer KI. Ohne die Aufbereitung der Daten entstehen zahlreiche Bias. 
+Die Folgen von Verzerrungen sind Sicherheitsrisiken für einzelne Gruppen oder Geschlechter oder auch Maschinen. Die Kosten solcher Fehlimplementierungen sind teilweise sehr hohe, können jedoch mit guter Datenqualität vermieden werden.
 \\\\
 Es gibt viele Forscher, die sich mit solchen Themen beschäftigen und gezielter auf einzelne Bias eingehen. Das Hauptaugenmerk der Arbeit lag allerdings auf der allgemeine Entstehung von Bias und die dadurch auftretenden Sicherheitsprobleme.
 \\\\
-Noch mehr gefährliche Auswirkungen auf Gesellschaft und Demokratie beschreibt Norbert Lossau in seiner Analyse über Deep Fakes \cite{deepFake}. Deep Fakes sind manipulierte Videos, in denen Personen erfundene Aussagen in den Mund geschoben werden oder in denen sie scheinbar Handlungen begehen, die in Wirklichkeit nie stattgefunden haben. Fakes werden immer besser, so dass sie kaum als Fakes zu erkennen sind. Die Sicherheitsrisiken für die Menschen sind somit durchaus größer als hier beschrieben. Daher ist es sinnvoll Untersuchungen auf solche Thematiken auszuweiten.
+Weitere gefährliche Auswirkungen auf Gesellschaft und Demokratie beschreibt Norbert Lossau in seiner Analyse über Deep Fakes \cite{deepFake}. Deep Fakes sind manipulierte Videos, in denen Personen erfundene Aussagen in den Mund gelegt werden oder in denen sie scheinbar Handlungen begehen, die in Wirklichkeit nie stattgefunden haben. Fakes werden immer besser, so dass sie kaum als Fakes zu erkennen sind. Die Sicherheitsrisiken durch KI für die Menschen sind somit durchaus größer als hier beschrieben. Daher ist es sinnvoll Untersuchungen solcher Thematik auszuweiten.
 
 \backmatter
 %%%%%%%%%%%%%%%%%%%
@@ -608,5 +598,17 @@ Noch mehr gefährliche Auswirkungen auf Gesellschaft und Demokratie beschreibt N
 \phantomsection
 \addcontentsline{toc}{chapter}{Literatur}
 \printbibliography
+%%%%%%%%%%%%%%%%%%%
+%% declaration on oath
+%%%%%%%%%%%%%%%%%%%
+
+\addchap{Eidesstattliche Erklärung}
+
+Hiermit versichern wir, dass wir die vorgelegte Seminararbeit selbstständig verfasst und noch nicht anderweitig zu Prüfungszwecken vorgelegt haben. Alle benutzten Quellen und Hilfsmittel sind angegeben, wörtliche und sinngemäße Zitate wurden als solche gekennzeichnet.
+
+\vspace{20pt}
+\begin{flushright}
+	$\overline{~~~~~~~~~~~~~~~~~\mbox{\ShowBaAuthor, am \today}~~~~~~~~~~~~~~~~~}$
+\end{flushright}
 
 \end{document}
